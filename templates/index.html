@@ -2,11 +2,12 @@
 <meta charset="UTF-8">
 <head>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static',filename='frontend.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
 </head>
 
 <body>
 <div>
-    Hello World!
+    <input id="button" type="button" onclick="helloWorld()" value="Click">
 </div>
 </body>

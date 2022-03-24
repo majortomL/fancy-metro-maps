@@ -1,13 +1,12 @@
 import json
+import flask
 
-from flask import Flask
-
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 
 @app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+def index():  # put application's code here
+    return flask.render_template("index.html")
 
 
 @app.route('/data')
