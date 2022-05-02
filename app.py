@@ -53,15 +53,40 @@ def load_data():
             for i in range(0, len(feature['properties']['lines'])):
                 edges.append(Edge(feature, i))
 
-    G = nx.Graph()
+    g = nx.Graph()
 
     for edge in edges:
         station_start = next((x for x in stations if x.id == edge.station_from), None)
         station_end = next((x for x in stations if x.id == edge.station_to), None)
-        G.add_edge(station_start, station_end)
+        g.add_edge(station_start, station_end)
+
+    return g
+
+
+def octilinear_graph(x1, y1, x2, y2, node_dist):
+    g = nx.Graph()
+
+    for x in range(x1, x2 + node_dist, node_dist):
+        for y in range(y1, y2 + node_dist, node_dist):
+            g.add_edge((x, y), (x + node_dist, y))
+            g.add_edge((x, y), (x + node_dist, y + node_dist))
+            g.add_edge((x, y), (x, y + node_dist))
+            g.add_edge((x, y), (x - node_dist, y + node_dist))
+
+    for n in g.nodes:
+        if g.degree[n] < 3:
+            g.remove_node(n)
 
     print("aasdf")
+    return g
 
+
+def auxiliary_graph(G: nx.Graph):
+    A = nx.Graph()
+
+
+
+    return A
 
 if __name__ == '__main__':
     app.run()
