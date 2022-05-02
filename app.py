@@ -1,7 +1,10 @@
+# -*- encoding: iso-8859-15 -*-
 import json
 import flask
 import networkx as nx
 import matplotlib.pyplot as plt
+import numpy as np
+import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
@@ -10,8 +13,24 @@ json_file = 'freiburg.json'
 stations = []
 edges = []
 
+cost_dictionary = {
+    180: 0,
+    135: 1,
+    90: 2,
+    45: 3
+}
+
+c_180 = 0
+c_135 = 1
+c_90 = 2
+c_45 = 3
+
+c_h = 1
+
 
 class Station:
+    SWITCH_POINT_COUNTER = 1
+
     def __init__(self, featureData):
         self.coord_x = featureData['geometry']['coordinates'][0]
         self.coord_y = featureData['geometry']['coordinates'][1]
@@ -19,6 +38,16 @@ class Station:
         self.degree_in = featureData['properties']['deg_in']
         self.degree_out = featureData['properties']['deg_out']
         self.id = featureData['properties']['id']
+        try:
+            self.station_label = featureData['properties']['station_label']
+        except:
+            self.station_label = f'Switch Point{Station.SWITCH_POINT_COUNTER}'
+            Station.SWITCH_POINT_COUNTER += 1
+
+    def __str__(self):
+        print(self.station_label)
+        return self.station_label
+        # return f"({self.coord_x}, {self.coord_y})"
 
 
 class Edge:
@@ -33,14 +62,11 @@ class Edge:
 
 @app.route('/')
 def index():
-    load_data()
+    metro_map = load_data()
+    nx.draw(metro_map, with_labels=True)
+    plt.show()
     G = octilinear_graph(0, 0, 10, 10, 2)
-    #nx.draw(G)
-    plt.show()
     A = auxiliary_graph(G)
-    nx.draw_spring(A)
-    plt.show()
-    plt.savefig("graph.png")
     return flask.render_template("index.html")
 
 
@@ -68,6 +94,8 @@ def load_data():
     for edge in edges:
         station_start = next((x for x in stations if x.id == edge.station_from), None)
         station_end = next((x for x in stations if x.id == edge.station_to), None)
+        g.add_node(station_start, label=station_start.station_label)
+        g.add_node(station_end, label=station_end.station_label)
         g.add_edge(station_start, station_end)
 
     return g
@@ -115,6 +143,29 @@ def auxiliary_graph(G: nx.Graph):
     return A
 
 
+def compute_cost(num_nodes, graph):
+    cost = 0
+    nodes = list(graph.edges())
+
+    for i in range(1, num_nodes - 2):
+        cost += cost_bend(edges[i - 1], edges[i + 1])
+
+    cost *= (num_nodes - 1) * c_h
+    return cost
+
+
+def cost_bend(edge_a, edge_b): # Calculates the cost of a line bend based on the angle
+    point_0 = edge_a[0]
+    point_1 = edge_a[1]
+    point_2 = edge_b[0]
+    point_3 = edge_b[1]
+
+    vec_0_1 = np.array[point_1[0]-point_0[0], point_1[1]-point_0[1]]
+    vec_2_3 = np.array[point_3[0]-point_2[0], point_3[1]-point_2[1]]
+
+    angle_vecs = math.acos((vec_0_1 * vec_2_3) / np.linalg.norm(vec_0_1) * np.linalg.norm(vec_2_3))
+    return cost_dictionary[int(angle_vecs)]
+
+
 if __name__ == '__main__':
     app.run()
-

@@ -1,4 +1,5 @@
 {
+  "comment": "Encoding: WGS84 Web Mercator",
   "type": "FeatureCollection", 
   "features": [
     {
@@ -26,7 +27,7 @@
         "deg_out": "3", 
         "id": "0xeeadc0", 
         "station_id": "Parent30601", 
-        "station_label": "Am Lindenw√§ldle"
+        "station_label": "Am Lindenw‰ldle"
       }
     }, 
     {
@@ -71,7 +72,7 @@
         "deg_out": "2", 
         "id": "0xf19570", 
         "station_id": "Parent30204", 
-        "station_label": "Hauptstra√üe"
+        "station_label": "Hauptstraﬂe"
       }
     }, 
     {
@@ -116,7 +117,7 @@
         "deg_out": "3", 
         "id": "0xf480c0", 
         "station_id": "Parent30810", 
-        "station_label": "Robert-Koch-Stra√üe"
+        "station_label": "Robert-Koch-Straﬂe"
       }
     }, 
     {
@@ -131,7 +132,7 @@
         "deg_out": "1", 
         "id": "0xf48250", 
         "station_id": "Parent30813", 
-        "station_label": "Technische Fakult√§t"
+        "station_label": "Technische Fakult‰t"
       }
     }, 
     {
@@ -161,7 +162,7 @@
         "deg_out": "3", 
         "id": "0xf49330", 
         "station_id": "Parent30411", 
-        "station_label": "H.-von-Stephan-Stra√üe"
+        "station_label": "H.-von-Stephan-Straﬂe"
       }
     }, 
     {
@@ -176,7 +177,7 @@
         "deg_out": "1", 
         "id": "0xf495a0", 
         "station_id": "Parent30300", 
-        "station_label": "La√übergstra√üe"
+        "station_label": "Laﬂbergstraﬂe"
       }
     }, 
     {
@@ -206,7 +207,7 @@
         "deg_out": "1", 
         "id": "0xf4a360", 
         "station_id": "Parent30727", 
-        "station_label": "Bollerstaudenstra√üe"
+        "station_label": "Bollerstaudenstraﬂe"
       }
     }, 
     {
@@ -251,7 +252,7 @@
         "deg_out": "3", 
         "id": "0xf4b150", 
         "station_id": "Parent30408", 
-        "station_label": "Reiterstra√üe"
+        "station_label": "Reiterstraﬂe"
       }
     }, 
     {
@@ -266,7 +267,7 @@
         "deg_out": "1", 
         "id": "0xf4b230", 
         "station_id": "Parent30716", 
-        "station_label": "Munzinger Stra√üe"
+        "station_label": "Munzinger Straﬂe"
       }
     }, 
     {
@@ -281,7 +282,7 @@
         "deg_out": "3", 
         "id": "0xf4b860", 
         "station_id": "Parent30500", 
-        "station_label": "Rathaus im St√ºhlinger"
+        "station_label": "Rathaus im St¸hlinger"
       }
     }, 
     {
@@ -311,7 +312,7 @@
         "deg_out": "1", 
         "id": "0xf4c1d0", 
         "station_id": "Parent30424", 
-        "station_label": "Innsbrucker Stra√üe"
+        "station_label": "Innsbrucker Straﬂe"
       }
     }, 
     {
@@ -326,7 +327,7 @@
         "deg_out": "1", 
         "id": "0xf4c630", 
         "station_id": "Parent30400", 
-        "station_label": "Dorfstra√üe"
+        "station_label": "Dorfstraﬂe"
       }
     }, 
     {
@@ -341,7 +342,7 @@
         "deg_out": "2", 
         "id": "0xf4c930", 
         "station_id": "Parent30301", 
-        "station_label": "R√∂merhof"
+        "station_label": "Rˆmerhof"
       }
     }, 
     {
@@ -386,7 +387,7 @@
         "deg_out": "2", 
         "id": "0xfd0ae0", 
         "station_id": "Parent30405", 
-        "station_label": "Lorettostra√üe"
+        "station_label": "Lorettostraﬂe"
       }
     }, 
     {
@@ -459,7 +460,7 @@
         "deg_out": "2", 
         "id": "0x10071b0", 
         "station_id": "Parent30602", 
-        "station_label": "Krozinger Stra√üe"
+        "station_label": "Krozinger Straﬂe"
       }
     }, 
     {
@@ -474,7 +475,7 @@
         "deg_out": "2", 
         "id": "0x1008aa0", 
         "station_id": "Parent30404", 
-        "station_label": "Holbeinstra√üe"
+        "station_label": "Holbeinstraﬂe"
       }
     }, 
     {
@@ -489,7 +490,7 @@
         "deg_out": "2", 
         "id": "0x100a510", 
         "station_id": "Parent30302", 
-        "station_label": "Hasemannstra√üe"
+        "station_label": "Hasemannstraﬂe"
       }
     }, 
     {
@@ -564,7 +565,7 @@
         "deg_out": "2", 
         "id": "0x10132c0", 
         "station_id": "Parent30123", 
-        "station_label": "Mattenstra√üe"
+        "station_label": "Mattenstraﬂe"
       }
     }, 
     {
@@ -579,7 +580,7 @@
         "deg_out": "2", 
         "id": "0x10156c0", 
         "station_id": "Parent30207", 
-        "station_label": "Eichstetter Stra√üe"
+        "station_label": "Eichstetter Straﬂe"
       }
     }, 
     {
@@ -609,7 +610,7 @@
         "deg_out": "2", 
         "id": "0x10172a0", 
         "station_id": "Parent30114", 
-        "station_label": "Erbprinzenstra√üe"
+        "station_label": "Erbprinzenstraﬂe"
       }
     }, 
     {
@@ -669,7 +670,7 @@
         "deg_out": "2", 
         "id": "0x101ae50", 
         "station_id": "Parent30131", 
-        "station_label": "Peter-Thumb-Stra√üe"
+        "station_label": "Peter-Thumb-Straﬂe"
       }
     }, 
     {
@@ -714,7 +715,7 @@
         "deg_out": "2", 
         "id": "0x101caf0", 
         "station_id": "Parent30505", 
-        "station_label": "Bissierstra√üe"
+        "station_label": "Bissierstraﬂe"
       }
     }, 
     {
@@ -729,7 +730,7 @@
         "deg_out": "2", 
         "id": "0x101cb80", 
         "station_id": "Parent30415", 
-        "station_label": "Weddigenstra√üe"
+        "station_label": "Weddigenstraﬂe"
       }
     }, 
     {
@@ -804,7 +805,7 @@
         "deg_out": "2", 
         "id": "0x101f750", 
         "station_id": "Parent30119", 
-        "station_label": "Schwabentorbr√ºcke"
+        "station_label": "Schwabentorbr¸cke"
       }
     }, 
     {
@@ -864,7 +865,7 @@
         "deg_out": "2", 
         "id": "0x1020b20", 
         "station_id": "Parent30303", 
-        "station_label": "Emil-G√∂tt-Stra√üe"
+        "station_label": "Emil-Gˆtt-Straﬂe"
       }
     }, 
     {
@@ -924,7 +925,7 @@
         "deg_out": "2", 
         "id": "0x1024320", 
         "station_id": "Parent30814", 
-        "station_label": "Els√§sser Stra√üe"
+        "station_label": "Els‰sser Straﬂe"
       }
     }, 
     {
@@ -969,7 +970,7 @@
         "deg_out": "2", 
         "id": "0x1025e50", 
         "station_id": "Parent30809", 
-        "station_label": "Freiburg Killianstra√üe"
+        "station_label": "Freiburg Killianstraﬂe"
       }
     }, 
     {
@@ -984,7 +985,7 @@
         "deg_out": "2", 
         "id": "0x1026070", 
         "station_id": "Parent30108", 
-        "station_label": "Eschholzstra√üe"
+        "station_label": "Eschholzstraﬂe"
       }
     }, 
     {
@@ -1044,7 +1045,7 @@
         "deg_out": "2", 
         "id": "0x1029b30", 
         "station_id": "Parent30201", 
-        "station_label": "Tullastra√üe"
+        "station_label": "Tullastraﬂe"
       }
     }, 
     {
@@ -1059,7 +1060,7 @@
         "deg_out": "2", 
         "id": "0x102b240", 
         "station_id": "Parent30200", 
-        "station_label": "Hornusstra√üe"
+        "station_label": "Hornusstraﬂe"
       }
     }, 
     {
@@ -1074,7 +1075,7 @@
         "deg_out": "2", 
         "id": "0x102bee0", 
         "station_id": "Parent30102", 
-        "station_label": "Tennenbacher Stra√üe"
+        "station_label": "Tennenbacher Straﬂe"
       }
     }, 
     {
@@ -1089,7 +1090,7 @@
         "deg_out": "2", 
         "id": "0x102c630", 
         "station_id": "Parent30432", 
-        "station_label": "Glottertalstra√üe"
+        "station_label": "Glottertalstraﬂe"
       }
     }, 
     {
@@ -1119,7 +1120,7 @@
         "deg_out": "2", 
         "id": "0x102e8d0", 
         "station_id": "Parent30203", 
-        "station_label": "Okenstra√üe"
+        "station_label": "Okenstraﬂe"
       }
     }, 
     {
@@ -1134,7 +1135,7 @@
         "deg_out": "2", 
         "id": "0x102efc0", 
         "station_id": "Parent30600", 
-        "station_label": "Bugginger Stra√üe"
+        "station_label": "Bugginger Straﬂe"
       }
     }, 
     {
