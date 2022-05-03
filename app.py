@@ -16,8 +16,8 @@ edges = []
 cost_dictionary = {
     180: 0,
     135: 1,
-    90: 2,
-    45: 3
+    90: 1.5,
+    45: 2
 }
 
 c_180 = 0
@@ -26,6 +26,8 @@ c_90 = 2
 c_45 = 3
 
 c_h = 1
+c_H = 0  # c_h - a = 0; a = 1 (corresponds to c_h' in paper)
+c_s = 10
 
 
 class Station:
@@ -63,10 +65,30 @@ class Edge:
 @app.route('/')
 def index():
     metro_map = load_data()
-    nx.draw(metro_map, with_labels=True)
-    plt.show()
-    G = octilinear_graph(0, 0, 10, 10, 2)
+    G = octilinear_graph(0, 0, 5, 5, 1)
     A = auxiliary_graph(G)
+    pos = nx.get_node_attributes(A, 'pos')
+    A = mark_station(0, 0, A)
+    A = mark_station(2, 0, A)
+    A = mark_edge(((0, 0), (1, 0)), ((1, 0), (0, 0)), A)
+    A = mark_edge(((0, 0), (1, 0)), (0, 0), A)
+
+    color_map_nodes = []
+    for node in A.nodes:
+        if A.nodes[node]['isStation']:
+            color_map_nodes.append('red')
+        else:
+            color_map_nodes.append('blue')
+
+    color_map_edges = []
+    for edge in A.edges:
+        if A.edges[edge]['isMarked']:
+            color_map_edges.append('red')
+        else:
+            color_map_edges.append('black')
+
+    nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges)
+    plt.show()
     return flask.render_template("index.html")
 
 
@@ -101,11 +123,26 @@ def load_data():
     return g
 
 
+def mark_station(x, y, G): # Marks a station at position (x,y)
+    for node in G.nodes:
+        if G.nodes[node]['pos'] == (x, y):
+            G.nodes[node]['isStation'] = True
+    return G
+
+
+def mark_edge(a, b, G): # Marks an edge between (a,b)
+    for u, v, d in G.edges(data=True):
+        if (u == a) & (v == b) or (u == b) & (v == a):
+            d['isMarked'] = True
+    return G
+
+
 def octilinear_graph(x1, y1, x2, y2, node_dist):
     g = nx.Graph()
 
     for x in range(x1, x2 + node_dist, node_dist):
         for y in range(y1, y2 + node_dist, node_dist):
+            g.add_node((x, y), pos=(x, y), isStation=False)
             g.add_edge((x, y), (x + node_dist, y))
             g.add_edge((x, y), (x + node_dist, y + node_dist))
             g.add_edge((x, y), (x, y + node_dist))
@@ -132,13 +169,17 @@ def auxiliary_graph(G: nx.Graph):
         for edge in list(G.edges(node)):
             other_node = edge[0] if node == edge[1] else edge[1]
             intermediate_nodes.append((node, other_node))
-            A.add_edge((node, other_node), (other_node, node))
-            A.add_edge(node, (node, other_node))
+            A.add_node((node, other_node),
+                       pos=(node[0] + (other_node[0] - node[0]) / 3, node[1] + (other_node[1] - node[1]) / 3),
+                       isStation=False)
+            A.add_node(node, pos=node, isStation=False)
+            A.add_edge((node, other_node), (other_node, node), isMarked=False)
+            A.add_edge(node, (node, other_node), isMarked=False)
 
         # make ring of intermediate nodes fully connected
         for i in range(len(intermediate_nodes)):
             for j in range(i + 1, len(intermediate_nodes)):
-                A.add_edge(intermediate_nodes[i], intermediate_nodes[j])
+                A.add_edge(intermediate_nodes[i], intermediate_nodes[j], isMarked=False)
 
     return A
 
@@ -154,14 +195,14 @@ def compute_cost(num_nodes, graph):
     return cost
 
 
-def cost_bend(edge_a, edge_b): # Calculates the cost of a line bend based on the angle
+def cost_bend(edge_a, edge_b):  # Calculates the cost of a line bend based on the angle
     point_0 = edge_a[0]
     point_1 = edge_a[1]
     point_2 = edge_b[0]
     point_3 = edge_b[1]
 
-    vec_0_1 = np.array[point_1[0]-point_0[0], point_1[1]-point_0[1]]
-    vec_2_3 = np.array[point_3[0]-point_2[0], point_3[1]-point_2[1]]
+    vec_0_1 = np.array[point_1[0] - point_0[0], point_1[1] - point_0[1]]
+    vec_2_3 = np.array[point_3[0] - point_2[0], point_3[1] - point_2[1]]
 
     angle_vecs = math.acos((vec_0_1 * vec_2_3) / np.linalg.norm(vec_0_1) * np.linalg.norm(vec_2_3))
     return cost_dictionary[int(angle_vecs)]
