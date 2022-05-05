@@ -58,13 +58,24 @@ class Edge:
         self.coord_y = featureData['geometry']['coordinates'][1]
         self.station_from = featureData['properties']['from']
         self.station_to = featureData['properties']['to']
-        self.lines_color = featureData['properties']['lines'][i]['color']
-        self.line_label = featureData['properties']['lines'][i]['label']
+        self.line_color = [line['color'] for line in featureData['properties']['lines']]
+        self.line_label = [line['label'] for line in featureData['properties']['lines']]
+
+    def pos_tuple(self):
+        return self.coord_x, self.coord_y
+
+    def station_tuple(self):
+        return self.station_from, self.station_to
 
 
 @app.route('/')
 def index():
     metro_map = load_data()
+    pos = nx.get_node_attributes(metro_map, 'pos')
+    nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1')
+    plt.show()
+
+
     G = octilinear_graph(0, 0, 5, 5, 1)
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
@@ -116,9 +127,10 @@ def load_data():
     for edge in edges:
         station_start = next((x for x in stations if x.id == edge.station_from), None)
         station_end = next((x for x in stations if x.id == edge.station_to), None)
-        g.add_node(station_start, label=station_start.station_label)
-        g.add_node(station_end, label=station_end.station_label)
-        g.add_edge(station_start, station_end)
+        g.add_node(station_start, label=station_start.station_label, pos=station_start.pos_tuple())
+        g.add_node(station_end, label=station_end.station_label, pos=station_end.pos_tuple())
+        g.add_edge(station_start, station_end, line_label=edge.line_label, line_color=edge.line_color,
+                   pos=edge.pos_tuple(), stations=edge.station_tuple())
 
     return g
 
