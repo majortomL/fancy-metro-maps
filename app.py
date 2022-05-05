@@ -56,7 +56,7 @@ class Station:
 
 
 class Edge:
-    def __init__(self, featureData, i):
+    def __init__(self, featureData):
         self.coord_x = featureData['geometry']['coordinates'][0]
         self.coord_y = featureData['geometry']['coordinates'][1]
         self.station_from = featureData['properties']['from']
@@ -69,6 +69,9 @@ class Edge:
 
     def station_tuple(self):
         return self.station_from, self.station_to
+
+    def __str__(self):
+        return f"({self.station_from}, {self.station_to})"
 
 
 @app.route('/')
@@ -122,8 +125,7 @@ def load_data():
             stations.append(Station(feature))
 
         if type == 'LineString':
-            for i in range(0, len(feature['properties']['lines'])):
-                edges.append(Edge(feature, i))
+            edges.append(Edge(feature))
 
     g = nx.Graph()
 
