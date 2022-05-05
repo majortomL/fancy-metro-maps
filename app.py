@@ -51,6 +51,9 @@ class Station:
         return self.station_label
         # return f"({self.coord_x}, {self.coord_y})"
 
+    def pos_tuple(self):
+        return self.coord_x, self.coord_y
+
 
 class Edge:
     def __init__(self, featureData, i):
