@@ -47,7 +47,7 @@ class Station:
             Station.SWITCH_POINT_COUNTER += 1
 
     def __str__(self):
-        print(self.station_label)
+        #print(self.station_label)
         return self.station_label
         # return f"({self.coord_x}, {self.coord_y})"
 
@@ -70,9 +70,17 @@ class Edge:
     def station_tuple(self):
         return self.station_from, self.station_to
 
-    def __str__(self):
-        return f"({self.station_from}, {self.station_to})"
+    def line_count(self):
+        return len(self.line_label)
 
+    def __str__(self):
+        return f"({str(self.station_from)}, {str(self.station_to)})"
+
+
+def get_ldeg(G, v):
+    edgeDict = nx.get_edge_attributes(G, 'info')
+    adjEdges = G.edges(v)
+    return sum([edgeDict[e].line_count() for e in adjEdges])
 
 @app.route('/')
 def index():
@@ -80,6 +88,8 @@ def index():
     pos = nx.get_node_attributes(metro_map, 'pos')
     nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1')
     plt.show()
+
+    v1_ldeg = get_ldeg(metro_map, list(metro_map.nodes)[21])
 
 
     G = octilinear_graph(0, 0, 5, 5, 1)
@@ -134,8 +144,7 @@ def load_data():
         station_end = next((x for x in stations if x.id == edge.station_to), None)
         g.add_node(station_start, label=station_start.station_label, pos=station_start.pos_tuple())
         g.add_node(station_end, label=station_end.station_label, pos=station_end.pos_tuple())
-        g.add_edge(station_start, station_end, line_label=edge.line_label, line_color=edge.line_color,
-                   pos=edge.pos_tuple(), stations=edge.station_tuple())
+        g.add_edge(station_start, station_end, info=edge)
 
     return g
 
