@@ -1,0 +1,161 @@
+{
+  "comment": "Encoding: WGS84 Web Mercator",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0, 0]
+      },
+      "properties": {
+        "deg": "1",
+        "deg_in": "1",
+        "deg_out": "1",
+        "id": "0x0",
+        "station_id": "S1",
+        "station_label": "Endstation1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1, 0]
+      },
+      "properties": {
+        "deg": "3",
+        "deg_in": "3",
+        "deg_out": "3",
+        "id": "0x1",
+        "station_id": "S2",
+        "station_label": "LoopKreuzung"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2, 1]
+      },
+      "properties": {
+        "deg": "2",
+        "deg_in": "2",
+        "deg_out": "2",
+        "id": "0x2",
+        "station_id": "S3",
+        "station_label": "Loopstation1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2, -1]
+      },
+      "properties": {
+        "deg": "2",
+        "deg_in": "2",
+        "deg_out": "2",
+        "id": "0x3",
+        "station_id": "S4",
+        "station_label": "Loopstation2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[0, 0], [0, 1]]
+      },
+      "properties": {
+        "dbg_lines": "1",
+        "from": "0x0",
+        "id": "0xf",
+        "lines": [
+          {
+            "color": "ea5297",
+            "id": "0xe",
+            "label": "1"
+          }],
+        "to": "0x1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[0, 1], [2, 1]]
+      },
+      "properties": {
+        "dbg_lines": "1$2",
+        "from": "0x1",
+        "id": "0xf1",
+        "lines": [
+          {
+            "color": "ea5297",
+            "id": "0xe",
+            "label": "1"
+          },
+          {
+            "color": "e8001b",
+            "id": "0xe1",
+            "label": "2"
+          }],
+        "to": "0x2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [[2, 1], [2, -1]]
+      },
+      "properties": {
+        "dbg_lines": "1$2",
+        "from": "0x2",
+        "id": "0xf1",
+        "lines": [
+          {
+            "color": "ea5297",
+            "id": "0xe",
+            "label": "1"
+          },
+          {
+            "color": "e8001b",
+            "id": "0xe1",
+            "label": "2"
+          }],
+        "to": "0x3"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2,
+            -1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "properties": {
+        "dbg_lines": "1",
+        "from": "0x3",
+        "id": "0xf1",
+        "lines": [
+          {
+            "color": "ea5297",
+            "id": "0xe",
+            "label": "1"
+          }
+        ],
+        "to": "0x1"
+      }
+    }]
+}
