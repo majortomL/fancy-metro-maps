@@ -8,7 +8,7 @@ import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'freiburg.json'
+json_file = 'fig6.json'
 
 stations = []
 edges = []
@@ -47,7 +47,7 @@ class Station:
             Station.SWITCH_POINT_COUNTER += 1
 
     def __str__(self):
-        #print(self.station_label)
+        # print(self.station_label)
         return self.station_label
         # return f"({self.coord_x}, {self.coord_y})"
 
@@ -79,18 +79,29 @@ class Edge:
 
 def get_ldeg(G, v):
     edgeDict = nx.get_edge_attributes(G, 'info')
-    adjEdges = G.edges(v)
-    return sum([edgeDict[e].line_count() for e in adjEdges])
+    adjEdges = list(G.edges(v))
+    ldeg = 0
+
+    for e in adjEdges:
+        try:
+            ldeg += edgeDict[e].line_count()
+        except KeyError:
+            ldeg += edgeDict[(e[1], e[0])].line_count()
+    return ldeg
+    # return sum([edgeDict[e].line_count() for e in adjEdges])
+
 
 @app.route('/')
 def index():
     metro_map = load_data()
     pos = nx.get_node_attributes(metro_map, 'pos')
-    nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1')
+    nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
     plt.show()
 
-    v1_ldeg = get_ldeg(metro_map, list(metro_map.nodes)[21])
-
+    ordered_input_edges = order_input_edges(metro_map)
+    for i, e in enumerate(ordered_input_edges):
+        # print(e[0], get_ldeg(metro_map, e[0]), e[1], get_ldeg(metro_map, e[1]))
+        print(i + 1, "   ", e[0], e[1])
 
     G = octilinear_graph(0, 0, 5, 5, 1)
     A = auxiliary_graph(G)
@@ -149,14 +160,14 @@ def load_data():
     return g
 
 
-def mark_station(x, y, G): # Marks a station at position (x,y)
+def mark_station(x, y, G):  # Marks a station at position (x,y)
     for node in G.nodes:
         if G.nodes[node]['pos'] == (x, y):
             G.nodes[node]['isStation'] = True
     return G
 
 
-def mark_edge(a, b, G): # Marks an edge between (a,b)
+def mark_edge(a, b, G):  # Marks an edge between (a,b)
     for u, v, d in G.edges(data=True):
         if (u == a) & (v == b) or (u == b) & (v == a):
             d['isMarked'] = True
@@ -208,6 +219,46 @@ def auxiliary_graph(G: nx.Graph):
                 A.add_edge(intermediate_nodes[i], intermediate_nodes[j], isMarked=False)
 
     return A
+
+
+
+def order_input_edges(G):
+    edge_ordering = []
+    unprocessed_nodes = []
+    processed_nodes = []
+
+    for node in list(G.nodes):
+        unprocessed_nodes.append((node, get_ldeg(G, node)))
+
+    unprocessed_nodes = sorted(unprocessed_nodes, key=lambda tup: tup[1], reverse=True)
+    dangling_nodes = [unprocessed_nodes[0]]
+
+    while dangling_nodes:
+        dangling_nodes = sorted(dangling_nodes, key=lambda tup: tup[1], reverse=True)
+        g_edges = list(G.edges(dangling_nodes[0]))
+
+        intermediate_list = []
+        for edge in g_edges:
+            other_node = get_other_node(edge, dangling_nodes[0][0])
+            other_node = (other_node, get_ldeg(G, other_node))
+
+            if other_node in unprocessed_nodes:
+                intermediate_list.append(edge)
+
+        intermediate_list_sorted = sorted(intermediate_list, key=lambda e: get_ldeg(G, get_other_node(e, dangling_nodes[0][0])), reverse=True)
+        for e in intermediate_list_sorted:
+            other_node = get_other_node(e, dangling_nodes[0][0])
+            other_node = (other_node, get_ldeg(G, other_node))
+            if other_node not in dangling_nodes:
+                dangling_nodes.append(other_node)
+
+        edge_ordering.extend(intermediate_list_sorted)
+
+        if dangling_nodes[0] in unprocessed_nodes:
+            unprocessed_nodes.remove(dangling_nodes[0])
+        processed_nodes.append(dangling_nodes.pop(0))
+
+    return edge_ordering
 
 
 def compute_cost(num_nodes, graph):
