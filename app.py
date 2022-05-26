@@ -1,5 +1,7 @@
 # -*- encoding: iso-8859-15 -*-
 import json
+import sys
+
 import flask
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -28,6 +30,8 @@ c_45 = 3
 c_h = 1
 c_H = 0  # c_h - a = 0; a = 1 (corresponds to c_h' in paper)
 c_s = 10
+
+radius_node_search = 2
 
 
 class Station:
@@ -99,17 +103,29 @@ def index():
     plt.show()
 
     ordered_input_edges = order_input_edges(metro_map)
-    for i, e in enumerate(ordered_input_edges):
-        # print(e[0], get_ldeg(metro_map, e[0]), e[1], get_ldeg(metro_map, e[1]))
-        print(i + 1, "   ", e[0], e[1])
+    # for i, e in enumerate(ordered_input_edges):
+    #     # print(e[0], get_ldeg(metro_map, e[0]), e[1], get_ldeg(metro_map, e[1]))
+    #     print(i + 1, "   ", e[0], e[1])
 
-    G = octilinear_graph(0, 0, 5, 5, 1)
+    G = octilinear_graph(0, -6, 6, 0, 1)
+
+    color_map_edges = []
+    for node in G.nodes:
+        if G.nodes[node]['isStation']:
+            color_map_edges.append('red')
+        else:
+            color_map_edges.append('black')
+    pos = nx.get_node_attributes(G, 'pos')
+    nx.draw(G, pos, node_size=8, node_color=color_map_edges, with_labels=True)
+    plt.show()
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
-    A = mark_station(0, 0, A)
-    A = mark_station(2, 0, A)
-    A = mark_edge(((0, 0), (1, 0)), ((1, 0), (0, 0)), A)
-    A = mark_edge(((0, 0), (1, 0)), (0, 0), A)
+    #A = mark_station(0, 0, A)
+    #A = mark_station(2, 0, A)
+    #A = mark_edge(((0, 0), (1, 0)), ((1, 0), (0, 0)), A)
+    #A = mark_edge(((0, 0), (1, 0)), (0, 0), A)
+
+    #route_edges(ordered_input_edges, G, A) # TODO: reactivate code
 
     color_map_nodes = []
     for node in A.nodes:
@@ -125,7 +141,7 @@ def index():
         else:
             color_map_edges.append('black')
 
-    nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges)
+    nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
     plt.show()
     return flask.render_template("index.html")
 
@@ -167,11 +183,24 @@ def mark_station(x, y, G):  # Marks a station at position (x,y)
     return G
 
 
+def mark_station(node, G):
+    for g_node in G.nodes:
+        if G.nodes[g_node] == node:
+            G.nodes[g_node]['isStation'] = True
+    return G
+
+
 def mark_edge(a, b, G):  # Marks an edge between (a,b)
     for u, v, d in G.edges(data=True):
         if (u == a) & (v == b) or (u == b) & (v == a):
             d['isMarked'] = True
     return G
+
+def mark_edge_line(edge, G, line):
+    for g_edge in G.edges:
+        if G.edges[g_edge] == edge:
+            G.edges[g_edge]['line'] = line
+            return G
 
 
 def octilinear_graph(x1, y1, x2, y2, node_dist):
@@ -210,16 +239,19 @@ def auxiliary_graph(G: nx.Graph):
                        pos=(node[0] + (other_node[0] - node[0]) / 3, node[1] + (other_node[1] - node[1]) / 3),
                        isStation=False)
             A.add_node(node, pos=node, isStation=False)
-            A.add_edge((node, other_node), (other_node, node), isMarked=False)
-            A.add_edge(node, (node, other_node), isMarked=False)
+            A.add_edge((node, other_node), (other_node, node), isMarked=False, line="")
+            A.add_edge(node, (node, other_node), isMarked=False, line="")
 
         # make ring of intermediate nodes fully connected
         for i in range(len(intermediate_nodes)):
             for j in range(i + 1, len(intermediate_nodes)):
-                A.add_edge(intermediate_nodes[i], intermediate_nodes[j], isMarked=False)
+                A.add_edge(intermediate_nodes[i], intermediate_nodes[j], isMarked=False, line="")
 
     return A
 
+
+def get_other_node(edge, node):
+    return edge[1] if edge[0] == node else edge[0]
 
 
 def order_input_edges(G):
@@ -283,6 +315,111 @@ def cost_bend(edge_a, edge_b):  # Calculates the cost of a line bend based on th
 
     angle_vecs = math.acos((vec_0_1 * vec_2_3) / np.linalg.norm(vec_0_1) * np.linalg.norm(vec_2_3))
     return cost_dictionary[int(angle_vecs)]
+
+
+def route_edges(edges, G, A):
+    grid_node_dict = {}
+
+    # iterate through edges of input graph
+    for edge in edges:
+        node_0 = edge[0]
+        node_1 = edge[1]
+
+        candidate_nodes_0 = []  # nodes in octilinear graph that are near to node_0 (of input graph)
+        candidate_nodes_1 = []  # nodes in octilinear graph that are near to node_1 (of input graph)
+
+        # if input nodes came up in previous iterations their position is already fixed
+        node_0_free = True
+        node_1_free = True
+        if node_0 in grid_node_dict.keys():
+            candidate_nodes_0.append(grid_node_dict[node_0])
+            node_0_fixed = False
+        if node_1 in grid_node_dict.keys():
+            candidate_nodes_1.append(grid_node_dict[node_1])
+            node_1_fixed = False
+
+        # for free input nodes add all octilinear graph nodes within certain radius to the
+        for node in list(G.nodes):
+            if G.nodes[node]['isStation']:
+                continue
+            if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(radius_node_search, 2):  # check if octilinear node is within radius around input node
+                candidate_nodes_0.append(node)
+
+            if node_1_free and pow(node[0] - node_1.coord_x, 2) + pow(node[1] - node_1.coord_y, 2) < pow(radius_node_search, 2):  # same here
+                candidate_nodes_1.append(node)
+
+        if node_0_free and node_1_free:
+            # build local Voronoi diagram
+            union_candidate_nodes = list(set(candidate_nodes_0 + candidate_nodes_1))
+            candidate_nodes_0 = []
+            candidate_nodes_1 = []
+
+            for node in union_candidate_nodes:
+                closer_node = get_closest_node(node, node_0, node_1)
+                if closer_node == node_0:
+                    candidate_nodes_0.append(node)
+                else:
+                    candidate_nodes_1.append(node)
+
+        A = fix_weights(G)
+
+        # find shortest set-set path using dijkstra
+        shortest_path_cost = int(sys.maxsize)
+        shortest_path = []  # list of edges in octilinear graph
+        for node in candidate_nodes_0:
+            # find shortest node-set path using dijkstra
+            path, path_cost = get_shortest_dijkstra_path_to_set(node, candidate_nodes_1, A, G)
+            if path_cost < shortest_path_cost:
+                shortest_path = path
+
+        for path_edge in shortest_path:
+            G = mark_edge_line(path_edge, G, edge.line_label)
+
+        final_node0 = shortest_path[0][0]
+        final_node1 = shortest_path[-1][1]
+
+        G = mark_station(final_node0, G)
+        G = mark_station(final_node1, G)
+        grid_node_dict[node_0] = final_node0
+        grid_node_dict[node_1] = final_node1
+
+
+def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A, G):
+
+    # calculate cheapest path from start_node to all nodes (in the auxiliary graph)
+    paths = nx.shortest_path_length(A, start_node, "cost", method="dijkstra")
+
+    # determine the cheapest path to any target_node
+    cheapest_path = []
+    cheapest_path_cost = int(sys.maxsize)
+    for target_node in target_nodes:
+        path_cost = nx.path_weight(A, paths[target_node], weight="cost")
+        if path_cost < cheapest_path_cost:
+            cheapest_path_cost = path_cost
+            cheapest_path = paths[target_node]
+
+    # convert the cheapest path in the auxiliary graph to a list of nodes of the octilinear graph
+    # (by omitting all nodes that do not exist in the octilinear graph)
+    octilinear_path_nodes = []
+    for node in cheapest_path:
+        if node in G.nodes:
+            octilinear_path_nodes.append(node)
+
+    # convert the node list into an edge list
+    octilinear_path = []    # edge list
+    for i in range(0,len(octilinear_path_nodes) - 1):
+        octilinear_path.append((octilinear_path_nodes[i], octilinear_path_nodes[i+1]))
+
+    return octilinear_path, cheapest_path_cost
+
+def fix_weights(G):
+    return nx.Graph()
+
+def get_closest_node(node, check_node_1, check_node_2):  # node: octilinear grid graph node, check_node_1, 2: ordered nodes of input graph
+    if pow(node[0] - check_node_1.coord_x, 2) + pow(node[1] - check_node_1.coord_y, 2) <= pow(node[0] - check_node_2.coord_x, 2) + pow(node[1] - check_node_2.coord_y, 2):
+        return check_node_1
+    else:
+        return check_node_2
 
 
 if __name__ == '__main__':

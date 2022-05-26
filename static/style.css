@@ -1,0 +1,21 @@
+#head {
+    color: white;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 2em;
+}
+
+#names {
+    color: white;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 1em;
+}
+
+#map {
+    height: 600px;
+}
+
+body {
+    background-color: #2f2f2f;
+}
