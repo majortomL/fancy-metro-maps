@@ -10,7 +10,7 @@ import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'fig6.json'
+json_file = 'freiburg.json'
 
 stations = []
 edges = []
