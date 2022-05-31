@@ -10,7 +10,7 @@ import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'fig6.json'
+json_file = 'freiburg.json'
 
 stations = []
 edges = []
@@ -31,12 +31,12 @@ c_h = 1
 c_H = 0  # c_h - a = 0; a = 1 (corresponds to c_h' in paper)
 c_s = 10
 
+A = {}
+metro_map = {}
+
 radius_node_search = 2
 
-
 class Station:
-    SWITCH_POINT_COUNTER = 1
-
     def __init__(self, featureData):
         self.coord_x = featureData['geometry']['coordinates'][0]
         self.coord_y = featureData['geometry']['coordinates'][1]
@@ -57,6 +57,7 @@ class Station:
 
     def pos_tuple(self):
         return self.coord_x, self.coord_y
+    SWITCH_POINT_COUNTER = 0
 
 
 class Edge:
@@ -81,6 +82,11 @@ class Edge:
         return f"({str(self.station_from)}, {str(self.station_to)})"
 
 
+class Encoder(json.JSONEncoder):
+    def default(self, o):
+        return o.__dict__
+
+
 def get_ldeg(G, v):
     edgeDict = nx.get_edge_attributes(G, 'info')
     adjEdges = list(G.edges(v))
@@ -97,6 +103,7 @@ def get_ldeg(G, v):
 
 @app.route('/')
 def index():
+    global metro_map
     metro_map = load_data()
     pos = nx.get_node_attributes(metro_map, 'pos')
     nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
@@ -118,6 +125,7 @@ def index():
     pos = nx.get_node_attributes(G, 'pos')
     nx.draw(G, pos, node_size=8, node_color=color_map_edges, with_labels=True)
     plt.show()
+    global A
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
     #A = mark_station(0, 0, A)
@@ -148,8 +156,9 @@ def index():
 
 @app.route('/data')
 def get_data():
-    array = [(1, 5), ("Haus", "Maus"), [3, 4]]
-    return json.dumps(array)
+    aux_graph = nx.node_link_data(A)
+    metro_map_graph = nx.node_link_data(metro_map)
+    return json.dumps(metro_map_graph, indent=4, cls=Encoder)
 
 
 def load_data():

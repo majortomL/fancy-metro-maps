@@ -1,5 +1,20 @@
 let map = {}
+let graph = {}
 let zoom = 13
+let getJSON = function (url, callback) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function () {
+        var status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status, xhr.response);
+        }
+    };
+    xhr.send();
+};
 
 let mapboxToken = "pk.eyJ1IjoibWFqb3J0b21sIiwiYSI6ImNsM24xcXg1NTBhYXMzZW85Yzd6cHBxbnkifQ.r5sK9krUgU_Efqpb1P6i5w"
 
@@ -13,16 +28,15 @@ let info = [
     "Geroksruhe"
 ]
 
+let graphData = null
+
 let neckarpark = [1024134.05090108, 6234448.47820225]
 neckarpark = convertCoordinates(neckarpark)
-setupMap(neckarpark, zoom)
 
-pointsConverted = []
-points.forEach(
-    point => pointsConverted.push(convertCoordinates(point))
-)
-drawLine(pointsConverted, 'red', info)
-
+let freiburgCenter = [48, 7.846653]
+setupMap(freiburgCenter, zoom)
+setupGraph(freiburgCenter, zoom)
+drawMetroMap()
 
 function setupMap(point, zoom) {
     map = L.map('map', {
@@ -39,21 +53,26 @@ function setupMap(point, zoom) {
     }).addTo(map);
 }
 
-function drawLine(points, color, info) {
+function setupGraph(point, zoom) {
+    graph = L.map('graph', {
+            attributionControl: false
+        }
+    ).setView(point, zoom)
+}
+
+function drawLine(target, points, color) {
     L.polyline(
         points,
         {
             color: color,
-            opacity: 0.5
+            opacity: 0.5,
+            interactive: false
         }
-    ).addTo(map)
+    ).addTo(target)
 
-    points.forEach(function (point, i) {
-        setMarker(point, color, info[i])
-    })
 }
 
-function setMarker(point, color, info) {
+function drawMarker(target, point, color, info) {
     let marker = L.circleMarker(
         point,
         {
@@ -65,16 +84,16 @@ function setMarker(point, color, info) {
             weight: 1,
         }
     )
-        .addTo(map)
+        .addTo(target)
         .bindTooltip(info)
-        .on('mouseover', function(){
+        .on('mouseover', function () {
             this.setStyle({
                 radius: 7,
                 fillOpacity: 1,
                 opacity: 1
             })
         })
-        .on('mouseout', function (){
+        .on('mouseout', function () {
             this.setStyle({
                 radius: 5,
                 fillOpacity: 0.5,
@@ -85,8 +104,41 @@ function setMarker(point, color, info) {
 
 function convertCoordinates(point) {
     let source = new proj4.Proj('EPSG:3857')
-    let dest = new proj4.Proj('EPSG:4326');
-    let p = new proj4.Point(point[0], point[1]);
-    let transformed = proj4.transform(source, dest, p);
+    let dest = new proj4.Proj('EPSG:4326')
+    let p = new proj4.toPoint([point[0], point[1]])
+    let transformed = proj4.transform(source, dest, p)
     return [transformed.y, transformed.x]
 }
+
+function drawMetroMap() { // draws our metro map with real station coordinates
+    getJSON(window.location.href + "/data",
+        function (err, data) {
+            if (err !== null) {
+                alert("Something went wrong: " + err);
+            } else {
+                graphData = data
+                // mark each station
+                let stationCoordinates = []
+                data.nodes.forEach(function (node) {
+                    if (!node.label.includes("Switch Point")) {
+                        drawMarker(map, convertCoordinates(node.pos), 'white', node.label)
+                        drawMarker(graph, convertCoordinates(node.pos), 'white', node.label)
+                    }
+                })
+                // mark each line
+                data.links.forEach(function (link) {
+                    link.info.line_color.forEach(function (color) {
+                        drawLine(map,[convertCoordinates([link.source.coord_x, link.source.coord_y]), convertCoordinates([link.target.coord_x, link.target.coord_y])], '#' + color)
+                        drawLine(graph,[convertCoordinates([link.source.coord_x, link.source.coord_y]), convertCoordinates([link.target.coord_x, link.target.coord_y])], '#' + color)
+                    })
+                })
+            }
+        })
+}
+
+function drawMetroGraph() { // draws our metro map in the octilinear graph layout
+
+}
+
+
+

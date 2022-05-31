@@ -1,21 +1,36 @@
 #head {
-    color: white;
     text-align: center;
-    font-family: Verdana;
     font-size: 2em;
 }
 
 #names {
-    color: white;
     text-align: center;
-    font-family: Verdana;
     font-size: 1em;
 }
 
-#map {
+#map-label {
+    text-align: left;
+    font-size: 1em;
+}
+
+.map-div{
+    width: 50%;
     height: 600px;
+    top: 3cm;
+    position: absolute;
+}
+
+#map {
+
+}
+
+#graph {
+
+    left: 50%;
 }
 
 body {
+    color: white;
+    font-family: Verdana, serif;
     background-color: #2f2f2f;
 }
