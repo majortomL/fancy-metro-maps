@@ -118,7 +118,8 @@ def index():
     #     # print(e[0], get_ldeg(metro_map, e[0]), e[1], get_ldeg(metro_map, e[1]))
     #     print(i + 1, "   ", e[0], e[1])
 
-    G = octilinear_graph(0, -6, 6, 0, CELL_SIZE)
+    #G = octilinear_graph(-1, -2, 3, 2, CELL_SIZE)
+    G = octilinear_graph(-3, -3, 4, 4, CELL_SIZE)
 
     color_map_edges = []
     for node in G.nodes:
@@ -137,24 +138,29 @@ def index():
     #A = mark_edge(((0, 0), (1, 0)), ((1, 0), (0, 0)), A)
     #A = mark_edge(((0, 0), (1, 0)), (0, 0), A)
 
-    route_edges(ordered_input_edges, G) # TODO: reactivate code
-
+    G = route_edges(ordered_input_edges, G, metro_map)
+    show_octilinear_graph(G, False)
+    '''
     color_map_nodes = []
-    for node in A.nodes:
-        if A.nodes[node]['isStation']:
+    for node in G.nodes:
+        if G.nodes[node]['isStation']:
             color_map_nodes.append('red')
         else:
             color_map_nodes.append('blue')
 
     color_map_edges = []
-    for edge in A.edges:
-        if A.edges[edge]['isMarked']:
+    for edge in G.edges:
+        if 'line' in G.edges[edge]:
             color_map_edges.append('red')
         else:
             color_map_edges.append('black')
 
-    nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
+    #nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
+    #nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges)
+    nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
     plt.show()
+    
+    '''
     return flask.render_template("index.html")
 
 
@@ -209,8 +215,9 @@ def mark_edge(a, b, G):  # Marks an edge between (a,b)
             d['isMarked'] = True
     return G
 
+
 def mark_edge_line(edge, G, line):
-    for g_edge in G.edges:
+    for g_edge in G.edges():
         if G.edges[g_edge] == edge:
             G.edges[g_edge]['line'] = line
             return G
@@ -261,6 +268,30 @@ def auxiliary_graph(G: nx.Graph):
                 A.add_edge(intermediate_nodes[i], intermediate_nodes[j], isMarked=False, line="")
 
     return A
+
+
+def show_octilinear_graph(Graph, labels):
+    G = Graph
+    color_map_nodes = []
+    for node in G.nodes:
+        if G.nodes[node]['isStation']:
+            color_map_nodes.append('red')
+        else:
+            color_map_nodes.append('blue')
+
+    color_map_edges = []
+    for edge in G.edges:
+        if 'line' in G.edges[edge]:
+            color_map_edges.append('red')
+        else:
+            color_map_edges.append('black')
+
+    for node in G.nodes:
+        G.nodes[node]['pos'] = node
+
+    pos = nx.get_node_attributes(G, 'pos')
+    nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=labels)
+    plt.show()
 
 
 def get_other_node(edge, node):
@@ -330,7 +361,8 @@ def cost_bend(edge_a, edge_b):  # Calculates the cost of a line bend based on th
     return cost_dictionary[int(angle_vecs)]
 
 
-def route_edges(edges, G):
+def route_edges(edges, G, metro_map):
+    show_octilinear_graph(G, True)
     grid_node_dict = {}
 
     # iterate through edges of input graph
@@ -346,10 +378,10 @@ def route_edges(edges, G):
         node_1_free = True
         if node_0 in grid_node_dict.keys():
             candidate_nodes_0.append(grid_node_dict[node_0])
-            node_0_fixed = False
+            node_0_free = False
         if node_1 in grid_node_dict.keys():
             candidate_nodes_1.append(grid_node_dict[node_1])
-            node_1_fixed = False
+            node_1_free = False
 
         # for free input nodes add all octilinear graph nodes within certain radius to the
         for node in list(G.nodes):
@@ -373,8 +405,14 @@ def route_edges(edges, G):
                     candidate_nodes_0.append(node)
                 else:
                     candidate_nodes_1.append(node)
+        elif node_0_free and not node_1_free:
+            if candidate_nodes_1[0] in candidate_nodes_0:
+                candidate_nodes_0.remove(candidate_nodes_1[0])
+        elif node_1_free and not node_0_free:
+            if candidate_nodes_0[0] in candidate_nodes_1:
+                candidate_nodes_1.remove(candidate_nodes_0[0])
 
-        A = fix_weights(G)
+        A = fix_weights(G, node_0, candidate_nodes_0, node_1, candidate_nodes_1)
 
         # find shortest set-set path using dijkstra
         shortest_path_cost = int(sys.maxsize)
@@ -386,37 +424,50 @@ def route_edges(edges, G):
                 shortest_path = path
 
         for path_edge in shortest_path:
-            G = mark_edge_line(path_edge, G, edge.line_label)
+            G.edges[path_edge]['line'] = metro_map.edges()[edge]['info'].line_label
 
         final_node0 = shortest_path[0][0]
         final_node1 = shortest_path[-1][1]
 
-        G = mark_station(final_node0, G)
-        G = mark_station(final_node1, G)
+        G.nodes[final_node0]['isStation'] = True
+        G.nodes[final_node1]['isStation'] = True
         grid_node_dict[node_0] = final_node0
         grid_node_dict[node_1] = final_node1
+        show_octilinear_graph(G, True)
+
+    return G    # unsure if I modify per reference or need to return G ... just to be sure I return it
 
 
 def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A, G):
 
     # calculate cheapest path from start_node to all nodes (in the auxiliary graph)
-    paths = nx.shortest_path_length(A, start_node, "cost", method="dijkstra")
+    paths = nx.shortest_path_length(A, source=start_node, weight="cost", method="dijkstra")
 
-    # determine the cheapest path to any target_node
-    cheapest_path = []
+    # determine the target node with the cheapest path
+    cheapest_target = None
     cheapest_path_cost = int(sys.maxsize)
     for target_node in target_nodes:
-        path_cost = nx.path_weight(A, paths[target_node], weight="cost")
+
+        path_cost = paths[target_node]
         if path_cost < cheapest_path_cost:
             cheapest_path_cost = path_cost
-            cheapest_path = paths[target_node]
+            cheapest_target = target_node
+
+    # get path to the cheapest target node
+    cheapest_path = nx.shortest_path(A, source=start_node, target=cheapest_target, weight="cost", method="dijkstra")
 
     # convert the cheapest path in the auxiliary graph to a list of nodes of the octilinear graph
-    # (by omitting all nodes that do not exist in the octilinear graph)
+    # non-sink-nodes are structured like follows (sink-node, other-sink-node)
+    # to convert we check if the sink-node changes and if it does we add it to the path
     octilinear_path_nodes = []
-    for node in cheapest_path:
-        if node in G.nodes:
-            octilinear_path_nodes.append(node)
+    previous_sink_node = None
+    for i in range(1, len(cheapest_path) - 1):
+        current_sink_node = cheapest_path[i][0]
+
+        if type(current_sink_node) is tuple:
+            if current_sink_node != previous_sink_node:
+                octilinear_path_nodes.append(current_sink_node)
+            previous_sink_node = current_sink_node
 
     # convert the node list into an edge list
     octilinear_path = []    # edge list
@@ -436,11 +487,11 @@ def fix_weights(G, iS, S, iT, T):
         if n1 in S or n2 in S:
             # edge adjacent to set S, set off cost by distance to input node iS
             n = n1 if n1 in S else n2
-            A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge) * get_node_dist(n, iS) / CELL_SIZE
+            A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge) * get_dist_ol_grid_node_to_input_node(n, iS) / CELL_SIZE
         elif n1 in T or n2 in T:
             # edge adjacent to set T, set off cost by distance to input node iT
             n = n1 if n1 in T else n2
-            A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge) * get_node_dist(n, iT) / CELL_SIZE
+            A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge) * get_dist_ol_grid_node_to_input_node(n, iT) / CELL_SIZE
         else:
             # edge not adjacent to any set, use default cost
             A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge)
@@ -448,9 +499,9 @@ def fix_weights(G, iS, S, iT, T):
     return A
 
 
-def get_node_dist(n1, n2):
-    p1 = n1["pos"]
-    p2 = n2["pos"]
+def get_dist_ol_grid_node_to_input_node(ol_grid_node, input_node):
+    p1 = (input_node.coord_x, input_node.coord_y)
+    p2 = ol_grid_node
     dx = p2[0] - p1[0]
     dy = p2[1] - p1[1]
     return math.sqrt(dx*dx + dy*dy)
@@ -463,8 +514,8 @@ def get_auxiliary_edge_cost(edge):
     # find out which kind edge we are dealing with and assign cost based on that
     # possible edge types: sink edge, bend edge, connecting edge
 
-    n1_is_sink = not n1[0] is tuple     # one node of a sink edge is a sink node
-    n2_is_sink = not n2[0] is tuple     # while other nodes are tuples of tuples sink nodes are only a tuple
+    n1_is_sink = not type(n1[0]) is tuple     # one node of a sink edge is a sink node
+    n2_is_sink = not type(n2[0]) is tuple     # while other nodes are tuples of tuples sink nodes are only a tuple
 
     if n1_is_sink or n2_is_sink:
         # this is a sink edge
@@ -485,11 +536,20 @@ def get_auxiliary_bend_angle(edge):
     point_2 = edge[1][0]
     point_3 = edge[1][1]
 
-    vec_0_1 = np.array[point_1[0] - point_0[0], point_1[1] - point_0[1]]
-    vec_2_3 = np.array[point_3[0] - point_2[0], point_3[1] - point_2[1]]
+    vec_0_1 = np.array((point_1[0] - point_0[0], point_1[1] - point_0[1]))
+    vec_2_3 = np.array((point_3[0] - point_2[0], point_3[1] - point_2[1]))
 
-    angle_vecs = math.acos((vec_0_1 * vec_2_3) / np.linalg.norm(vec_0_1) * np.linalg.norm(vec_2_3))
-    return int(round(angle_vecs))
+    # from https://www.atqed.com/numpy-vector-angle
+    a = vec_0_1
+    b = vec_2_3
+
+    inner = np.inner(a, b)
+    norms = np.linalg.norm(a) * np.linalg.norm(b)
+
+    cos = inner / norms
+    rad = np.arccos(np.clip(cos, -1.0, 1.0))
+    deg = np.rad2deg(rad)
+    return int(round(deg))
 
 
 def get_closest_node(node, check_node_1, check_node_2):  # node: octilinear grid graph node, check_node_1, 2: ordered nodes of input graph
