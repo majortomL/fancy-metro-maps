@@ -10,7 +10,7 @@ import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'freiburg.json'
+json_file = 'fig6.json'
 
 stations = []
 edges = []
@@ -137,7 +137,7 @@ def index():
     #A = mark_edge(((0, 0), (1, 0)), ((1, 0), (0, 0)), A)
     #A = mark_edge(((0, 0), (1, 0)), (0, 0), A)
 
-    #route_edges(ordered_input_edges, G) # TODO: reactivate code
+    route_edges(ordered_input_edges, G) # TODO: reactivate code
 
     color_map_nodes = []
     for node in A.nodes:
