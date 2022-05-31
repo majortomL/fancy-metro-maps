@@ -10,7 +10,7 @@ import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'freiburg.json'
+json_file = 'fig6.json'
 
 stations = []
 edges = []
@@ -30,11 +30,15 @@ c_45 = 3
 c_h = 1
 c_H = 0  # c_h - a = 0; a = 1 (corresponds to c_h' in paper)
 c_s = 10
+c_m = 0.5
 
 A = {}
 metro_map = {}
 
 radius_node_search = 2
+
+CELL_SIZE = 1
+
 
 class Station:
     def __init__(self, featureData):
@@ -114,7 +118,7 @@ def index():
     #     # print(e[0], get_ldeg(metro_map, e[0]), e[1], get_ldeg(metro_map, e[1]))
     #     print(i + 1, "   ", e[0], e[1])
 
-    G = octilinear_graph(0, -6, 6, 0, 1)
+    G = octilinear_graph(0, -6, 6, 0, CELL_SIZE)
 
     color_map_edges = []
     for node in G.nodes:
@@ -133,7 +137,7 @@ def index():
     #A = mark_edge(((0, 0), (1, 0)), ((1, 0), (0, 0)), A)
     #A = mark_edge(((0, 0), (1, 0)), (0, 0), A)
 
-    #route_edges(ordered_input_edges, G, A) # TODO: reactivate code
+    #route_edges(ordered_input_edges, G) # TODO: reactivate code
 
     color_map_nodes = []
     for node in A.nodes:
@@ -326,7 +330,7 @@ def cost_bend(edge_a, edge_b):  # Calculates the cost of a line bend based on th
     return cost_dictionary[int(angle_vecs)]
 
 
-def route_edges(edges, G, A):
+def route_edges(edges, G):
     grid_node_dict = {}
 
     # iterate through edges of input graph
@@ -421,8 +425,72 @@ def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A, G):
 
     return octilinear_path, cheapest_path_cost
 
-def fix_weights(G):
-    return nx.Graph()
+
+def fix_weights(G, iS, S, iT, T):
+    A = auxiliary_graph(G)
+
+    for edge in A.edges:
+        n1 = edge[0]
+        n2 = edge[1]
+
+        if n1 in S or n2 in S:
+            # edge adjacent to set S, set off cost by distance to input node iS
+            n = n1 if n1 in S else n2
+            A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge) * get_node_dist(n, iS) / CELL_SIZE
+        elif n1 in T or n2 in T:
+            # edge adjacent to set T, set off cost by distance to input node iT
+            n = n1 if n1 in T else n2
+            A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge) * get_node_dist(n, iT) / CELL_SIZE
+        else:
+            # edge not adjacent to any set, use default cost
+            A[n1][n2]["cost"] = get_auxiliary_edge_cost(edge)
+
+    return A
+
+
+def get_node_dist(n1, n2):
+    p1 = n1["pos"]
+    p2 = n2["pos"]
+    dx = p2[0] - p1[0]
+    dy = p2[1] - p1[1]
+    return math.sqrt(dx*dx + dy*dy)
+
+
+def get_auxiliary_edge_cost(edge):
+    n1 = edge[0]
+    n2 = edge[1]
+
+    # find out which kind edge we are dealing with and assign cost based on that
+    # possible edge types: sink edge, bend edge, connecting edge
+
+    n1_is_sink = not n1[0] is tuple     # one node of a sink edge is a sink node
+    n2_is_sink = not n2[0] is tuple     # while other nodes are tuples of tuples sink nodes are only a tuple
+
+    if n1_is_sink or n2_is_sink:
+        # this is a sink edge
+        return c_h + c_m  # NOTE unsure maybe c_s
+
+    # bend edges connect two nodes connected to the same sink node
+    if n1[0] == n2[0]:  # since nodes adjacent to a sink node are identified with the tuple (sink node, other node) we check if the nodes share the same sink node
+        # this is a bend edge
+        return cost_dictionary[get_auxiliary_bend_angle(edge)]
+
+    # this is a connecting edge
+    return c_h + c_m
+
+
+def get_auxiliary_bend_angle(edge):
+    point_0 = edge[0][0]
+    point_1 = edge[0][1]
+    point_2 = edge[1][0]
+    point_3 = edge[1][1]
+
+    vec_0_1 = np.array[point_1[0] - point_0[0], point_1[1] - point_0[1]]
+    vec_2_3 = np.array[point_3[0] - point_2[0], point_3[1] - point_2[1]]
+
+    angle_vecs = math.acos((vec_0_1 * vec_2_3) / np.linalg.norm(vec_0_1) * np.linalg.norm(vec_2_3))
+    return int(round(angle_vecs))
+
 
 def get_closest_node(node, check_node_1, check_node_2):  # node: octilinear grid graph node, check_node_1, 2: ordered nodes of input graph
     if pow(node[0] - check_node_1.coord_x, 2) + pow(node[1] - check_node_1.coord_y, 2) <= pow(node[0] - check_node_2.coord_x, 2) + pow(node[1] - check_node_2.coord_y, 2):
