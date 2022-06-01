@@ -39,7 +39,7 @@ Shared_Map = {}
 radius_node_search = 2
 
 CELL_SIZE = 1
-Grid_Resolution = 10
+Grid_Resolution = 50
 
 
 class Station:
@@ -125,6 +125,7 @@ def index():
 
     metro_map_extents = get_map_extents(metro_map)
     larger_extent = max(abs(metro_map_extents[0][1] - metro_map_extents[0][0]), abs(metro_map_extents[1][1] - metro_map_extents[1][0]))
+    global CELL_SIZE
     CELL_SIZE = round(larger_extent / Grid_Resolution)
 
     G = octilinear_graph(-3, -3, 4, 4, CELL_SIZE)
@@ -293,11 +294,11 @@ def show_octilinear_graph(Graph, labels):
         else:
             color_map_edges.append('black')
 
+    pos = {}
     for node in G.nodes:
-        G.nodes[node]['pos'] = node
+        pos[node] = node
 
-    pos = nx.get_node_attributes(G, 'pos')
-    plt.figure(dpi=1200)
+    #plt.figure(dpi=1200)
     nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=labels)
     plt.show()
 
@@ -395,14 +396,14 @@ def route_edges(edges, G, metro_map):
         for node in list(G.nodes):
             if G.nodes[node]['isStation']:
                 continue
-            if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(radius_node_search, 2):  # check if octilinear node is within radius around input node
+            if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # check if octilinear node is within radius around input node
                 candidate_nodes_0.append(node)
 
-            if node_1_free and pow(node[0] - node_1.coord_x, 2) + pow(node[1] - node_1.coord_y, 2) < pow(radius_node_search, 2):  # same here
+            if node_1_free and pow(node[0] - node_1.coord_x, 2) + pow(node[1] - node_1.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # same here
                 candidate_nodes_1.append(node)
 
         if node_0_free and node_1_free:
-            # build local Voronoi diagram
+            # build local Voronoi diagram & make sure candidate_nodes_0 and 1 are disjoint
             union_candidate_nodes = list(set(candidate_nodes_0 + candidate_nodes_1))
             candidate_nodes_0 = []
             candidate_nodes_1 = []
