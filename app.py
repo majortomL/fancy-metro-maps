@@ -580,7 +580,7 @@ def get_map_extents(map_graph):
         if position[0] < y_min: y_min = position[0]
         if position[0] > y_max: y_max = position[0]
 
-    return [[round(x_min), round(x_max)], [round(y_min), round(y_max)]]
+    return [[round(y_min), round(y_max)], [round(x_min), round(x_max)]]
 
 
 if __name__ == '__main__':
