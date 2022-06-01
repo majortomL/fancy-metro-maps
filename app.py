@@ -10,7 +10,7 @@ import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'fig6.json'
+json_file = 'freiburg.json'
 
 stations = []
 edges = []
@@ -33,11 +33,13 @@ c_s = 10
 c_m = 0.5
 
 A = {}
-metro_map = {}
+Shared_Graph = {}
+Shared_Map = {}
 
 radius_node_search = 2
 
 CELL_SIZE = 1
+Grid_Resolution = 10
 
 
 class Station:
@@ -61,6 +63,7 @@ class Station:
 
     def pos_tuple(self):
         return self.coord_x, self.coord_y
+
     SWITCH_POINT_COUNTER = 0
 
 
@@ -107,19 +110,25 @@ def get_ldeg(G, v):
 
 @app.route('/')
 def index():
-    global metro_map
+    global Shared_Graph
+    global Shared_Map
+
     metro_map = load_data()
+    Shared_Map = metro_map
     pos = nx.get_node_attributes(metro_map, 'pos')
     nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
     plt.show()
 
     ordered_input_edges = order_input_edges(metro_map)
-    # for i, e in enumerate(ordered_input_edges):
-    #     # print(e[0], get_ldeg(metro_map, e[0]), e[1], get_ldeg(metro_map, e[1]))
-    #     print(i + 1, "   ", e[0], e[1])
 
-    #G = octilinear_graph(-1, -2, 3, 2, CELL_SIZE)
+    # G = octilinear_graph(-1, -2, 3, 2, CELL_SIZE)
+
+    metro_map_extents = get_map_extents(metro_map)
+    larger_extent = max(abs(metro_map_extents[0][1] - metro_map_extents[0][0]), abs(metro_map_extents[1][1] - metro_map_extents[1][0]))
+    CELL_SIZE = round(larger_extent / Grid_Resolution)
+
     G = octilinear_graph(-3, -3, 4, 4, CELL_SIZE)
+    G = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
 
     color_map_edges = []
     for node in G.nodes:
@@ -133,13 +142,11 @@ def index():
     global A
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
-    #A = mark_station(0, 0, A)
-    #A = mark_station(2, 0, A)
-    #A = mark_edge(((0, 0), (1, 0)), ((1, 0), (0, 0)), A)
-    #A = mark_edge(((0, 0), (1, 0)), (0, 0), A)
 
     G = route_edges(ordered_input_edges, G, metro_map)
+    Shared_Graph = G
     show_octilinear_graph(G, False)
+
     '''
     color_map_nodes = []
     for node in G.nodes:
@@ -166,9 +173,9 @@ def index():
 
 @app.route('/data')
 def get_data():
-    aux_graph = nx.node_link_data(A)
-    metro_map_graph = nx.node_link_data(metro_map)
-    return json.dumps(metro_map_graph, indent=4, cls=Encoder)
+    graph = nx.node_link_data(Shared_Graph)
+    map = nx.node_link_data(Shared_Map)
+    return json.dumps(map, indent=4, cls=Encoder)
 
 
 def load_data():
@@ -290,6 +297,7 @@ def show_octilinear_graph(Graph, labels):
         G.nodes[node]['pos'] = node
 
     pos = nx.get_node_attributes(G, 'pos')
+    plt.figure(dpi=1200)
     nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=labels)
     plt.show()
 
@@ -362,7 +370,7 @@ def cost_bend(edge_a, edge_b):  # Calculates the cost of a line bend based on th
 
 
 def route_edges(edges, G, metro_map):
-    show_octilinear_graph(G, True)
+    show_octilinear_graph(G, False)
     grid_node_dict = {}
 
     # iterate through edges of input graph
@@ -433,13 +441,12 @@ def route_edges(edges, G, metro_map):
         G.nodes[final_node1]['isStation'] = True
         grid_node_dict[node_0] = final_node0
         grid_node_dict[node_1] = final_node1
-        show_octilinear_graph(G, True)
+        show_octilinear_graph(G, False)
 
-    return G    # unsure if I modify per reference or need to return G ... just to be sure I return it
+    return G  # unsure if I modify per reference or need to return G ... just to be sure I return it
 
 
 def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A, G):
-
     # calculate cheapest path from start_node to all nodes (in the auxiliary graph)
     paths = nx.shortest_path_length(A, source=start_node, weight="cost", method="dijkstra")
 
@@ -470,9 +477,9 @@ def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A, G):
             previous_sink_node = current_sink_node
 
     # convert the node list into an edge list
-    octilinear_path = []    # edge list
-    for i in range(0,len(octilinear_path_nodes) - 1):
-        octilinear_path.append((octilinear_path_nodes[i], octilinear_path_nodes[i+1]))
+    octilinear_path = []  # edge list
+    for i in range(0, len(octilinear_path_nodes) - 1):
+        octilinear_path.append((octilinear_path_nodes[i], octilinear_path_nodes[i + 1]))
 
     return octilinear_path, cheapest_path_cost
 
@@ -504,7 +511,7 @@ def get_dist_ol_grid_node_to_input_node(ol_grid_node, input_node):
     p2 = ol_grid_node
     dx = p2[0] - p1[0]
     dy = p2[1] - p1[1]
-    return math.sqrt(dx*dx + dy*dy)
+    return math.sqrt(dx * dx + dy * dy)
 
 
 def get_auxiliary_edge_cost(edge):
@@ -514,8 +521,8 @@ def get_auxiliary_edge_cost(edge):
     # find out which kind edge we are dealing with and assign cost based on that
     # possible edge types: sink edge, bend edge, connecting edge
 
-    n1_is_sink = not type(n1[0]) is tuple     # one node of a sink edge is a sink node
-    n2_is_sink = not type(n2[0]) is tuple     # while other nodes are tuples of tuples sink nodes are only a tuple
+    n1_is_sink = not type(n1[0]) is tuple  # one node of a sink edge is a sink node
+    n2_is_sink = not type(n2[0]) is tuple  # while other nodes are tuples of tuples sink nodes are only a tuple
 
     if n1_is_sink or n2_is_sink:
         # this is a sink edge
@@ -557,6 +564,23 @@ def get_closest_node(node, check_node_1, check_node_2):  # node: octilinear grid
         return check_node_1
     else:
         return check_node_2
+
+
+def get_map_extents(map_graph):
+    positions = list(nx.get_node_attributes(map_graph, 'pos').values())
+
+    x_min = positions[0][1]
+    x_max = positions[0][1]
+    y_min = positions[0][0]
+    y_max = positions[0][0]
+
+    for position in positions:
+        if position[1] < x_min: x_min = position[1]
+        if position[1] > x_max: x_max = position[1]
+        if position[0] < y_min: y_min = position[0]
+        if position[0] > y_max: y_max = position[0]
+
+    return [[round(x_min), round(x_max)], [round(y_min), round(y_max)]]
 
 
 if __name__ == '__main__':
