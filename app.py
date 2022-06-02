@@ -128,7 +128,7 @@ def index():
     global CELL_SIZE
     CELL_SIZE = round(larger_extent / Grid_Resolution)
 
-    G = octilinear_graph(-3, -3, 4, 4, CELL_SIZE)
+    # G = octilinear_graph(-3, -3, 4, 4, CELL_SIZE)
     G = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
 
     color_map_edges = []
@@ -144,7 +144,7 @@ def index():
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
 
-    #G = route_edges(ordered_input_edges, G, metro_map)
+    G = route_edges(ordered_input_edges, G, metro_map)
     Shared_Graph = G
     show_octilinear_graph(G, False)
 
@@ -180,11 +180,11 @@ def get_data_map():
 
 @app.route('/data-graph')
 def get_data_graph():
-    f = open(data_path + 'freiburgGraph.json')
-    data = json.load(f)
-    return json.dumps(data)
-    #graph = nx.node_link_data(Shared_Graph) TODO: Reactivate this - deactivated for faster testing purposes
-    #return json.dumps(graph, indent=4, cls=Encoder)
+    #f = open(data_path + 'freiburgGraph.json')
+    #data = json.load(f)
+    #return json.dumps(data)
+    graph = nx.node_link_data(Shared_Graph) # TODO: Reactivate this - deactivated for faster testing purposes
+    return json.dumps(graph, indent=4, cls=Encoder)
 
 
 def load_data():
@@ -443,13 +443,15 @@ def route_edges(edges, G, metro_map):
                 shortest_path = path
 
         for path_edge in shortest_path:
-            G.edges[path_edge]['line'] = metro_map.edges()[edge]['info'].line_label
+            G.edges[path_edge]['line'] = metro_map.edges()[edge]['info']
 
         final_node0 = shortest_path[0][0]
         final_node1 = shortest_path[-1][1]
 
         G.nodes[final_node0]['isStation'] = True
         G.nodes[final_node1]['isStation'] = True
+        G.nodes[final_node0]['stationInfo'] = node_0
+        G.nodes[final_node1]['stationInfo'] = node_1
         grid_node_dict[node_0] = final_node0
         grid_node_dict[node_1] = final_node1
         # show_octilinear_graph(G, False)
