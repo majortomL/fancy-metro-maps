@@ -144,7 +144,7 @@ def index():
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
 
-    G = route_edges(ordered_input_edges, G, metro_map)
+    #G = route_edges(ordered_input_edges, G, metro_map)
     Shared_Graph = G
     show_octilinear_graph(G, False)
 
@@ -172,11 +172,19 @@ def index():
     return flask.render_template("index.html")
 
 
-@app.route('/data')
-def get_data():
-    graph = nx.node_link_data(Shared_Graph)
+@app.route('/data-map')
+def get_data_map():
     map = nx.node_link_data(Shared_Map)
     return json.dumps(map, indent=4, cls=Encoder)
+
+
+@app.route('/data-graph')
+def get_data_graph():
+    f = open(data_path + 'freiburgGraph.json')
+    data = json.load(f)
+    return json.dumps(data)
+    #graph = nx.node_link_data(Shared_Graph) TODO: Reactivate this - deactivated for faster testing purposes
+    #return json.dumps(graph, indent=4, cls=Encoder)
 
 
 def load_data():
@@ -298,7 +306,7 @@ def show_octilinear_graph(Graph, labels):
     for node in G.nodes:
         pos[node] = node
 
-    #plt.figure(dpi=1200)
+    # plt.figure(dpi=1200)
     nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=labels)
     plt.show()
 
@@ -374,8 +382,9 @@ def route_edges(edges, G, metro_map):
     show_octilinear_graph(G, False)
     grid_node_dict = {}
 
+    num_edges = len(edges)
     # iterate through edges of input graph
-    for edge in edges:
+    for i, edge in enumerate(edges):
         node_0 = edge[0]
         node_1 = edge[1]
 
@@ -396,7 +405,8 @@ def route_edges(edges, G, metro_map):
         for node in list(G.nodes):
             if G.nodes[node]['isStation']:
                 continue
-            if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # check if octilinear node is within radius around input node
+            if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search,
+                                                                                                         2):  # check if octilinear node is within radius around input node
                 candidate_nodes_0.append(node)
 
             if node_1_free and pow(node[0] - node_1.coord_x, 2) + pow(node[1] - node_1.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # same here
@@ -442,8 +452,9 @@ def route_edges(edges, G, metro_map):
         G.nodes[final_node1]['isStation'] = True
         grid_node_dict[node_0] = final_node0
         grid_node_dict[node_1] = final_node1
-        show_octilinear_graph(G, False)
-
+        # show_octilinear_graph(G, False)
+        print("[", i, "/", num_edges,"]")
+    print("done")
     return G  # unsure if I modify per reference or need to return G ... just to be sure I return it
 
 

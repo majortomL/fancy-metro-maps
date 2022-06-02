@@ -1,6 +1,9 @@
 let map = {}
 let graph = {}
 let zoom = 13
+let currentPosition;
+let currentZoom;
+
 let getJSON = function (url, callback) {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -28,6 +31,8 @@ let info = [
     "Geroksruhe"
 ]
 
+// the json arrays for the map and the graph
+let mapData = null
 let graphData = null
 
 let neckarpark = [1024134.05090108, 6234448.47820225]
@@ -36,6 +41,12 @@ neckarpark = convertCoordinates(neckarpark)
 let freiburgCenter = [48, 7.846653]
 setupMap(freiburgCenter, zoom)
 setupGraph(freiburgCenter, zoom)
+
+// sync map movement and zoom with graph movement and zoom
+map.sync(graph)
+// sync graph movement and zoom with map movement and zoom
+graph.sync(map)
+
 drawMetroMap()
 
 function setupMap(point, zoom) {
@@ -111,12 +122,12 @@ function convertCoordinates(point) {
 }
 
 function drawMetroMap() { // draws our metro map with real station coordinates
-    getJSON(window.location.href + "/data",
+    getJSON(window.location.href + '/data-map',
         function (err, data) {
             if (err !== null) {
-                alert("Something went wrong: " + err);
+                alert('Something went wrong: ' + err);
             } else {
-                graphData = data
+                mapData = data
                 // mark each station
                 let stationCoordinates = []
                 data.nodes.forEach(function (node) {
@@ -128,16 +139,34 @@ function drawMetroMap() { // draws our metro map with real station coordinates
                 // mark each line
                 data.links.forEach(function (link) {
                     link.info.line_color.forEach(function (color) {
-                        drawLine(map,[convertCoordinates([link.source.coord_x, link.source.coord_y]), convertCoordinates([link.target.coord_x, link.target.coord_y])], '#' + color)
-                        drawLine(graph,[convertCoordinates([link.source.coord_x, link.source.coord_y]), convertCoordinates([link.target.coord_x, link.target.coord_y])], '#' + color)
+                        drawLine(map, [convertCoordinates([link.source.coord_x, link.source.coord_y]), convertCoordinates([link.target.coord_x, link.target.coord_y])], '#' + color)
+                        drawLine(graph, [convertCoordinates([link.source.coord_x, link.source.coord_y]), convertCoordinates([link.target.coord_x, link.target.coord_y])], '#' + color) // TODO: delete this when done building the graph
                     })
                 })
             }
-        })
+        }
+    )
 }
 
 function drawMetroGraph() { // draws our metro map in the octilinear graph layout
-
+    getJSON(window.location.href + '/data-graph',
+        function (err, data) {
+            if (err !== null) {
+                alert('Something went wrong: ' + err);
+            } else {
+                graphData = data
+                // mark each station
+                let stationCoordinates = []
+                data.nodes.forEach(function(node){
+                    if(node.isStation){
+                        drawMarker(graph, convertCoordinates(node.pos), 'black', 'graph point')
+                    }
+                })
+                data.links.forEach(function (link){
+                    drawLine(graph, [convertCoordinates(link.source), convertCoordinates(link.target)], 'black')
+                })
+            }
+        })
 }
 
 
