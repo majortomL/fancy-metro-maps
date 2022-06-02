@@ -559,6 +559,15 @@
         6106932
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 866948.9481539902,
+        "coord_y": 6106958.339658059,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xf4a360",
+        "station_label": "Bollerstaudenstraße"
+      },
       "id": [
         867186,
         6106932
@@ -1967,6 +1976,15 @@
         6106932
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 867340.9321905655,
+        "coord_y": 6106713.41215995,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1020760",
+        "station_label": "Maria-von-Rudloff-Platz"
+      },
       "id": [
         867660,
         6106932
@@ -2451,6 +2469,15 @@
         6105273
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 867856.930433803,
+        "coord_y": 6104921.323396489,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xf4b230",
+        "station_label": "Munzinger Straße"
+      },
       "id": [
         867897,
         6105273
@@ -3023,6 +3050,15 @@
         6105510
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 868023.7979536955,
+        "coord_y": 6105495.936699058,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101ce40",
+        "station_label": "VAG-Zentrum"
+      },
       "id": [
         868134,
         6105510
@@ -3067,6 +3103,15 @@
         6106458
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 867723.7664096544,
+        "coord_y": 6106431.490177252,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101dfb0",
+        "station_label": "Geschwister-Scholl-Platz"
+      },
       "id": [
         868134,
         6106458
@@ -4167,6 +4212,15 @@
         6105984
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 868371.0302260793,
+        "coord_y": 6106024.855390921,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xfd4b30",
+        "station_label": "Switch Point1"
+      },
       "id": [
         868608,
         6105984
@@ -5289,6 +5343,15 @@
         6105984
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 868707.4790341319,
+        "coord_y": 6105938.248122439,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xeeadc0",
+        "station_label": "Am Lindenwäldle"
+      },
       "id": [
         869082,
         6105984
@@ -5839,6 +5902,15 @@
         6105747
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869356.6341118687,
+        "coord_y": 6105681.419029643,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10071b0",
+        "station_label": "Krozinger Straße"
+      },
       "id": [
         869319,
         6105747
@@ -6433,6 +6505,15 @@
         6106458
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869087.6789471197,
+        "coord_y": 6106441.984543043,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x102efc0",
+        "station_label": "Bugginger Straße"
+      },
       "id": [
         869556,
         6106458
@@ -6554,6 +6635,15 @@
         6109065
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869158.8369559166,
+        "coord_y": 6109124.921259073,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1017330",
+        "station_label": "Paduaallee"
+      },
       "id": [
         869556,
         6109065
@@ -6576,6 +6666,15 @@
         6109539
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869579.7920619419,
+        "coord_y": 6109865.421847866,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1011a80",
+        "station_label": "Moosgrund"
+      },
       "id": [
         869556,
         6109539
@@ -6620,6 +6719,15 @@
         6110487
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869651.6305236303,
+        "coord_y": 6110778.558363916,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x100ef60",
+        "station_label": "Diakoniekrankenhaus"
+      },
       "id": [
         869556,
         6110487
@@ -6653,6 +6761,15 @@
         6111198
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869305.4013636946,
+        "coord_y": 6111597.194882979,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xef5e20",
+        "station_label": "Moosweiher"
+      },
       "id": [
         869556,
         6111198
@@ -7005,6 +7122,15 @@
         6106695
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869393.1123580398,
+        "coord_y": 6106741.923944836,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1028c00",
+        "station_label": "Rohrgraben"
+      },
       "id": [
         869793,
         6106695
@@ -7104,6 +7230,15 @@
         6108828
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 869478.2080429678,
+        "coord_y": 6108704.393491576,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xf22bc0",
+        "station_label": "Betzenhauser Torplatz"
+      },
       "id": [
         869793,
         6108828
@@ -8622,6 +8757,15 @@
         6105273
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870062.6363691376,
+        "coord_y": 6105409.863697146,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101e270",
+        "station_label": "Dorfbrunnen"
+      },
       "id": [
         870504,
         6105273
@@ -9073,6 +9217,15 @@
         6102903
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870274.2164114933,
+        "coord_y": 6102948.3807571735,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xf4c1d0",
+        "station_label": "Innsbrucker Straße"
+      },
       "id": [
         870741,
         6102903
@@ -9304,6 +9457,15 @@
         6107880
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870316.3649319753,
+        "coord_y": 6108007.41133463,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xf591c0",
+        "station_label": "Am Bischofskreuz"
+      },
       "id": [
         870741,
         6107880
@@ -9744,6 +9906,15 @@
         6105273
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870514.923059423,
+        "coord_y": 6105265.289586787,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xef63b0",
+        "station_label": "Scherrerplatz"
+      },
       "id": [
         870978,
         6105273
@@ -9832,6 +10003,15 @@
         6107169
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870535.9928071701,
+        "coord_y": 6107248.1729601,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101caf0",
+        "station_label": "Bissierstraße"
+      },
       "id": [
         870978,
         6107169
@@ -10195,6 +10375,15 @@
         6102903
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870792.8733651668,
+        "coord_y": 6102750.131418524,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10293b0",
+        "station_label": "Vauban-Mitte"
+      },
       "id": [
         871215,
         6102903
@@ -10294,6 +10483,15 @@
         6105036
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870905.0100308711,
+        "coord_y": 6105099.290564468,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1021f40",
+        "station_label": "Haslach Bad"
+      },
       "id": [
         871215,
         6105036
@@ -10404,6 +10602,15 @@
         6107406
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 870895.7425411046,
+        "coord_y": 6107430.847861859,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xeea7b0",
+        "station_label": "Switch Point0"
+      },
       "id": [
         871215,
         6107406
@@ -10965,6 +11172,15 @@
         6107406
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 871149.376852825,
+        "coord_y": 6107195.366712924,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10245f0",
+        "station_label": "Runzmattenweg"
+      },
       "id": [
         871452,
         6107406
@@ -11317,6 +11533,15 @@
         6102903
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 871402.2274797835,
+        "coord_y": 6102558.429809818,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1011e00",
+        "station_label": "Paula-Modersohn-Platz"
+      },
       "id": [
         871689,
         6102903
@@ -11350,6 +11575,15 @@
         6103614
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 871741.2568561774,
+        "coord_y": 6103326.406299801,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101ae50",
+        "station_label": "Peter-Thumb-Straße"
+      },
       "id": [
         871689,
         6103614
@@ -11537,6 +11771,15 @@
         6107643
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 871659.5622910113,
+        "coord_y": 6108053.532290891,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10200b0",
+        "station_label": "Berliner Allee"
+      },
       "id": [
         871689,
         6107643
@@ -11559,6 +11802,15 @@
         6108117
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 871793.4298280807,
+        "coord_y": 6108450.832668153,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1024320",
+        "station_label": "Elsässer Straße"
+      },
       "id": [
         871689,
         6108117
@@ -11944,6 +12196,15 @@
         6104325
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 871555.9979469596,
+        "coord_y": 6104580.429329348,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101b5f0",
+        "station_label": "Pressehaus"
+      },
       "id": [
         871926,
         6104325
@@ -12087,6 +12348,15 @@
         6107406
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872025.648920647,
+        "coord_y": 6107841.46338718,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1025e50",
+        "station_label": "Freiburg Killianstraße"
+      },
       "id": [
         871926,
         6107406
@@ -12615,6 +12885,15 @@
         6106695
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 871903.4284504568,
+        "coord_y": 6106828.949048755,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xf4b860",
+        "station_label": "Rathaus im Stühlinger"
+      },
       "id": [
         872163,
         6106695
@@ -12637,6 +12916,15 @@
         6107169
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872396.147751921,
+        "coord_y": 6107498.172968443,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xf480c0",
+        "station_label": "Robert-Koch-Straße"
+      },
       "id": [
         872163,
         6107169
@@ -12703,6 +12991,15 @@
         6108591
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872234.1299100403,
+        "coord_y": 6108864.307758795,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xf48250",
+        "station_label": "Technische Fakultät"
+      },
       "id": [
         872163,
         6108591
@@ -13066,6 +13363,15 @@
         6104325
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872373.5564745428,
+        "coord_y": 6104240.833951203,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101cb80",
+        "station_label": "Weddigenstraße"
+      },
       "id": [
         872400,
         6104325
@@ -13165,6 +13471,15 @@
         6106458
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872307.702013358,
+        "coord_y": 6106564.558742686,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1026070",
+        "station_label": "Eschholzstraße"
+      },
       "id": [
         872400,
         6106458
@@ -13209,6 +13524,15 @@
         6107406
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872864.0469246696,
+        "coord_y": 6107435.117492458,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10116c0",
+        "station_label": "Friedrich-Ebert-Platz"
+      },
       "id": [
         872400,
         6107406
@@ -13627,6 +13951,15 @@
         6104325
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872325.7653737431,
+        "coord_y": 6104544.710689413,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xf49330",
+        "station_label": "H.-von-Stephan-Straße"
+      },
       "id": [
         872637,
         6104325
@@ -14265,6 +14598,15 @@
         6105984
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872793.1294302876,
+        "coord_y": 6106290.658544485,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101c470",
+        "station_label": "Hauptbahnhof"
+      },
       "id": [
         872874,
         6105984
@@ -14771,6 +15113,15 @@
         6104799
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 872674.6371274581,
+        "coord_y": 6104746.072941343,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xf4b150",
+        "station_label": "Reiterstraße"
+      },
       "id": [
         873111,
         6104799
@@ -14782,6 +15133,15 @@
         6105036
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873104.9565633015,
+        "coord_y": 6105126.115126809,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10132c0",
+        "station_label": "Mattenstraße"
+      },
       "id": [
         873111,
         6105036
@@ -14815,6 +15175,15 @@
         6105747
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873405.9717554587,
+        "coord_y": 6106092.599301003,
+        "degree": "4",
+        "degree_in": "4",
+        "degree_out": "4",
+        "id": "0xf483e0",
+        "station_label": "Stadttheater"
+      },
       "id": [
         873111,
         6105747
@@ -14925,6 +15294,15 @@
         6108117
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873390.9469132139,
+        "coord_y": 6108109.372813286,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101a820",
+        "station_label": "Hauptfriedhof"
+      },
       "id": [
         873111,
         6108117
@@ -15365,6 +15743,15 @@
         6105510
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873338.2237295412,
+        "coord_y": 6105614.855348373,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10172a0",
+        "station_label": "Erbprinzenstraße"
+      },
       "id": [
         873348,
         6105510
@@ -15497,6 +15884,15 @@
         6108354
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873646.1482506145,
+        "coord_y": 6108336.027705901,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1006c70",
+        "station_label": "Rennweg"
+      },
       "id": [
         873348,
         6108354
@@ -15816,6 +16212,15 @@
         6103140
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873585.1509724542,
+        "coord_y": 6102688.62289184,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1023070",
+        "station_label": "Wonnhalde"
+      },
       "id": [
         873585,
         6103140
@@ -15849,6 +16254,15 @@
         6103851
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873623.503707192,
+        "coord_y": 6103467.159026505,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1008aa0",
+        "station_label": "Holbeinstraße"
+      },
       "id": [
         873585,
         6103851
@@ -15882,6 +16296,15 @@
         6104562
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873591.282186812,
+        "coord_y": 6104294.869708492,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xfd0ae0",
+        "station_label": "Lorettostraße"
+      },
       "id": [
         873585,
         6104562
@@ -15915,6 +16338,15 @@
         6105273
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873627.6554554392,
+        "coord_y": 6105009.452839714,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xfd5fc0",
+        "station_label": "Johanneskirche"
+      },
       "id": [
         873585,
         6105273
@@ -15926,6 +16358,15 @@
         6105510
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873696.5718885412,
+        "coord_y": 6105503.034224884,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10252a0",
+        "station_label": "Holzmarkt"
+      },
       "id": [
         873585,
         6105510
@@ -15937,6 +16378,15 @@
         6105747
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873845.3256795934,
+        "coord_y": 6105998.892817168,
+        "degree": "4",
+        "degree_in": "4",
+        "degree_out": "4",
+        "id": "0xf4aeb0",
+        "station_label": "Bertoldsbrunnen"
+      },
       "id": [
         873585,
         6105747
@@ -15959,6 +16409,15 @@
         6106221
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873689.9624549947,
+        "coord_y": 6106588.697042053,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101f1d0",
+        "station_label": "Fahnenbergplatz"
+      },
       "id": [
         873585,
         6106221
@@ -16069,6 +16528,15 @@
         6108591
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 873899.2090406315,
+        "coord_y": 6108569.277105635,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x10156c0",
+        "station_label": "Eichstetter Straße"
+      },
       "id": [
         873585,
         6108591
@@ -16498,6 +16966,15 @@
         6105747
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874249.5195484454,
+        "coord_y": 6105800.590610224,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xf58400",
+        "station_label": "Oberlinden"
+      },
       "id": [
         873822,
         6105747
@@ -17081,6 +17558,15 @@
         6106221
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874171.3576337277,
+        "coord_y": 6106508.078905344,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xf4aad0",
+        "station_label": "Europaplatz"
+      },
       "id": [
         874059,
         6106221
@@ -17433,6 +17919,15 @@
         6101718
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874197.041227959,
+        "coord_y": 6101340.105922524,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1018c00",
+        "station_label": "Wiesenweg"
+      },
       "id": [
         874296,
         6101718
@@ -17598,6 +18093,15 @@
         6105273
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874368.0178619499,
+        "coord_y": 6105331.032157305,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101f750",
+        "station_label": "Schwabentorbrücke"
+      },
       "id": [
         874296,
         6105273
@@ -17675,6 +18179,15 @@
         6106932
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874365.9647906219,
+        "coord_y": 6107370.179267192,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x102bee0",
+        "station_label": "Tennenbacher Straße"
+      },
       "id": [
         874296,
         6106932
@@ -17708,6 +18221,15 @@
         6107643
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874421.1812958359,
+        "coord_y": 6108061.793093174,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xf19570",
+        "station_label": "Hauptstraße"
+      },
       "id": [
         874296,
         6107643
@@ -17741,6 +18263,15 @@
         6108354
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874374.0099460027,
+        "coord_y": 6108692.837338154,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x102e8d0",
+        "station_label": "Okenstraße"
+      },
       "id": [
         874296,
         6108354
@@ -17752,6 +18283,15 @@
         6108591
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874368.791489028,
+        "coord_y": 6109017.646927123,
+        "degree": "3",
+        "degree_in": "3",
+        "degree_out": "3",
+        "id": "0xf19ce0",
+        "station_label": "Komturplatz"
+      },
       "id": [
         874296,
         6108591
@@ -17774,6 +18314,15 @@
         6109065
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874443.2498296768,
+        "coord_y": 6109419.3899331195,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x102b240",
+        "station_label": "Hornusstraße"
+      },
       "id": [
         874296,
         6109065
@@ -17807,6 +18356,15 @@
         6109776
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874630.0492611707,
+        "coord_y": 6110045.784548041,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1029b30",
+        "station_label": "Tullastraße"
+      },
       "id": [
         874296,
         6109776
@@ -17983,6 +18541,15 @@
         6101481
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874506.1947591684,
+        "coord_y": 6101166.688880448,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1017150",
+        "station_label": "Klosterplatz"
+      },
       "id": [
         874533,
         6101481
@@ -18148,6 +18715,15 @@
         6105036
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874805.5557317059,
+        "coord_y": 6105096.93868999,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xfd4d10",
+        "station_label": "Brauerei Ganter"
+      },
       "id": [
         874533,
         6105036
@@ -18533,6 +19109,15 @@
         6101244
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874697.2325639899,
+        "coord_y": 6101006.8448838685,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xf4c630",
+        "station_label": "Dorfstraße"
+      },
       "id": [
         874770,
         6101244
@@ -18951,6 +19536,15 @@
         6110250
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 874781.4099618907,
+        "coord_y": 6110544.966694358,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x102dc20",
+        "station_label": "Reutebachgasse"
+      },
       "id": [
         874770,
         6110250
@@ -18984,6 +19578,15 @@
         6110961
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 875003.2073250349,
+        "coord_y": 6111231.905822824,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1027260",
+        "station_label": "Berggasse"
+      },
       "id": [
         874770,
         6110961
@@ -19831,6 +20434,15 @@
         6105036
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 875503.8337669587,
+        "coord_y": 6104921.959865082,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xf498e0",
+        "station_label": "Maria-Hilf-Kirche"
+      },
       "id": [
         875244,
         6105036
@@ -20700,6 +21312,15 @@
         6111672
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 875189.2972055714,
+        "coord_y": 6111909.375064874,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x102c630",
+        "station_label": "Glottertalstraße"
+      },
       "id": [
         875481,
         6111672
@@ -20733,6 +21354,15 @@
         6112383
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 875329.1767019787,
+        "coord_y": 6112646.146067768,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xf4c0f0",
+        "station_label": "Gundelfinger Str."
+      },
       "id": [
         875481,
         6112383
@@ -20953,6 +21583,15 @@
         6105036
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 875992.2908933498,
+        "coord_y": 6104933.088025831,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x101fff0",
+        "station_label": "Alter Messplatz"
+      },
       "id": [
         875718,
         6105036
@@ -22075,6 +22714,15 @@
         6105036
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 876466.6212734992,
+        "coord_y": 6104856.342415757,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1022640",
+        "station_label": "Musikhochschule"
+      },
       "id": [
         876192,
         6105036
@@ -23175,6 +23823,15 @@
         6104562
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 877101.3950703307,
+        "coord_y": 6104696.428775427,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x1020b20",
+        "station_label": "Emil-Gött-Straße"
+      },
       "id": [
         876666,
         6104562
@@ -24858,6 +25515,15 @@
         6104562
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 877701.0027002936,
+        "coord_y": 6104629.614104933,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0x100a510",
+        "station_label": "Hasemannstraße"
+      },
       "id": [
         877377,
         6104562
@@ -25980,6 +26646,15 @@
         6104562
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 878243.9304351048,
+        "coord_y": 6104517.559885941,
+        "degree": "2",
+        "degree_in": "2",
+        "degree_out": "2",
+        "id": "0xf4c930",
+        "station_label": "Römerhof"
+      },
       "id": [
         877851,
         6104562
@@ -27663,6 +28338,15 @@
         6104562
       ],
       "isStation": true,
+      "stationInfo": {
+        "coord_x": 878787.1755945929,
+        "coord_y": 6104287.40952052,
+        "degree": "1",
+        "degree_in": "1",
+        "degree_out": "1",
+        "id": "0xf495a0",
+        "station_label": "Laßbergstraße"
+      },
       "id": [
         878562,
         6104562
@@ -30617,9 +31301,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          867340.9321905655,
+          6106713.41215995
+        ],
+        "coord_y": [
+          866948.9481539902,
+          6106958.339658059
+        ],
+        "station_from": "0x1020760",
+        "station_to": "0xf4a360",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         867186,
         6106932
@@ -33630,9 +34329,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          867340.9321905655,
+          6106713.41215995
+        ],
+        "coord_y": [
+          866948.9481539902,
+          6106958.339658059
+        ],
+        "station_from": "0x1020760",
+        "station_to": "0xf4a360",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         867423,
         6106932
@@ -35673,9 +36387,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          867723.7664096544,
+          6106431.490177252
+        ],
+        "coord_y": [
+          867390.816013538,
+          6106682.242727481
+        ],
+        "station_from": "0x101dfb0",
+        "station_to": "0x1020760",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         867660,
         6106932
@@ -37386,9 +38115,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          867856.930433803,
+          6104921.323396489
+        ],
+        "coord_y": [
+          867908.6888610737,
+          6104991.273248639
+        ],
+        "station_from": "0xf4b230",
+        "station_to": "0x101ce40",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         867897,
         6105273
@@ -37649,9 +38393,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          867723.7664096544,
+          6106431.490177252
+        ],
+        "coord_y": [
+          867390.816013538,
+          6106682.242727481
+        ],
+        "station_from": "0x101dfb0",
+        "station_to": "0x1020760",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         867897,
         6106695
@@ -39442,9 +40201,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          868023.7979536955,
+          6105495.936699058
+        ],
+        "coord_y": [
+          868040.6616587077,
+          6105569.870871975
+        ],
+        "station_from": "0x101ce40",
+        "station_to": "0xfd4b30",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         868134,
         6105510
@@ -39625,9 +40399,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          868374.3012462937,
+          6106035.078335712
+        ],
+        "coord_y": [
+          868369.3751866862,
+          6106036.654519569
+        ],
+        "station_from": "0xfd4b30",
+        "station_to": "0x101dfb0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         868134,
         6106458
@@ -41498,9 +42287,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          868023.7979536955,
+          6105495.936699058
+        ],
+        "coord_y": [
+          868040.6616587077,
+          6105569.870871975
+        ],
+        "station_from": "0x101ce40",
+        "station_to": "0xfd4b30",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         868371,
         6105747
@@ -41601,9 +42405,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          868374.3012462937,
+          6106035.078335712
+        ],
+        "coord_y": [
+          868369.3751866862,
+          6106036.654519569
+        ],
+        "station_from": "0xfd4b30",
+        "station_to": "0x101dfb0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         868371,
         6106221
@@ -43544,10 +44363,26 @@
       ]
     },
     {
-      "line": [
-        "3",
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          868707.4790341319,
+          6105938.248122439
+        ],
+        "coord_y": [
+          868477.8450320326,
+          6106001.102179365
+        ],
+        "station_from": "0xeeadc0",
+        "station_to": "0xfd4b30",
+        "line_color": [
+          "f59e00",
+          "0000ff"
+        ],
+        "line_label": [
+          "3",
+          "5"
+        ]
+      },
       "source": [
         868608,
         6105984
@@ -45558,10 +46393,26 @@
       ]
     },
     {
-      "line": [
-        "3",
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          868707.4790341319,
+          6105938.248122439
+        ],
+        "coord_y": [
+          868477.8450320326,
+          6106001.102179365
+        ],
+        "station_from": "0xeeadc0",
+        "station_to": "0xfd4b30",
+        "line_color": [
+          "f59e00",
+          "0000ff"
+        ],
+        "line_label": [
+          "3",
+          "5"
+        ]
+      },
       "source": [
         868845,
         6105984
@@ -47582,9 +48433,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          869087.6789471197,
+          6106441.984543043
+        ],
+        "coord_y": [
+          868740.4176036713,
+          6105963.246779138
+        ],
+        "station_from": "0x102efc0",
+        "station_to": "0xeeadc0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         869082,
         6105984
@@ -47605,9 +48471,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          869356.6341118687,
+          6105681.419029643
+        ],
+        "coord_y": [
+          868960.1151293877,
+          6105820.126629798
+        ],
+        "station_from": "0x10071b0",
+        "station_to": "0xeeadc0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         869082,
         6105984
@@ -49548,9 +50429,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870062.6363691376,
+          6105409.863697146
+        ],
+        "coord_y": [
+          869591.0952316953,
+          6105599.401419648
+        ],
+        "station_from": "0x101e270",
+        "station_to": "0x10071b0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         869319,
         6105747
@@ -49641,9 +50537,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          869087.6789471197,
+          6106441.984543043
+        ],
+        "coord_y": [
+          868740.4176036713,
+          6105963.246779138
+        ],
+        "station_from": "0x102efc0",
+        "station_to": "0xeeadc0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         869319,
         6106221
@@ -51564,9 +52475,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870062.6363691376,
+          6105409.863697146
+        ],
+        "coord_y": [
+          869591.0952316953,
+          6105599.401419648
+        ],
+        "station_from": "0x101e270",
+        "station_to": "0x10071b0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         869556,
         6105747
@@ -51697,9 +52623,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          869393.1123580398,
+          6106741.923944836
+        ],
+        "coord_y": [
+          869329.3444411908,
+          6106687.789148084
+        ],
+        "station_from": "0x1028c00",
+        "station_to": "0x102efc0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         869556,
         6106458
@@ -52150,9 +53091,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869579.7920619419,
+          6109865.421847866
+        ],
+        "coord_y": [
+          869442.4213619245,
+          6109653.966450152
+        ],
+        "station_from": "0x1011a80",
+        "station_to": "0x1017330",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6109065
@@ -52163,9 +53119,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869158.8369559166,
+          6109124.921259073
+        ],
+        "coord_y": [
+          869143.8778880625,
+          6109090.64925016
+        ],
+        "station_from": "0x1017330",
+        "station_to": "0xf22bc0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6109065
@@ -52196,9 +53167,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869579.7920619419,
+          6109865.421847866
+        ],
+        "coord_y": [
+          869442.4213619245,
+          6109653.966450152
+        ],
+        "station_from": "0x1011a80",
+        "station_to": "0x1017330",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6109302
@@ -52239,9 +53225,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869651.6305236303,
+          6110778.558363916
+        ],
+        "coord_y": [
+          869780.1131517745,
+          6110422.943961132
+        ],
+        "station_from": "0x100ef60",
+        "station_to": "0x1011a80",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6109539
@@ -52282,9 +53283,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869651.6305236303,
+          6110778.558363916
+        ],
+        "coord_y": [
+          869780.1131517745,
+          6110422.943961132
+        ],
+        "station_from": "0x100ef60",
+        "station_to": "0x1011a80",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6109776
@@ -52325,9 +53341,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869651.6305236303,
+          6110778.558363916
+        ],
+        "coord_y": [
+          869780.1131517745,
+          6110422.943961132
+        ],
+        "station_from": "0x100ef60",
+        "station_to": "0x1011a80",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6110013
@@ -52368,9 +53399,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869651.6305236303,
+          6110778.558363916
+        ],
+        "coord_y": [
+          869780.1131517745,
+          6110422.943961132
+        ],
+        "station_from": "0x100ef60",
+        "station_to": "0x1011a80",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6110250
@@ -52411,9 +53457,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869305.4013636946,
+          6111597.194882979
+        ],
+        "coord_y": [
+          869433.5952112733,
+          6111347.449228497
+        ],
+        "station_from": "0xef5e20",
+        "station_to": "0x100ef60",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6110487
@@ -52454,9 +53515,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869305.4013636946,
+          6111597.194882979
+        ],
+        "coord_y": [
+          869433.5952112733,
+          6111347.449228497
+        ],
+        "station_from": "0xef5e20",
+        "station_to": "0x100ef60",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6110724
@@ -52497,9 +53573,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869305.4013636946,
+          6111597.194882979
+        ],
+        "coord_y": [
+          869433.5952112733,
+          6111347.449228497
+        ],
+        "station_from": "0xef5e20",
+        "station_to": "0x100ef60",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869556,
         6110961
@@ -53610,9 +54701,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870062.6363691376,
+          6105409.863697146
+        ],
+        "coord_y": [
+          869591.0952316953,
+          6105599.401419648
+        ],
+        "station_from": "0x101e270",
+        "station_to": "0x10071b0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         869793,
         6105747
@@ -53773,9 +54879,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870535.9928071701,
+          6107248.1729601
+        ],
+        "coord_y": [
+          870463.4108255067,
+          6107208.5802215515
+        ],
+        "station_from": "0x101caf0",
+        "station_to": "0x1028c00",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         869793,
         6106695
@@ -54166,9 +55287,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869478.2080429678,
+          6108704.393491576
+        ],
+        "coord_y": [
+          870042.2133196797,
+          6108218.555813651
+        ],
+        "station_from": "0xf22bc0",
+        "station_to": "0xf591c0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         869793,
         6108828
@@ -55659,9 +56795,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870062.6363691376,
+          6105409.863697146
+        ],
+        "coord_y": [
+          869591.0952316953,
+          6105599.401419648
+        ],
+        "station_from": "0x101e270",
+        "station_to": "0x10071b0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         870030,
         6105747
@@ -55792,9 +56943,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870535.9928071701,
+          6107248.1729601
+        ],
+        "coord_y": [
+          870463.4108255067,
+          6107208.5802215515
+        ],
+        "station_from": "0x101caf0",
+        "station_to": "0x1028c00",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         870030,
         6106695
@@ -56145,9 +57311,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869478.2080429678,
+          6108704.393491576
+        ],
+        "coord_y": [
+          870042.2133196797,
+          6108218.555813651
+        ],
+        "station_from": "0xf22bc0",
+        "station_to": "0xf591c0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         870030,
         6108591
@@ -57638,9 +58819,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870062.6363691376,
+          6105409.863697146
+        ],
+        "coord_y": [
+          869591.0952316953,
+          6105599.401419648
+        ],
+        "station_from": "0x101e270",
+        "station_to": "0x10071b0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         870267,
         6105510
@@ -57811,9 +59007,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870535.9928071701,
+          6107248.1729601
+        ],
+        "coord_y": [
+          870463.4108255067,
+          6107208.5802215515
+        ],
+        "station_from": "0x101caf0",
+        "station_to": "0x1028c00",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         870267,
         6106695
@@ -58124,9 +59335,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869478.2080429678,
+          6108704.393491576
+        ],
+        "coord_y": [
+          870042.2133196797,
+          6108218.555813651
+        ],
+        "station_from": "0xf22bc0",
+        "station_to": "0xf591c0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         870267,
         6108354
@@ -59587,9 +60813,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870514.923059423,
+          6105265.289586787
+        ],
+        "coord_y": [
+          870227.1838314536,
+          6105353.035677904
+        ],
+        "station_from": "0xef63b0",
+        "station_to": "0x101e270",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         870504,
         6105273
@@ -59840,9 +61081,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870535.9928071701,
+          6107248.1729601
+        ],
+        "coord_y": [
+          870463.4108255067,
+          6107208.5802215515
+        ],
+        "station_from": "0x101caf0",
+        "station_to": "0x1028c00",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         870504,
         6106695
@@ -60103,9 +61359,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          869478.2080429678,
+          6108704.393491576
+        ],
+        "coord_y": [
+          870042.2133196797,
+          6108218.555813651
+        ],
+        "station_from": "0xf22bc0",
+        "station_to": "0xf591c0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         870504,
         6108117
@@ -61206,9 +62477,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870274.2164114933,
+          6102948.3807571735
+        ],
+        "coord_y": [
+          870792.8733651668,
+          6102750.131418524
+        ],
+        "station_from": "0xf4c1d0",
+        "station_to": "0x10293b0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         870741,
         6102903
@@ -61609,9 +62895,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870514.923059423,
+          6105265.289586787
+        ],
+        "coord_y": [
+          870227.1838314536,
+          6105353.035677904
+        ],
+        "station_from": "0xef63b0",
+        "station_to": "0x101e270",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         870741,
         6105273
@@ -61902,9 +63203,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870535.9928071701,
+          6107248.1729601
+        ],
+        "coord_y": [
+          870463.4108255067,
+          6107208.5802215515
+        ],
+        "station_from": "0x101caf0",
+        "station_to": "0x1028c00",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         870741,
         6106932
@@ -62085,9 +63401,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          870316.3649319753,
+          6108007.41133463
+        ],
+        "coord_y": [
+          870571.6076063889,
+          6107825.485217153
+        ],
+        "station_from": "0xf591c0",
+        "station_to": "0xeea7b0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         870741,
         6107880
@@ -63228,9 +64559,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870274.2164114933,
+          6102948.3807571735
+        ],
+        "coord_y": [
+          870792.8733651668,
+          6102750.131418524
+        ],
+        "station_from": "0xf4c1d0",
+        "station_to": "0x10293b0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         870978,
         6102903
@@ -63661,9 +65007,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          870905.0100308711,
+          6105099.290564468
+        ],
+        "coord_y": [
+          870826.3036464902,
+          6105144.844648324
+        ],
+        "station_from": "0x1021f40",
+        "station_to": "0xef63b0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         870978,
         6105273
@@ -63964,9 +65325,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870883.6956334044,
+          6107423.9346372895
+        ],
+        "coord_y": [
+          870880.9308745626,
+          6107426.309525091
+        ],
+        "station_from": "0xeea7b0",
+        "station_to": "0x101caf0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         870978,
         6107169
@@ -64067,9 +65443,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          870316.3649319753,
+          6108007.41133463
+        ],
+        "coord_y": [
+          870571.6076063889,
+          6107825.485217153
+        ],
+        "station_from": "0xf591c0",
+        "station_to": "0xeea7b0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         870978,
         6107643
@@ -65250,9 +66641,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870792.8733651668,
+          6102750.131418524
+        ],
+        "coord_y": [
+          870977.0758935141,
+          6102679.722588249
+        ],
+        "station_from": "0x10293b0",
+        "station_to": "0x1011e00",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         871215,
         6102903
@@ -65643,9 +67049,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          871555.9979469596,
+          6104580.429329348
+        ],
+        "coord_y": [
+          871507.6902601869,
+          6104655.804796413
+        ],
+        "station_from": "0x101b5f0",
+        "station_to": "0x1021f40",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         871215,
         6105036
@@ -66016,10 +67437,26 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870895.7425411046,
+          6107430.847861858
+        ],
+        "coord_y": [
+          870986.4110952587,
+          6107339.518997045
+        ],
+        "station_from": "0xeea7b0",
+        "station_to": "0x10245f0",
+        "line_color": [
+          "e8001b",
+          "f59e00"
+        ],
+        "line_label": [
+          "1",
+          "3"
+        ]
+      },
       "source": [
         871215,
         6107406
@@ -67270,9 +68707,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          870792.8733651668,
+          6102750.131418524
+        ],
+        "coord_y": [
+          870977.0758935141,
+          6102679.722588249
+        ],
+        "station_from": "0x10293b0",
+        "station_to": "0x1011e00",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         871452,
         6102903
@@ -67623,9 +69075,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          871555.9979469596,
+          6104580.429329348
+        ],
+        "coord_y": [
+          871507.6902601869,
+          6104655.804796413
+        ],
+        "station_from": "0x101b5f0",
+        "station_to": "0x1021f40",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         871452,
         6104799
@@ -68066,10 +69533,26 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871149.376852825,
+          6107195.366712924
+        ],
+        "coord_y": [
+          871586.608628799,
+          6107000.647392907
+        ],
+        "station_from": "0x10245f0",
+        "station_to": "0xf4b860",
+        "line_color": [
+          "e8001b",
+          "f59e00"
+        ],
+        "line_label": [
+          "1",
+          "3"
+        ]
+      },
       "source": [
         871452,
         6107406
@@ -69310,9 +70793,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871402.2274797835,
+          6102558.429809818
+        ],
+        "coord_y": [
+          871406.2301332253,
+          6102558.1291017
+        ],
+        "station_from": "0x1011e00",
+        "station_to": "0x101ae50",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         871689,
         6102903
@@ -69353,9 +70851,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871402.2274797835,
+          6102558.429809818
+        ],
+        "coord_y": [
+          871406.2301332253,
+          6102558.1291017
+        ],
+        "station_from": "0x1011e00",
+        "station_to": "0x101ae50",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         871689,
         6103140
@@ -69396,9 +70909,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871402.2274797835,
+          6102558.429809818
+        ],
+        "coord_y": [
+          871406.2301332253,
+          6102558.1291017
+        ],
+        "station_from": "0x1011e00",
+        "station_to": "0x101ae50",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         871689,
         6103377
@@ -69429,9 +70957,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871741.2568561774,
+          6103326.406299801
+        ],
+        "coord_y": [
+          871892.7405582297,
+          6103576.297787394
+        ],
+        "station_from": "0x101ae50",
+        "station_to": "0x101cb80",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         871689,
         6103614
@@ -69612,9 +71155,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          871555.9979469596,
+          6104580.429329348
+        ],
+        "coord_y": [
+          871507.6902601869,
+          6104655.804796413
+        ],
+        "station_from": "0x101b5f0",
+        "station_to": "0x1021f40",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         871689,
         6104562
@@ -70055,10 +71613,26 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871149.376852825,
+          6107195.366712924
+        ],
+        "coord_y": [
+          871586.608628799,
+          6107000.647392907
+        ],
+        "station_from": "0x10245f0",
+        "station_to": "0xf4b860",
+        "line_color": [
+          "e8001b",
+          "f59e00"
+        ],
+        "line_label": [
+          "1",
+          "3"
+        ]
+      },
       "source": [
         871689,
         6107169
@@ -70129,9 +71703,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          871793.4298280807,
+          6108450.832668153
+        ],
+        "coord_y": [
+          871557.8085577905,
+          6108229.767299484
+        ],
+        "station_from": "0x1024320",
+        "station_to": "0x10200b0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         871689,
         6107643
@@ -70142,9 +71731,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          871659.5622910113,
+          6108053.532290891
+        ],
+        "coord_y": [
+          871890.4674742327,
+          6107932.612297373
+        ],
+        "station_from": "0x10200b0",
+        "station_to": "0x1025e50",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         871689,
         6107643
@@ -70175,9 +71779,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          871793.4298280807,
+          6108450.832668153
+        ],
+        "coord_y": [
+          871557.8085577905,
+          6108229.767299484
+        ],
+        "station_from": "0x1024320",
+        "station_to": "0x10200b0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         871689,
         6107880
@@ -70208,9 +71827,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872234.1299100403,
+          6108864.307758795
+        ],
+        "coord_y": [
+          871793.4298280807,
+          6108450.832668153
+        ],
+        "station_from": "0xf48250",
+        "station_to": "0x1024320",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         871689,
         6108117
@@ -71501,9 +73135,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871741.2568561774,
+          6103326.406299801
+        ],
+        "coord_y": [
+          871892.7405582297,
+          6103576.297787394
+        ],
+        "station_from": "0x101ae50",
+        "station_to": "0x101cb80",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         871926,
         6103851
@@ -71574,9 +73223,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          872323.1832221157,
+          6104548.029011072
+        ],
+        "coord_y": [
+          872065.7419490146,
+          6104439.507913923
+        ],
+        "station_from": "0xf49330",
+        "station_to": "0x101b5f0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         871926,
         6104325
@@ -72047,10 +73711,26 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871149.376852825,
+          6107195.366712924
+        ],
+        "coord_y": [
+          871586.608628799,
+          6107000.647392907
+        ],
+        "station_from": "0x10245f0",
+        "station_to": "0xf4b860",
+        "line_color": [
+          "e8001b",
+          "f59e00"
+        ],
+        "line_label": [
+          "1",
+          "3"
+        ]
+      },
       "source": [
         871926,
         6106932
@@ -72131,9 +73811,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872025.648920647,
+          6107841.46338718
+        ],
+        "coord_y": [
+          872363.6666646729,
+          6107549.916258679
+        ],
+        "station_from": "0x1025e50",
+        "station_to": "0xf480c0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         871926,
         6107406
@@ -72274,9 +73969,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872234.1299100403,
+          6108864.307758795
+        ],
+        "coord_y": [
+          871793.4298280807,
+          6108450.832668153
+        ],
+        "station_from": "0xf48250",
+        "station_to": "0x1024320",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         871926,
         6108354
@@ -73567,9 +75277,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          871741.2568561774,
+          6103326.406299801
+        ],
+        "coord_y": [
+          871892.7405582297,
+          6103576.297787394
+        ],
+        "station_from": "0x101ae50",
+        "station_to": "0x101cb80",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         872163,
         6104088
@@ -73600,9 +75325,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          872323.1832221157,
+          6104548.029011072
+        ],
+        "coord_y": [
+          872065.7419490146,
+          6104439.507913923
+        ],
+        "station_from": "0xf49330",
+        "station_to": "0x101b5f0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         872163,
         6104325
@@ -74023,10 +75763,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872399.2486040081,
+          6107492.200365338
+        ],
+        "coord_y": [
+          872392.2138450515,
+          6107492.6592458775
+        ],
+        "station_from": "0xf480c0",
+        "station_to": "0xf4b860",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         872163,
         6106695
@@ -74037,12 +75793,30 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          871904.6866802878,
+          6106821.907408431
+        ],
+        "coord_y": [
+          872079.7850101086,
+          6106715.177138286
+        ],
+        "station_from": "0xf4b860",
+        "station_to": "0x1026070",
+        "line_color": [
+          "e8001b",
+          "13a538",
+          "f59e00",
+          "ea5297"
+        ],
+        "line_label": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
       "source": [
         872163,
         6106695
@@ -74073,10 +75847,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872399.2486040081,
+          6107492.200365338
+        ],
+        "coord_y": [
+          872392.2138450515,
+          6107492.6592458775
+        ],
+        "station_from": "0xf480c0",
+        "station_to": "0xf4b860",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         872163,
         6106932
@@ -74107,9 +75897,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          872409.59502543,
+          6107491.663324597
+        ],
+        "coord_y": [
+          872448.3547581108,
+          6107469.142043939
+        ],
+        "station_from": "0xf480c0",
+        "station_to": "0x10116c0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         872163,
         6107169
@@ -75630,9 +77435,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          872373.5564745428,
+          6104240.833951203
+        ],
+        "coord_y": [
+          872380.7408815204,
+          6104284.248475114
+        ],
+        "station_from": "0x101cb80",
+        "station_to": "0xf49330",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         872400,
         6104325
@@ -76023,12 +77843,30 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872307.702013358,
+          6106564.558742686
+        ],
+        "coord_y": [
+          872643.5620068924,
+          6106342.606485281
+        ],
+        "station_from": "0x1026070",
+        "station_to": "0x101c470",
+        "line_color": [
+          "e8001b",
+          "13a538",
+          "f59e00",
+          "ea5297"
+        ],
+        "line_label": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
       "source": [
         872400,
         6106458
@@ -76169,9 +78007,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          872864.0469246696,
+          6107435.117492458
+        ],
+        "coord_y": [
+          873148.7569939523,
+          6107690.49738503
+        ],
+        "station_from": "0x10116c0",
+        "station_to": "0x101a820",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         872400,
         6107406
@@ -77662,10 +79515,26 @@
       ]
     },
     {
-      "line": [
-        "3",
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          872674.5929997431,
+          6104746.373536246
+        ],
+        "coord_y": [
+          872500.5777184742,
+          6104635.085447332
+        ],
+        "station_from": "0xf4b150",
+        "station_to": "0xf49330",
+        "line_color": [
+          "f59e00",
+          "0000ff"
+        ],
+        "line_label": [
+          "3",
+          "5"
+        ]
+      },
       "source": [
         872637,
         6104325
@@ -78006,12 +79875,30 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872307.702013358,
+          6106564.558742686
+        ],
+        "coord_y": [
+          872643.5620068924,
+          6106342.606485281
+        ],
+        "station_from": "0x1026070",
+        "station_to": "0x101c470",
+        "line_color": [
+          "e8001b",
+          "13a538",
+          "f59e00",
+          "ea5297"
+        ],
+        "line_label": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
       "source": [
         872637,
         6106221
@@ -78232,9 +80119,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          872864.0469246696,
+          6107435.117492458
+        ],
+        "coord_y": [
+          873148.7569939523,
+          6107690.49738503
+        ],
+        "station_from": "0x10116c0",
+        "station_to": "0x101a820",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         872637,
         6107643
@@ -79725,10 +81627,26 @@
       ]
     },
     {
-      "line": [
-        "3",
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          872674.5929997431,
+          6104746.373536246
+        ],
+        "coord_y": [
+          872500.5777184742,
+          6104635.085447332
+        ],
+        "station_from": "0xf4b150",
+        "station_to": "0xf49330",
+        "line_color": [
+          "f59e00",
+          "0000ff"
+        ],
+        "line_label": [
+          "3",
+          "5"
+        ]
+      },
       "source": [
         872874,
         6104562
@@ -79989,12 +81907,30 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          872793.1294302876,
+          6106290.658544485
+        ],
+        "coord_y": [
+          873404.3177999719,
+          6106094.107174367
+        ],
+        "station_from": "0x101c470",
+        "station_to": "0xf483e0",
+        "line_color": [
+          "e8001b",
+          "13a538",
+          "f59e00",
+          "ea5297"
+        ],
+        "line_label": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
       "source": [
         872874,
         6105984
@@ -80295,9 +82231,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          872864.0469246696,
+          6107435.117492458
+        ],
+        "coord_y": [
+          873148.7569939523,
+          6107690.49738503
+        ],
+        "station_from": "0x10116c0",
+        "station_to": "0x101a820",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         872874,
         6107880
@@ -81788,9 +83739,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          872682.7453455116,
+          6104735.975841995
+        ],
+        "coord_y": [
+          872702.6498175086,
+          6104737.521555173
+        ],
+        "station_from": "0xf4b150",
+        "station_to": "0xfd5fc0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         873111,
         6104799
@@ -81801,9 +83767,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          873104.9565633015,
+          6105126.115126809
+        ],
+        "coord_y": [
+          872666.57303712,
+          6104755.869445785
+        ],
+        "station_from": "0x10132c0",
+        "station_to": "0xf4b150",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873111,
         6104799
@@ -81844,9 +83825,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          873338.2237295412,
+          6105614.855348373
+        ],
+        "coord_y": [
+          873337.9673974791,
+          6105400.754085885
+        ],
+        "station_from": "0x10172a0",
+        "station_to": "0x10132c0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873111,
         6105036
@@ -81877,9 +83873,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          873338.2237295412,
+          6105614.855348373
+        ],
+        "coord_y": [
+          873337.9673974791,
+          6105400.754085885
+        ],
+        "station_from": "0x10172a0",
+        "station_to": "0x10132c0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873111,
         6105273
@@ -81950,12 +83961,30 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          873405.8912123207,
+          6106093.602229143
+        ],
+        "coord_y": [
+          873423.3089582231,
+          6106088.008399352
+        ],
+        "station_from": "0xf483e0",
+        "station_to": "0xf4aeb0",
+        "line_color": [
+          "e8001b",
+          "13a538",
+          "f59e00",
+          "ea5297"
+        ],
+        "line_label": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
       "source": [
         873111,
         6105747
@@ -81966,9 +83995,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          873689.9624549947,
+          6106588.697042053
+        ],
+        "coord_y": [
+          873497.388242011,
+          6106310.472232922
+        ],
+        "station_from": "0x101f1d0",
+        "station_to": "0xf483e0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873111,
         6105747
@@ -81989,9 +84033,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          873406.6778524499,
+          6106090.6582349595
+        ],
+        "coord_y": [
+          873338.4425229375,
+          6105797.602453943
+        ],
+        "station_from": "0xf483e0",
+        "station_to": "0x10172a0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873111,
         6105747
@@ -82372,9 +84431,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873390.9469132139,
+          6108109.372813286
+        ],
+        "coord_y": [
+          873479.4257401419,
+          6108212.247376531
+        ],
+        "station_from": "0x101a820",
+        "station_to": "0x1006c70",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873111,
         6108117
@@ -83865,9 +85939,24 @@
       ]
     },
     {
-      "line": [
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          872682.7453455116,
+          6104735.975841995
+        ],
+        "coord_y": [
+          872702.6498175086,
+          6104737.521555173
+        ],
+        "station_from": "0xf4b150",
+        "station_to": "0xfd5fc0",
+        "line_color": [
+          "f59e00"
+        ],
+        "line_label": [
+          "3"
+        ]
+      },
       "source": [
         873348,
         6105036
@@ -83978,12 +86067,30 @@
       ]
     },
     {
-      "line": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          873405.8912123207,
+          6106093.602229143
+        ],
+        "coord_y": [
+          873423.3089582231,
+          6106088.008399352
+        ],
+        "station_from": "0xf483e0",
+        "station_to": "0xf4aeb0",
+        "line_color": [
+          "e8001b",
+          "13a538",
+          "f59e00",
+          "ea5297"
+        ],
+        "line_label": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ]
+      },
       "source": [
         873348,
         6105747
@@ -84034,9 +86141,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          873689.9624549947,
+          6106588.697042053
+        ],
+        "coord_y": [
+          873497.388242011,
+          6106310.472232922
+        ],
+        "station_from": "0x101f1d0",
+        "station_to": "0xf483e0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873348,
         6105984
@@ -84437,9 +86559,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873646.1482506145,
+          6108336.027705901
+        ],
+        "coord_y": [
+          873666.3033935642,
+          6108348.416814206
+        ],
+        "station_from": "0x1006c70",
+        "station_to": "0x10156c0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873348,
         6108354
@@ -85460,9 +87597,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874197.041227959,
+          6101340.105922524
+        ],
+        "coord_y": [
+          874117.9976765155,
+          6101386.902680211
+        ],
+        "station_from": "0x1018c00",
+        "station_to": "0x1023070",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6102429
@@ -85473,9 +87625,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874197.041227959,
+          6101340.105922524
+        ],
+        "coord_y": [
+          874117.9976765155,
+          6101386.902680211
+        ],
+        "station_from": "0x1018c00",
+        "station_to": "0x1023070",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6102429
@@ -85506,9 +87673,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874197.041227959,
+          6101340.105922524
+        ],
+        "coord_y": [
+          874117.9976765155,
+          6101386.902680211
+        ],
+        "station_from": "0x1018c00",
+        "station_to": "0x1023070",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6102666
@@ -85549,9 +87731,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874197.041227959,
+          6101340.105922524
+        ],
+        "coord_y": [
+          874117.9976765155,
+          6101386.902680211
+        ],
+        "station_from": "0x1018c00",
+        "station_to": "0x1023070",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6102903
@@ -85592,9 +87789,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873585.1509724542,
+          6102688.62289184
+        ],
+        "coord_y": [
+          873621.470891706,
+          6103406.004708393
+        ],
+        "station_from": "0x1023070",
+        "station_to": "0x1008aa0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6103140
@@ -85635,9 +87847,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873585.1509724542,
+          6102688.62289184
+        ],
+        "coord_y": [
+          873621.470891706,
+          6103406.004708393
+        ],
+        "station_from": "0x1023070",
+        "station_to": "0x1008aa0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6103377
@@ -85678,9 +87905,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873585.1509724542,
+          6102688.62289184
+        ],
+        "coord_y": [
+          873621.470891706,
+          6103406.004708393
+        ],
+        "station_from": "0x1023070",
+        "station_to": "0x1008aa0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6103614
@@ -85721,9 +87963,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873623.503707192,
+          6103467.159026505
+        ],
+        "coord_y": [
+          873629.8987730739,
+          6103659.545347825
+        ],
+        "station_from": "0x1008aa0",
+        "station_to": "0xfd0ae0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6103851
@@ -85764,9 +88021,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873623.503707192,
+          6103467.159026505
+        ],
+        "coord_y": [
+          873629.8987730739,
+          6103659.545347825
+        ],
+        "station_from": "0x1008aa0",
+        "station_to": "0xfd0ae0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6104088
@@ -85807,9 +88079,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873623.503707192,
+          6103467.159026505
+        ],
+        "coord_y": [
+          873629.8987730739,
+          6103659.545347825
+        ],
+        "station_from": "0x1008aa0",
+        "station_to": "0xfd0ae0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6104325
@@ -85850,9 +88137,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873591.282186812,
+          6104294.869708492
+        ],
+        "coord_y": [
+          873588.8957597167,
+          6104387.439181963
+        ],
+        "station_from": "0xfd0ae0",
+        "station_to": "0xfd5fc0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6104562
@@ -85893,9 +88195,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873591.282186812,
+          6104294.869708492
+        ],
+        "coord_y": [
+          873588.8957597167,
+          6104387.439181963
+        ],
+        "station_from": "0xfd0ae0",
+        "station_to": "0xfd5fc0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6104799
@@ -85936,9 +88253,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873591.282186812,
+          6104294.869708492
+        ],
+        "coord_y": [
+          873588.8957597167,
+          6104387.439181963
+        ],
+        "station_from": "0xfd0ae0",
+        "station_to": "0xfd5fc0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6105036
@@ -85979,10 +88311,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          873627.6554554392,
+          6105009.452839714
+        ],
+        "coord_y": [
+          873656.2926921183,
+          6105239.152988989
+        ],
+        "station_from": "0xfd5fc0",
+        "station_to": "0x10252a0",
+        "line_color": [
+          "13a538",
+          "f59e00"
+        ],
+        "line_label": [
+          "2",
+          "3"
+        ]
+      },
       "source": [
         873585,
         6105273
@@ -86023,10 +88371,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "3"
-      ],
+      "line": {
+        "coord_x": [
+          873696.5718885412,
+          6105503.034224884
+        ],
+        "coord_y": [
+          873742.8752334778,
+          6105806.381485332
+        ],
+        "station_from": "0x10252a0",
+        "station_to": "0xf4aeb0",
+        "line_color": [
+          "13a538",
+          "f59e00"
+        ],
+        "line_label": [
+          "2",
+          "3"
+        ]
+      },
       "source": [
         873585,
         6105510
@@ -86047,9 +88411,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          873860.2625416871,
+          6105970.884603128
+        ],
+        "coord_y": [
+          874202.1366489585,
+          6105841.969013127
+        ],
+        "station_from": "0xf4aeb0",
+        "station_to": "0xf58400",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         873585,
         6105747
@@ -86060,9 +88439,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          873859.5858720121,
+          6106033.730821075
+        ],
+        "coord_y": [
+          873870.6355838478,
+          6106049.295094258
+        ],
+        "station_from": "0xf4aeb0",
+        "station_to": "0xf4aad0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         873585,
         6105747
@@ -86133,9 +88527,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          874169.8976513623,
+          6106508.334062463
+        ],
+        "coord_y": [
+          873723.46199986,
+          6106592.152481804
+        ],
+        "station_from": "0xf4aad0",
+        "station_to": "0x101f1d0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873585,
         6106221
@@ -86536,9 +88945,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873899.2090406315,
+          6108569.277105635
+        ],
+        "coord_y": [
+          874202.5905595865,
+          6108873.009882586
+        ],
+        "station_from": "0x10156c0",
+        "station_to": "0xf19ce0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873585,
         6108591
@@ -87499,9 +89923,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874197.041227959,
+          6101340.105922524
+        ],
+        "coord_y": [
+          874117.9976765155,
+          6101386.902680211
+        ],
+        "station_from": "0x1018c00",
+        "station_to": "0x1023070",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873822,
         6102192
@@ -88102,9 +90541,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          874249.5195484454,
+          6105800.590610224
+        ],
+        "coord_y": [
+          874259.7583635524,
+          6105789.449543266
+        ],
+        "station_from": "0xf58400",
+        "station_to": "0x101f750",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         873822,
         6105747
@@ -88125,9 +90579,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          873859.5858720121,
+          6106033.730821075
+        ],
+        "coord_y": [
+          873870.6355838478,
+          6106049.295094258
+        ],
+        "station_from": "0xf4aeb0",
+        "station_to": "0xf4aad0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         873822,
         6105984
@@ -88158,9 +90627,24 @@
       ]
     },
     {
-      "line": [
-        "5"
-      ],
+      "line": {
+        "coord_x": [
+          874169.8976513623,
+          6106508.334062463
+        ],
+        "coord_y": [
+          873723.46199986,
+          6106592.152481804
+        ],
+        "station_from": "0xf4aad0",
+        "station_to": "0x101f1d0",
+        "line_color": [
+          "0000ff"
+        ],
+        "line_label": [
+          "5"
+        ]
+      },
       "source": [
         873822,
         6106221
@@ -88561,9 +91045,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873899.2090406315,
+          6108569.277105635
+        ],
+        "coord_y": [
+          874202.5905595865,
+          6108873.009882586
+        ],
+        "station_from": "0x10156c0",
+        "station_to": "0xf19ce0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         873822,
         6108591
@@ -89484,9 +91983,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874197.041227959,
+          6101340.105922524
+        ],
+        "coord_y": [
+          874117.9976765155,
+          6101386.902680211
+        ],
+        "station_from": "0x1018c00",
+        "station_to": "0x1023070",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         874059,
         6101955
@@ -90087,9 +92601,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          874249.5195484454,
+          6105800.590610224
+        ],
+        "coord_y": [
+          874259.7583635524,
+          6105789.449543266
+        ],
+        "station_from": "0xf58400",
+        "station_to": "0x101f750",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         874059,
         6105510
@@ -90190,9 +92719,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874365.9647906219,
+          6107370.179267192
+        ],
+        "coord_y": [
+          874339.9451684712,
+          6107215.90120911
+        ],
+        "station_from": "0x102bee0",
+        "station_to": "0xf4aad0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874059,
         6106221
@@ -90583,9 +93127,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          873899.2090406315,
+          6108569.277105635
+        ],
+        "coord_y": [
+          874202.5905595865,
+          6108873.009882586
+        ],
+        "station_from": "0x10156c0",
+        "station_to": "0xf19ce0",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         874059,
         6108591
@@ -91466,9 +94025,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874506.1947591684,
+          6101166.688880448
+        ],
+        "coord_y": [
+          874505.0638029882,
+          6101167.40787158
+        ],
+        "station_from": "0x1017150",
+        "station_to": "0x1018c00",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         874296,
         6101718
@@ -92069,9 +94643,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          874368.0178619499,
+          6105331.032157305
+        ],
+        "coord_y": [
+          874385.3841808878,
+          6105309.243154365
+        ],
+        "station_from": "0x101f750",
+        "station_to": "0xfd4d10",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         874296,
         6105273
@@ -92262,9 +94851,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874365.9647906219,
+          6107370.179267192
+        ],
+        "coord_y": [
+          874339.9451684712,
+          6107215.90120911
+        ],
+        "station_from": "0x102bee0",
+        "station_to": "0xf4aad0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6106458
@@ -92305,9 +94909,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874365.9647906219,
+          6107370.179267192
+        ],
+        "coord_y": [
+          874339.9451684712,
+          6107215.90120911
+        ],
+        "station_from": "0x102bee0",
+        "station_to": "0xf4aad0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6106695
@@ -92348,9 +94967,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874421.1812958359,
+          6108061.793093174
+        ],
+        "coord_y": [
+          874425.4446256311,
+          6108034.153803359
+        ],
+        "station_from": "0xf19570",
+        "station_to": "0x102bee0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6106932
@@ -92391,9 +95025,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874421.1812958359,
+          6108061.793093174
+        ],
+        "coord_y": [
+          874425.4446256311,
+          6108034.153803359
+        ],
+        "station_from": "0xf19570",
+        "station_to": "0x102bee0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6107169
@@ -92434,9 +95083,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874421.1812958359,
+          6108061.793093174
+        ],
+        "coord_y": [
+          874425.4446256311,
+          6108034.153803359
+        ],
+        "station_from": "0xf19570",
+        "station_to": "0x102bee0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6107406
@@ -92477,9 +95141,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874374.0099460027,
+          6108692.837338154
+        ],
+        "coord_y": [
+          874372.647905218,
+          6108506.521340654
+        ],
+        "station_from": "0x102e8d0",
+        "station_to": "0xf19570",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6107643
@@ -92520,9 +95199,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874374.0099460027,
+          6108692.837338154
+        ],
+        "coord_y": [
+          874372.647905218,
+          6108506.521340654
+        ],
+        "station_from": "0x102e8d0",
+        "station_to": "0xf19570",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6107880
@@ -92563,9 +95257,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874374.0099460027,
+          6108692.837338154
+        ],
+        "coord_y": [
+          874372.647905218,
+          6108506.521340654
+        ],
+        "station_from": "0x102e8d0",
+        "station_to": "0xf19570",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6108117
@@ -92606,9 +95315,24 @@
       ]
     },
     {
-      "line": [
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874370.1303419129,
+          6109016.336657129
+        ],
+        "coord_y": [
+          874346.333566217,
+          6108879.246173599
+        ],
+        "station_from": "0xf19ce0",
+        "station_to": "0x102e8d0",
+        "line_color": [
+          "ea5297"
+        ],
+        "line_label": [
+          "4"
+        ]
+      },
       "source": [
         874296,
         6108354
@@ -92649,10 +95373,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874368.791489028,
+          6109017.646927124
+        ],
+        "coord_y": [
+          874394.8715591679,
+          6109140.1195996795
+        ],
+        "station_from": "0xf19ce0",
+        "station_to": "0x102b240",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874296,
         6108591
@@ -92693,10 +95433,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874368.791489028,
+          6109017.646927124
+        ],
+        "coord_y": [
+          874394.8715591679,
+          6109140.1195996795
+        ],
+        "station_from": "0xf19ce0",
+        "station_to": "0x102b240",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874296,
         6108828
@@ -92737,10 +95493,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874443.2498296768,
+          6109419.3899331195
+        ],
+        "coord_y": [
+          874630.0492611707,
+          6110045.784548041
+        ],
+        "station_from": "0x102b240",
+        "station_to": "0x1029b30",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874296,
         6109065
@@ -92781,10 +95553,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874443.2498296768,
+          6109419.3899331195
+        ],
+        "coord_y": [
+          874630.0492611707,
+          6110045.784548041
+        ],
+        "station_from": "0x102b240",
+        "station_to": "0x1029b30",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874296,
         6109302
@@ -92825,10 +95613,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874443.2498296768,
+          6109419.3899331195
+        ],
+        "coord_y": [
+          874630.0492611707,
+          6110045.784548041
+        ],
+        "station_from": "0x102b240",
+        "station_to": "0x1029b30",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874296,
         6109539
@@ -92859,10 +95663,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874630.0492611707,
+          6110045.784548041
+        ],
+        "coord_y": [
+          874701.0389318619,
+          6110283.834241664
+        ],
+        "station_from": "0x1029b30",
+        "station_to": "0x102dc20",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874296,
         6109776
@@ -93493,9 +96313,24 @@
       ]
     },
     {
-      "line": [
-        "2"
-      ],
+      "line": {
+        "coord_x": [
+          874697.2325639899,
+          6101006.8448838685
+        ],
+        "coord_y": [
+          874658.2120527255,
+          6101061.699254818
+        ],
+        "station_from": "0xf4c630",
+        "station_to": "0x1017150",
+        "line_color": [
+          "13a538"
+        ],
+        "line_label": [
+          "2"
+        ]
+      },
       "source": [
         874533,
         6101481
@@ -94066,9 +96901,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          874805.5557317059,
+          6105096.93868999
+        ],
+        "coord_y": [
+          874811.8522882008,
+          6105093.921471411
+        ],
+        "station_from": "0xfd4d10",
+        "station_to": "0xf498e0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         874533,
         6105036
@@ -94919,10 +97769,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874630.0492611707,
+          6110045.784548041
+        ],
+        "coord_y": [
+          874701.0389318619,
+          6110283.834241664
+        ],
+        "station_from": "0x1029b30",
+        "station_to": "0x102dc20",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874533,
         6110013
@@ -96083,9 +98949,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          874805.5557317059,
+          6105096.93868999
+        ],
+        "coord_y": [
+          874811.8522882008,
+          6105093.921471411
+        ],
+        "station_from": "0xfd4d10",
+        "station_to": "0xf498e0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         874770,
         6105036
@@ -96986,10 +99867,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874781.4099618907,
+          6110544.966694358
+        ],
+        "coord_y": [
+          874799.9609493753,
+          6110605.240462904
+        ],
+        "station_from": "0x102dc20",
+        "station_to": "0x1027260",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874770,
         6110250
@@ -97030,10 +99927,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874781.4099618907,
+          6110544.966694358
+        ],
+        "coord_y": [
+          874799.9609493753,
+          6110605.240462904
+        ],
+        "station_from": "0x102dc20",
+        "station_to": "0x1027260",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874770,
         6110487
@@ -97074,10 +99987,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          874781.4099618907,
+          6110544.966694358
+        ],
+        "coord_y": [
+          874799.9609493753,
+          6110605.240462904
+        ],
+        "station_from": "0x102dc20",
+        "station_to": "0x1027260",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874770,
         6110724
@@ -97108,10 +100037,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          875003.2073250349,
+          6111231.905822824
+        ],
+        "coord_y": [
+          875049.9450050818,
+          6111506.200135112
+        ],
+        "station_from": "0x1027260",
+        "station_to": "0x102c630",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         874770,
         6110961
@@ -98112,9 +101057,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          874805.5557317059,
+          6105096.93868999
+        ],
+        "coord_y": [
+          874811.8522882008,
+          6105093.921471411
+        ],
+        "station_from": "0xfd4d10",
+        "station_to": "0xf498e0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         875007,
         6105036
@@ -99165,10 +102125,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          875003.2073250349,
+          6111231.905822824
+        ],
+        "coord_y": [
+          875049.9450050818,
+          6111506.200135112
+        ],
+        "station_from": "0x1027260",
+        "station_to": "0x102c630",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         875007,
         6111198
@@ -100129,9 +103105,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          875503.8337669587,
+          6104921.959865082
+        ],
+        "coord_y": [
+          875752.7913228157,
+          6104937.8146911515
+        ],
+        "station_from": "0xf498e0",
+        "station_to": "0x101fff0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         875244,
         6105036
@@ -101222,10 +104213,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          875003.2073250349,
+          6111231.905822824
+        ],
+        "coord_y": [
+          875049.9450050818,
+          6111506.200135112
+        ],
+        "station_from": "0x1027260",
+        "station_to": "0x102c630",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         875244,
         6111435
@@ -102146,9 +105153,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          875503.8337669587,
+          6104921.959865082
+        ],
+        "coord_y": [
+          875752.7913228157,
+          6104937.8146911515
+        ],
+        "station_from": "0xf498e0",
+        "station_to": "0x101fff0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         875481,
         6105036
@@ -103289,10 +106311,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          875189.2972055714,
+          6111909.375064874
+        ],
+        "coord_y": [
+          875206.9691513416,
+          6111958.772617275
+        ],
+        "station_from": "0x102c630",
+        "station_to": "0xf4c0f0",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         875481,
         6111672
@@ -103333,10 +106371,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          875189.2972055714,
+          6111909.375064874
+        ],
+        "coord_y": [
+          875206.9691513416,
+          6111958.772617275
+        ],
+        "station_from": "0x102c630",
+        "station_to": "0xf4c0f0",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         875481,
         6111909
@@ -103377,10 +106431,26 @@
       ]
     },
     {
-      "line": [
-        "2",
-        "4"
-      ],
+      "line": {
+        "coord_x": [
+          875189.2972055714,
+          6111909.375064874
+        ],
+        "coord_y": [
+          875206.9691513416,
+          6111958.772617275
+        ],
+        "station_from": "0x102c630",
+        "station_to": "0xf4c0f0",
+        "line_color": [
+          "13a538",
+          "ea5297"
+        ],
+        "line_label": [
+          "2",
+          "4"
+        ]
+      },
       "source": [
         875481,
         6112146
@@ -104171,9 +107241,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          875992.2908933498,
+          6104933.088025831
+        ],
+        "coord_y": [
+          875997.0696109759,
+          6104932.830504819
+        ],
+        "station_from": "0x101fff0",
+        "station_to": "0x1022640",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         875718,
         6105036
@@ -106184,9 +109269,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          875992.2908933498,
+          6104933.088025831
+        ],
+        "coord_y": [
+          875997.0696109759,
+          6104932.830504819
+        ],
+        "station_from": "0x101fff0",
+        "station_to": "0x1022640",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         875955,
         6105036
@@ -108227,9 +111327,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          876466.6212734992,
+          6104856.342415757
+        ],
+        "coord_y": [
+          876619.7016705768,
+          6104828.620688723
+        ],
+        "station_from": "0x1022640",
+        "station_to": "0x1020b20",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         876192,
         6105036
@@ -110200,9 +113315,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          876466.6212734992,
+          6104856.342415757
+        ],
+        "coord_y": [
+          876619.7016705768,
+          6104828.620688723
+        ],
+        "station_from": "0x1022640",
+        "station_to": "0x1020b20",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         876429,
         6104799
@@ -112143,9 +115273,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          877101.3950703307,
+          6104696.428775427
+        ],
+        "coord_y": [
+          877206.3497128024,
+          6104694.7599938195
+        ],
+        "station_from": "0x1020b20",
+        "station_to": "0x100a510",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         876666,
         6104562
@@ -114156,9 +117301,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          877101.3950703307,
+          6104696.428775427
+        ],
+        "coord_y": [
+          877206.3497128024,
+          6104694.7599938195
+        ],
+        "station_from": "0x1020b20",
+        "station_to": "0x100a510",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         876903,
         6104562
@@ -116169,9 +119329,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          877101.3950703307,
+          6104696.428775427
+        ],
+        "coord_y": [
+          877206.3497128024,
+          6104694.7599938195
+        ],
+        "station_from": "0x1020b20",
+        "station_to": "0x100a510",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         877140,
         6104562
@@ -118182,9 +121357,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          877701.0027002936,
+          6104629.614104933
+        ],
+        "coord_y": [
+          878013.1175621031,
+          6104577.769888731
+        ],
+        "station_from": "0x100a510",
+        "station_to": "0xf4c930",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         877377,
         6104562
@@ -120195,9 +123385,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          877701.0027002936,
+          6104629.614104933
+        ],
+        "coord_y": [
+          878013.1175621031,
+          6104577.769888731
+        ],
+        "station_from": "0x100a510",
+        "station_to": "0xf4c930",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         877614,
         6104562
@@ -122208,9 +125413,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          878243.9304351048,
+          6104517.559885941
+        ],
+        "coord_y": [
+          878367.9582540283,
+          6104476.278511396
+        ],
+        "station_from": "0xf4c930",
+        "station_to": "0xf495a0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         877851,
         6104562
@@ -124221,9 +127441,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          878243.9304351048,
+          6104517.559885941
+        ],
+        "coord_y": [
+          878367.9582540283,
+          6104476.278511396
+        ],
+        "station_from": "0xf4c930",
+        "station_to": "0xf495a0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         878088,
         6104562
@@ -126234,9 +129469,24 @@
       ]
     },
     {
-      "line": [
-        "1"
-      ],
+      "line": {
+        "coord_x": [
+          878243.9304351048,
+          6104517.559885941
+        ],
+        "coord_y": [
+          878367.9582540283,
+          6104476.278511396
+        ],
+        "station_from": "0xf4c930",
+        "station_to": "0xf495a0",
+        "line_color": [
+          "e8001b"
+        ],
+        "line_label": [
+          "1"
+        ]
+      },
       "source": [
         878325,
         6104562
