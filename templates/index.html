@@ -10,6 +10,8 @@
             crossorigin=""></script>
     <!-- leaflet map syncer -->
     <script type="text/javascript" src="{{ url_for('static', filename='L.Map.Sync.js') }}"></script>
+    <!-- leaflet polyline offset plugin -->
+    <script type="text/javascript" src="{{ url_for('static', filename='leaflet.polylineoffset.js') }}"></script>
     <!-- proj4j -->
     <script type="text/javascript" src="{{ url_for('static', filename='proj4.js') }}"></script>
 </head>
@@ -21,7 +23,19 @@
     Tom Lautenbach - 12044805
 </div>
 <div id="map-label">Input Data: Undirected Graph of Stations and Lines</div>
-<div id="map" class="map-div"></div>
-<div id="graph" class="map-div"></div>
+<div id="map-container" class="container">
+    <div id="map" class="map-container"></div>
+</div>
+<div id="graph-container" class="container">
+    <div id="graph" class="map-container"></div>
+    <div>
+        Map overlay:
+        <input type="radio" id="map-overlay-on" name="map-overlay" value="on"> <label for="map-overlay-on">On</label>
+        <input type="radio" id="map-overlay-off" name="map-overlay" value="off" checked="checked"> <label for="map-overlay-off">Off</label>
+        Data source:
+        <input type="radio" id="realtime-calculation-on" name="data-source" value="on"> <label for="realtime-calculation-on">Real-Time Calculation</label>
+        <input type="radio" id="realtime-calculation-off" name="data-source" value="off"> <label for="realtime-calculation-off">Precalculated JSON</label>
+    </div>
+</div>
 <script type="text/javascript" src="{{ url_for('static',filename='frontend.js') }}"></script>
 </body>
