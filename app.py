@@ -8,6 +8,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+from operator import attrgetter
 
 app = flask.Flask(__name__)
 data_path = 'data/'
@@ -20,7 +21,8 @@ cost_dictionary = {
     180: 0,
     135: 1,
     90: 1.5,
-    45: 2
+    45: 2,
+    0: float('inf')
 }
 
 c_180 = 0
@@ -37,7 +39,7 @@ A = {}
 Shared_Graph = {}
 Shared_Map = {}
 
-radius_node_search = 2
+radius_node_search = 4
 
 CELL_SIZE = 1
 Grid_Resolution = 50
@@ -145,7 +147,7 @@ def index():
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
 
-    #G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
+    G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
     Shared_Graph = G
     show_octilinear_graph(G, False)
 
@@ -181,11 +183,11 @@ def get_data_map():
 
 @app.route('/data-graph')
 def get_data_graph():
-    f = open(data_path + 'freiburgGraph.json')
-    data = json.load(f)
-    return json.dumps(data)
-    #graph = nx.node_link_data(Shared_Graph) TODO: Reactivate this - deactivated for faster testing purposes
-    #return json.dumps(graph, indent=4, cls=Encoder)
+    #f = open(data_path + 'freiburgGraph.json')
+    #data = json.load(f)
+    #return json.dumps(data)
+    graph = nx.node_link_data(Shared_Graph)  # TODO: Reactivate this - deactivated for faster testing purposes
+    return json.dumps(graph, indent=4, cls=Encoder)
 
 
 def load_data():
@@ -418,7 +420,7 @@ def route_edges(edges, G, metro_map):
 
         # for free input nodes add all octilinear graph nodes within certain radius to the
         for node in list(G.nodes):
-            if G.nodes[node]['isStation']:
+            if G.nodes[node]['isStation'] or is_closed(node, A):
                 continue
             if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # check if octilinear node is within radius around input node
                 candidate_nodes_0.append(node)
@@ -486,16 +488,157 @@ def route_edges(edges, G, metro_map):
     return G  # unsure if I modify per reference or need to return G ... just to be sure I return it
 
 
+# returns true if all sink edges are closed
+def is_closed(node, A):
+    ret = all([x['cost'] == float('inf') for x in list(dict(A[node]).values())])
+    return ret
+
+
 def open_sink_edges(A_, G, metro_map, octi_node, input_node, input_edge):
+    # easy but incomplete: just set the sink weights to their default value
+    # for sink_edge in A_.edges(octi_node):
+    #   A_[sink_edge[0]][sink_edge[1]]['cost'] = get_sink_edge_cost(sink_edge)
+
+    # more advanced but still incomplete: consider already placed lines to infer a bend cost on the sink edges
+
+    map_edge_order = get_angular_edge_ordering(metro_map, input_node)
+    fixed_edge_dict = {}    # key: edge position in octi graph; value: dict('cw': cw distance, 'ccw': ccw distance, 'order': circular edge order id, an edge pointing stright up will always be 0)
+
+    # set sink weights to 0 so that we can start a fresh sum
     for sink_edge in A_.edges(octi_node):
-        A_[sink_edge[0]][sink_edge[1]]['cost'] = get_sink_edge_cost(sink_edge)
+      A_[sink_edge[0]][sink_edge[1]]['cost'] = 0
+
+    # iterate over adjacent edges in octi graph and check if they are part of the drawing
+    for adj_edge in G.edges(octi_node):
+        if 'line' in G.edges[adj_edge]:   # G[adj_edge[0]][adj_edge[1]]
+            #if G.edges[adj_edge]['line']
+            aux_node = adj_edge  # aux graph nodes correspond to edges in octi graph, therefore this is legal
+
+            # if they are: iterate over all sink edges, calculate bend costs and sum them up
+            for sink_edge in A_.edges(octi_node):
+                bend_edge = (aux_node, sink_edge[1])  # get corresponding bend edge
+                A_[sink_edge[0]][sink_edge[1]]['cost'] += get_bend_edge_cost(bend_edge)
+
+            # fill fixed_edge_dict for later steps
+            mm_edge = None
+            for edge in metro_map.edges(input_node):
+                if metro_map.edges[edge]['info'] == G.edges()[adj_edge]['line']:
+                    mm_edge = edge
+                    break
+
+            fixed_edge_dict[get_aux_node_id(aux_node)] = {
+                'cw': get_clockwise_dist(input_edge, mm_edge, map_edge_order),
+                'ccw': get_counter_clockwise_dist(input_edge, mm_edge, map_edge_order)
+            }
+
+    # very complex: now ensure correct edge ordering by setting cost of invalid sink edges to infinity
+    # find closest fixed edges in clockwise and counterclockwise direction
+    min_cw = min(fixed_edge_dict, key=lambda x: fixed_edge_dict[x]['cw'])
+    min_ccw = min(fixed_edge_dict, key=lambda x: fixed_edge_dict[x]['ccw'])
+    # also check how much clearance is needed for unfixed edges
+    cw_clearance = fixed_edge_dict[min_cw]['cw'] - 1
+    ccw_clearance = fixed_edge_dict[min_ccw]['ccw'] - 1
+
+    # set cost of sink edges outside their range to infinity
+    for sink_edge in A_.edges(octi_node):
+        if not in_range(get_aux_node_id(sink_edge[1]), min_cw, min_ccw, cw_clearance, ccw_clearance):
+            A_[sink_edge[0]][sink_edge[1]]['cost'] = float('inf')
+
     return A_
+
+
+def get_counter_clockwise_dist(edge1, edge2, edge_ordering):
+    e1p = read_angular_ordering(edge1, edge_ordering)
+    e2p = read_angular_ordering(edge2, edge_ordering)
+
+    if e2p > e1p:
+        return e1p + len(edge_ordering) - e2p
+    return e1p - e2p
+
+
+def get_clockwise_dist(edge1, edge2, edge_ordering):
+    e1p = read_angular_ordering(edge1, edge_ordering)
+    e2p = read_angular_ordering(edge2, edge_ordering)
+
+    if e2p < e1p:
+        return e2p + len(edge_ordering) - e1p
+    return e2p - e1p
+
+
+def read_angular_ordering(edge, edge_ordering):
+    for i in range(len(edge_ordering)):
+        if edge_ordering[i] == edge or edge_ordering[i] == (edge[1], edge[0]):
+            return i
+
+
+def get_angular_edge_ordering(metro_map, node):
+    edge_list = []
+    for e in metro_map.edges(node):
+        edge_dir = (e[1].coord_x - e[0].coord_x, e[1].coord_y - e[0].coord_y)
+        angle = get_map_edge_angle(edge_dir)
+
+        edge_list.append((e, angle))
+
+    edge_list.sort(key=lambda x: x[1])
+    return [x[0] for x in edge_list]
+
+
+def get_map_edge_angle(edge_dir):
+    return get_cw_angle((0, -1), edge_dir)
+
+
+def get_cw_angle(v1, v2):
+    x1 = v1[0]
+    y1 = v1[1]
+    x2 = v2[0]
+    y2 = v2[1]
+
+    dot = x1 * x2 + y1 * y2  # dot product between [x1, y1] and [x2, y2]
+    det = x1 * y2 - y1 * x2  # determinant
+    angle = math.atan2(det, dot)  # atan2(y, x) or atan2(sin, cos)
+    return angle
+
+
+
+# returns value in range [0,7] corresponding to the direction in which the octi graph edge points
+# 0 is straight up, the other numbers are distributed in clockwise fashion
+def get_aux_node_id(aux_node):
+    n1 = aux_node[0]
+    n2 = aux_node[1]
+
+    if n1[0] == n2[0] and n1[1] > n2[1]:
+        return 0
+    if n1[0] < n2[0] and n1[1] > n2[1]:
+        return 1
+    if n1[0] < n2[0] and n1[1] == n2[1]:
+        return 2
+    if n1[0] < n2[0] and n1[1] < n2[1]:
+        return 3
+    if n1[0] == n2[0] and n1[1] < n2[1]:
+        return 4
+    if n1[0] > n2[0] and n1[1] < n2[1]:
+        return 5
+    if n1[0] > n2[0] and n1[1] == n2[1]:
+        return 6
+    if n1[0] > n2[0] and n1[1] > n2[1]:
+        return 7
+    raise ValueError()
+
+
+# checks if the angular position of a sink edge is within the range of other fixed edges
+# and outside clearance of yet unfixed edges
+def in_range(edge_apos, min_cw, min_ccw, cw_clearance, ccw_clearance):
+    if min_ccw < min_cw:    # remember: range generates intervals as such [a,b[ ... usually we want range ]a,b[
+        return edge_apos in range(min_ccw + 1 + ccw_clearance, min_cw - cw_clearance)
+    else:
+        return edge_apos in range(0, min_cw - cw_clearance) or edge_apos in range(min_ccw + 1 + ccw_clearance, 8)
 
 
 def modify_target_sink_edge_costs(A_, input_node, candidate_nodes):
     for node in candidate_nodes:
+        distance_multiplier = get_dist_octi_node_to_input_node(node, input_node) / CELL_SIZE
         for adj_edge in A_.edges(node):
-            A_[adj_edge[0]][adj_edge[1]]['cost'] = get_sink_edge_cost(adj_edge) * get_dist_octi_node_to_input_node(node, input_node) / CELL_SIZE
+            A_[adj_edge[0]][adj_edge[1]]['cost'] = get_sink_edge_cost(adj_edge) * distance_multiplier
     return A_
 
 
@@ -544,9 +687,9 @@ def close_diagonals_through_path(shortest_auxiliary_path, A):
     return A
 
 
-def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A, G):
+def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A_, G):
     # calculate cheapest path from start_node to all nodes (in the auxiliary graph)
-    paths = nx.shortest_path_length(A, source=start_node, weight="cost", method="dijkstra")
+    paths = nx.shortest_path_length(A_, source=start_node, weight="cost", method="dijkstra")
 
     # determine the target node with the cheapest path
     cheapest_target = None
