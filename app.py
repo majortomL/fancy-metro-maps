@@ -451,7 +451,6 @@ def route_edges(edges, G, metro_map):
             A_ = modify_target_sink_edge_costs(A_, node_0, candidate_nodes_0)
         if node_1_free:
             A_ = modify_target_sink_edge_costs(A_, node_1, candidate_nodes_1)
-        #A = fix_weights(G, node_0, candidate_nodes_0, node_1, candidate_nodes_1)
 
         # find shortest set-set path using dijkstra
         shortest_path_cost = float('inf')
@@ -465,6 +464,7 @@ def route_edges(edges, G, metro_map):
                 shortest_path = path
                 shortest_path_nodes = path_nodes
                 shortest_auxiliary_path = auxiliary_path
+                shortest_path_cost = path_cost
 
         for path_edge in shortest_path:
             G.edges[path_edge]['line'] = metro_map.edges()[edge]['info']
@@ -483,6 +483,7 @@ def route_edges(edges, G, metro_map):
         A = close_diagonals_through_path(shortest_auxiliary_path, A)
 
         # show_octilinear_graph(G, False)
+        print(f"path cost: {shortest_path_cost}")
         print("[", i, "/", num_edges,"]")
     print("done")
     return G  # unsure if I modify per reference or need to return G ... just to be sure I return it
@@ -511,7 +512,6 @@ def open_sink_edges(A_, G, metro_map, octi_node, input_node, input_edge):
     # iterate over adjacent edges in octi graph and check if they are part of the drawing
     for adj_edge in G.edges(octi_node):
         if 'line' in G.edges[adj_edge]:   # G[adj_edge[0]][adj_edge[1]]
-            #if G.edges[adj_edge]['line']
             aux_node = adj_edge  # aux graph nodes correspond to edges in octi graph, therefore this is legal
 
             # if they are: iterate over all sink edges, calculate bend costs and sum them up
