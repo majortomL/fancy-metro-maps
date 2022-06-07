@@ -46,9 +46,9 @@ class Station:
     def __init__(self, featureData):
         self.coord_x = featureData['geometry']['coordinates'][0]
         self.coord_y = featureData['geometry']['coordinates'][1]
-        self.degree = featureData['properties']['deg']
-        self.degree_in = featureData['properties']['deg_in']
-        self.degree_out = featureData['properties']['deg_out']
+        # self.degree = featureData['properties']['deg']
+        # self.degree_in = featureData['properties']['deg_in']
+        # self.degree_out = featureData['properties']['deg_out']
         self.id = featureData['properties']['id']
         try:
             self.station_label = featureData['properties']['station_label']
@@ -144,7 +144,7 @@ def index():
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
 
-    #G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
+    G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
     Shared_Graph = G
     show_octilinear_graph(G, False)
 
@@ -180,11 +180,11 @@ def get_data_map():
 
 @app.route('/data-graph')
 def get_data_graph():
-    f = open(data_path + 'freiburgGraph.json')
-    data = json.load(f)
-    return json.dumps(data)
-    #graph = nx.node_link_data(Shared_Graph) TODO: Reactivate this - deactivated for faster testing purposes
-    #return json.dumps(graph, indent=4, cls=Encoder)
+    # f = open(data_path + 'freiburgGraph.json')
+    # data = json.load(f)
+    # return json.dumps(data)
+    graph = nx.node_link_data(Shared_Graph) #TODO: Reactivate this - deactivated for faster testing purposes
+    return json.dumps(graph, indent=4, cls=Encoder)
 
 
 def load_data():
