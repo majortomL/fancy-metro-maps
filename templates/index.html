@@ -32,9 +32,18 @@
         Map overlay:
         <input type="radio" id="map-overlay-on" name="map-overlay" value="on"> <label for="map-overlay-on">On</label>
         <input type="radio" id="map-overlay-off" name="map-overlay" value="off" checked="checked"> <label for="map-overlay-off">Off</label>
+        <br>
+        City:
+        <select id="select-city">
+            <option value="freiburg">Freiburg</option>
+            <option value="stuttgart">Stuttgart</option>
+            <option value="newyork">New York</option>
+        </select>
         Data source:
         <input type="radio" id="realtime-calculation-on" name="data-source" value="on"> <label for="realtime-calculation-on">Real-Time Calculation</label>
-        <input type="radio" id="realtime-calculation-off" name="data-source" value="off"> <label for="realtime-calculation-off">Precalculated JSON</label>
+        <input type="radio" id="realtime-calculation-off" name="data-source" value="off" checked="checked"> <label for="realtime-calculation-off">Precalculated JSON</label>
+        <br>
+        <button id="calculate-button" onclick="drawMetroGraph()">Show</button>
     </div>
 </div>
 <script type="text/javascript" src="{{ url_for('static',filename='frontend.js') }}"></script>

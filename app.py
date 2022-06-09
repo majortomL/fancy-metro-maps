@@ -10,7 +10,7 @@ import math
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'newyork.json'
+json_file = 'freiburg.json'
 
 stations = []
 edges = []
@@ -108,85 +108,121 @@ def get_ldeg(G, v):
 
 @app.route('/')
 def index():
-    global Shared_Graph
-    global Shared_Map
+    # global Shared_Graph
 
-    metro_map = load_data()
-    Shared_Map = metro_map
-    pos = nx.get_node_attributes(metro_map, 'pos')
-    # nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
+    #metro_map = load_data()
+
+    # pos = nx.get_node_attributes(metro_map, 'pos')
+    # # nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
+    # # plt.show()
+    #
+    # ordered_input_edges = order_input_edges(metro_map)
+    #
+    # # G = octilinear_graph(-1, -2, 3, 2, CELL_SIZE)
+    #
+    # metro_map_extents = get_map_extents(metro_map)
+    # larger_extent = max(abs(metro_map_extents[0][1] - metro_map_extents[0][0]), abs(metro_map_extents[1][1] - metro_map_extents[1][0]))
+    # global CELL_SIZE
+    # CELL_SIZE = round(larger_extent / Grid_Resolution)
+    #
+    # # G = octilinear_graph(-3, -3, 4, 4, CELL_SIZE)
+    # G = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
+    #
+    # color_map_edges = []
+    # for node in G.nodes:
+    #     if G.nodes[node]['isStation']:
+    #         color_map_edges.append('red')
+    #     else:
+    #         color_map_edges.append('black')
+    # pos = nx.get_node_attributes(G, 'pos')
+    # # nx.draw(G, pos, node_size=8, node_color=color_map_edges, with_labels=True)
+    # # plt.show()
+    # global A
+    # A = auxiliary_graph(G)
+    # pos = nx.get_node_attributes(A, 'pos')
+    #
+    # #G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
+    # Shared_Graph = G
+    # show_octilinear_graph(G, False)
+    #
+    # '''
+    # color_map_nodes = []
+    # for node in G.nodes:
+    #     if G.nodes[node]['isStation']:
+    #         color_map_nodes.append('red')
+    #     else:
+    #         color_map_nodes.append('blue')
+    #
+    # color_map_edges = []
+    # for edge in G.edges:
+    #     if 'line' in G.edges[edge]:
+    #         color_map_edges.append('red')
+    #     else:
+    #         color_map_edges.append('black')
+    #
+    # #nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
+    # #nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges)
+    # nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
     # plt.show()
+    #
+    # '''
+    return flask.render_template("index.html")
+
+
+def generate_metro_graph(city):
+    global Shared_Graph
+
+    metro_map = load_data(city)
 
     ordered_input_edges = order_input_edges(metro_map)
-
-    # G = octilinear_graph(-1, -2, 3, 2, CELL_SIZE)
 
     metro_map_extents = get_map_extents(metro_map)
     larger_extent = max(abs(metro_map_extents[0][1] - metro_map_extents[0][0]), abs(metro_map_extents[1][1] - metro_map_extents[1][0]))
     global CELL_SIZE
     CELL_SIZE = round(larger_extent / Grid_Resolution)
 
-    # G = octilinear_graph(-3, -3, 4, 4, CELL_SIZE)
-    G = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
+    g = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
 
     color_map_edges = []
-    for node in G.nodes:
-        if G.nodes[node]['isStation']:
+    for node in g.nodes:
+        if g.nodes[node]['isStation']:
             color_map_edges.append('red')
         else:
             color_map_edges.append('black')
-    pos = nx.get_node_attributes(G, 'pos')
-    # nx.draw(G, pos, node_size=8, node_color=color_map_edges, with_labels=True)
-    # plt.show()
+
     global A
-    A = auxiliary_graph(G)
-    pos = nx.get_node_attributes(A, 'pos')
+    A = auxiliary_graph(g)
 
-    G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
-    Shared_Graph = G
-    show_octilinear_graph(G, False)
-
-    '''
-    color_map_nodes = []
-    for node in G.nodes:
-        if G.nodes[node]['isStation']:
-            color_map_nodes.append('red')
-        else:
-            color_map_nodes.append('blue')
-
-    color_map_edges = []
-    for edge in G.edges:
-        if 'line' in G.edges[edge]:
-            color_map_edges.append('red')
-        else:
-            color_map_edges.append('black')
-
-    #nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
-    #nx.draw(A, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges)
-    nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=True)
-    plt.show()
-    
-    '''
-    return flask.render_template("index.html")
+    Shared_Graph = route_edges(ordered_input_edges, g, metro_map)
+    # show_octilinear_graph(G, False)
 
 
-@app.route('/data-map')
-def get_data_map():
-    map = nx.node_link_data(Shared_Map)
+@app.route('/data-map/<city>')
+def get_data_map(city):
+    map = nx.node_link_data(load_data(city))
     return json.dumps(map, indent=4, cls=Encoder)
 
 
-@app.route('/data-graph')
-def get_data_graph():
-    #f = open(data_path + 'freiburgGraph.json')
-    #data = json.load(f)
-    #return json.dumps(data)
-    graph = nx.node_link_data(Shared_Graph)  # TODO: Reactivate this - deactivated for faster testing purposes
-    return json.dumps(graph, indent=4, cls=Encoder)
+@app.route('/data-graph/<city>/<precalculated>')
+def get_data_graph(city, precalculated):
+
+    if precalculated == 'true':
+        f = open(data_path + city + 'Graph.json')
+        data = json.load(f)
+        return json.dumps(data)
+    else:
+        generate_metro_graph(city)
+        graph = nx.node_link_data(Shared_Graph)
+        return json.dumps(graph, indent=4, cls=Encoder)
 
 
-def load_data():
-    data = json.load(open(data_path + json_file))
+def load_data(filename):
+    file = open(data_path + filename + '.json')
+    data = json.load(file)
+
+    global stations, edges
+    stations = []
+    edges = []
 
     for feature in data['features']:
         type = feature['geometry']['type']
@@ -509,15 +545,15 @@ def open_sink_edges(A_, G, metro_map, octi_node, input_node, input_edge):
     # more advanced but still incomplete: consider already placed lines to infer a bend cost on the sink edges
 
     map_edge_order = get_angular_edge_ordering(metro_map, input_node)
-    fixed_edge_dict = {}    # key: edge position in octi graph; value: dict('cw': cw distance, 'ccw': ccw distance, 'order': circular edge order id, an edge pointing stright up will always be 0)
+    fixed_edge_dict = {}  # key: edge position in octi graph; value: dict('cw': cw distance, 'ccw': ccw distance, 'order': circular edge order id, an edge pointing stright up will always be 0)
 
     # set sink weights to 0 so that we can start a fresh sum
     for sink_edge in A_.edges(octi_node):
-      A_[sink_edge[0]][sink_edge[1]]['cost'] = 0
+        A_[sink_edge[0]][sink_edge[1]]['cost'] = 0
 
     # iterate over adjacent edges in octi graph and check if they are part of the drawing
     for adj_edge in G.edges(octi_node):
-        if 'line' in G.edges[adj_edge]:   # G[adj_edge[0]][adj_edge[1]]
+        if 'line' in G.edges[adj_edge]:  # G[adj_edge[0]][adj_edge[1]]
             aux_node = adj_edge  # aux graph nodes correspond to edges in octi graph, therefore this is legal
 
             # fill fixed_edge_dict for later steps
@@ -612,7 +648,6 @@ def get_cw_angle(v1, v2):
     return angle
 
 
-
 # returns value in range [0,7] corresponding to the direction in which the octi graph edge points
 # 0 is straight up, the other numbers are distributed in clockwise fashion
 def get_aux_node_id(aux_node):
@@ -641,7 +676,7 @@ def get_aux_node_id(aux_node):
 # checks if the angular position of a sink edge is within the range of other fixed edges
 # and outside clearance of yet unfixed edges
 def in_range(edge_apos, min_cw, min_ccw, cw_clearance, ccw_clearance):
-    if min_ccw < min_cw:    # remember: range generates intervals as such [a,b[ ... usually we want range ]a,b[
+    if min_ccw < min_cw:  # remember: range generates intervals as such [a,b[ ... usually we want range ]a,b[
         return edge_apos in range(min_ccw + 1 + ccw_clearance, min_cw - cw_clearance)
     else:
         return edge_apos in range(0, min_cw - cw_clearance) or edge_apos in range(min_ccw + 1 + ccw_clearance, 8)
@@ -674,10 +709,10 @@ def close_bend_and_sink_edges_on_path(shortest_path_nodes, A):
 def close_diagonals_through_path(shortest_auxiliary_path, A):
     for node in shortest_auxiliary_path:
         if not type(node[0]) == tuple:
-            continue    # skip sink nodes
+            continue  # skip sink nodes
 
-        if node[0][0] != node[1][0] and node[0][1] != node[1][1]:   # is this node incident to an external-diagonal edge
-            other_diag_node = (node[1], node[0])    # node on the other side of the external-diagonal edge
+        if node[0][0] != node[1][0] and node[0][1] != node[1][1]:  # is this node incident to an external-diagonal edge
+            other_diag_node = (node[1], node[0])  # node on the other side of the external-diagonal edge
             if other_diag_node in shortest_auxiliary_path:  # is the external-diagonal edge used in the path
 
                 # get nodes incident to diagonal in octi graph
@@ -797,7 +832,7 @@ def get_auxiliary_edge_cost(edge):
 
 
 def get_sink_edge_cost(edge):
-    return c_h + c_m    # NOTE unsure maybe c_s
+    return c_h + c_m  # NOTE unsure maybe c_s
 
 
 def get_bend_edge_cost(edge):

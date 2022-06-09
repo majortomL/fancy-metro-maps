@@ -28,7 +28,10 @@ let graphData = null
 // arrays for all station markers of map and graph TODO: clear this on map reload for other city
 let allMarkers = []
 let switchPointMarkers = []
-let switchPointLayer = L.layerGroup()
+let graphMarkers = []
+let graphLines = []
+let mapMarkers = []
+let mapLines = []
 
 // layer for the graph which holds the leaflet map
 let graphMapLayer = null
@@ -42,10 +45,7 @@ map.sync(graph)
 // sync graph movement and zoom with map movement and zoom
 graph.sync(map)
 
-drawMetroMap()
-drawMetroGraph()
 addRadioButtonEvents()
-addCheckboxEvents()
 
 function setupMap(point, zoom) {
     map = L.map('map', {
@@ -83,7 +83,7 @@ function fitMap() {
 }
 
 function drawLine(target, points, color, opacity, offset) {
-    L.polyline(
+    let line = L.polyline(
         points,
         {
             color: color,
@@ -93,7 +93,7 @@ function drawLine(target, points, color, opacity, offset) {
             weight: 3
         }
     ).addTo(target)
-
+    return line
 }
 
 function drawMarker(target, point, color, info) {
@@ -149,37 +149,53 @@ function convertCoordinates(point) {
 }
 
 function drawMetroMap() { // draws our metro map with real station coordinates
-    getJSON(window.location.href + '/data-map',
+    mapMarkers.forEach(function (marker) {
+        map.removeLayer(marker)
+    })
+
+    mapLines.forEach(function (line) {
+        map.removeLayer(line)
+    })
+
+    mapMarkers = []
+    mapLines = []
+
+    let citySelector = document.getElementById("select-city")
+    let city = citySelector.options[citySelector.selectedIndex].text
+
+    getJSON(window.location.href + '/data-map/' + city,
         function (err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
             } else {
                 mapData = data
                 // mark each station
-                let stationCoordinates = []
                 data.links.forEach(function (link) { // mark each line
                     link.info.line_color.forEach(function (color, i) {
                         let offsetDict = getOffsetDict(link.info.line_label.length)
                         let linkCoordinates = [convertCoordinates([link.source.coord_x, link.source.coord_y]), convertCoordinates([link.target.coord_x, link.target.coord_y])]
                         let flipFactor = getFlipFactor(linkCoordinates)
-                        drawLine(
+                        let line = drawLine(
                             map,
                             linkCoordinates,
                             '#' + color,
                             1.0,
                             flipFactor * 4 * offsetDict[i]
                         )
+                        mapLines.push(line)
                     })
                 })
                 data.nodes.forEach(function (node) { // mark each line
                     if (!node.label.includes("Switch Point")) {
-                        allMarkers.push(drawMarker(map, convertCoordinates(node.pos), 'white', node.label))
-                    }
-                    if (node.label.includes("Switch Point")) { // TODO: Remove this to disable switch points on map
                         let marker = drawMarker(map, convertCoordinates(node.pos), 'white', node.label)
-
-                        switchPointMarkers.push(marker)
+                        allMarkers.push(marker)
+                        mapMarkers.push(marker)
                     }
+                    // if (node.label.includes("Switch Point")) { // TODO: Remove this to disable switch points on map
+                    //     let marker = drawMarker(map, convertCoordinates(node.pos), 'white', node.label)
+                    //
+                    //     switchPointMarkers.push(marker)
+                    // }
                 })
                 fitMap()
             }
@@ -188,7 +204,25 @@ function drawMetroMap() { // draws our metro map with real station coordinates
 }
 
 function drawMetroGraph() { // draws our metro map in the octilinear graph layout
-    getJSON(window.location.href + '/data-graph',
+    graphMarkers.forEach(function (marker) {
+        graph.removeLayer(marker)
+    })
+
+    graphLines.forEach(function (line) {
+        graph.removeLayer(line)
+    })
+
+    allMarkers = []
+    graphMarkers = []
+    graphLines = []
+
+    drawMetroMap()
+
+    let preCalculated = document.getElementById("realtime-calculation-off").checked
+    let citySelector = document.getElementById("select-city")
+    let city = citySelector.options[citySelector.selectedIndex].text
+
+    getJSON(window.location.href + '/data-graph/' + city + '/' + preCalculated,
         function (err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
@@ -201,25 +235,27 @@ function drawMetroGraph() { // draws our metro map in the octilinear graph layou
                             let offsetDict = getOffsetDict(link.line.line_label.length)
                             let linkCoordinates = [convertCoordinates(link.source), convertCoordinates(link.target)]
                             let flipFactor = getFlipFactor(linkCoordinates)
-                            drawLine(
+                            graphLines.push(drawLine(
                                 graph,
                                 linkCoordinates,
                                 '#' + color,
                                 1.0,
                                 flipFactor * 4 * offsetDict[i]
-                            )
+                            ))
                         })
                     }
                 })
 
                 data.nodes.forEach(function (node) { // mark each station
                     if (node.isStation && !node.stationInfo.station_label.includes("Switch Point")) {
-                        allMarkers.push(drawMarker(graph, convertCoordinates(node.pos), 'white', node.stationInfo.station_label))
-                    }
-                    if (node.isStation && node.stationInfo.station_label.includes("Switch Point")) { // TODO: Remove this to disable switch points on graph
                         let marker = drawMarker(graph, convertCoordinates(node.pos), 'white', node.stationInfo.station_label)
-                        switchPointMarkers.push(marker)
+                        allMarkers.push(marker)
+                        graphMarkers.push(marker)
                     }
+                    // if (node.isStation && node.stationInfo.station_label.includes("Switch Point")) { // TODO: Remove this to disable switch points on graph
+                    //     let marker = drawMarker(graph, convertCoordinates(node.pos), 'white', node.stationInfo.station_label)
+                    //     switchPointMarkers.push(marker)
+                    // }
                 })
             }
         })
