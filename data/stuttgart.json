@@ -71,7 +71,7 @@
       "properties": {
         "id": "0x12f6250",
         "station_id": "559506",
-        "station_label": "Payerstra√üe"
+        "station_label": "Payerstraﬂe"
       },
       "type": "Feature"
     },
@@ -116,7 +116,7 @@
       "properties": {
         "id": "0x12f6a80",
         "station_id": "559593",
-        "station_label": "Stafflenbergstra√üe"
+        "station_label": "Stafflenbergstraﬂe"
       },
       "type": "Feature"
     },
@@ -131,7 +131,7 @@
       "properties": {
         "id": "0x12f6dc0",
         "station_id": "561216",
-        "station_label": "Heidehofstra√üe"
+        "station_label": "Heidehofstraﬂe"
       },
       "type": "Feature"
     },
@@ -251,7 +251,7 @@
       "properties": {
         "id": "0x22d8240",
         "station_id": "561213",
-        "station_label": "L√∂wentorbr√ºcke"
+        "station_label": "Lˆwentorbr¸cke"
       },
       "type": "Feature"
     },
@@ -281,7 +281,7 @@
       "properties": {
         "id": "0x22d87e0",
         "station_id": "559579",
-        "station_label": "Sieglestra√üe"
+        "station_label": "Sieglestraﬂe"
       },
       "type": "Feature"
     },
@@ -296,7 +296,7 @@
       "properties": {
         "id": "0x22d8af0",
         "station_id": "559213",
-        "station_label": "Borsigstra√üe"
+        "station_label": "Borsigstraﬂe"
       },
       "type": "Feature"
     },
@@ -326,7 +326,7 @@
       "properties": {
         "id": "0x22d91f0",
         "station_id": "561377",
-        "station_label": "Hohensteinstra√üe"
+        "station_label": "Hohensteinstraﬂe"
       },
       "type": "Feature"
     },
@@ -356,7 +356,7 @@
       "properties": {
         "id": "0x22d9810",
         "station_id": "559393",
-        "station_label": "Kirchtalstra√üe"
+        "station_label": "Kirchtalstraﬂe"
       },
       "type": "Feature"
     },
@@ -371,7 +371,7 @@
       "properties": {
         "id": "0x22d9b90",
         "station_id": "559552",
-        "station_label": "Salzwiesenstra√üe"
+        "station_label": "Salzwiesenstraﬂe"
       },
       "type": "Feature"
     },
@@ -386,7 +386,7 @@
       "properties": {
         "id": "0x22ddd60",
         "station_id": "559669",
-        "station_label": "Wimpfener Stra√üe"
+        "station_label": "Wimpfener Straﬂe"
       },
       "type": "Feature"
     },
@@ -401,7 +401,7 @@
       "properties": {
         "id": "0x22de060",
         "station_id": "559350",
-        "station_label": "Heutingsheimer Stra√üe"
+        "station_label": "Heutingsheimer Straﬂe"
       },
       "type": "Feature"
     },
@@ -416,7 +416,7 @@
       "properties": {
         "id": "0x22de380",
         "station_id": "561303",
-        "station_label": "Korntaler Stra√üe"
+        "station_label": "Korntaler Straﬂe"
       },
       "type": "Feature"
     },
@@ -446,7 +446,7 @@
       "properties": {
         "id": "0x22df390",
         "station_id": "561390",
-        "station_label": "M√∂hringen Bf"
+        "station_label": "Mˆhringen Bf"
       },
       "type": "Feature"
     },
@@ -506,7 +506,7 @@
       "properties": {
         "id": "0x22e05f0",
         "station_id": "559456",
-        "station_label": "Mittnachtstra√üe"
+        "station_label": "Mittnachtstraﬂe"
       },
       "type": "Feature"
     },
@@ -551,7 +551,7 @@
       "properties": {
         "id": "0x22e0ef0",
         "station_id": "559241",
-        "station_label": "Dobelstra√üe"
+        "station_label": "Dobelstraﬂe"
       },
       "type": "Feature"
     },
@@ -566,7 +566,7 @@
       "properties": {
         "id": "0x22e1370",
         "station_id": "561683",
-        "station_label": "Bockelstra√üe-Heumaden"
+        "station_label": "Bockelstraﬂe-Heumaden"
       },
       "type": "Feature"
     },
@@ -581,7 +581,7 @@
       "properties": {
         "id": "0x22e1450",
         "station_id": "561219",
-        "station_label": "Schemppstra√üe"
+        "station_label": "Schemppstraﬂe"
       },
       "type": "Feature"
     },
@@ -656,7 +656,7 @@
       "properties": {
         "id": "0x22e5260",
         "station_id": "559566",
-        "station_label": "Schozacher Stra√üe"
+        "station_label": "Schozacher Straﬂe"
       },
       "type": "Feature"
     },
@@ -671,7 +671,7 @@
       "properties": {
         "id": "0x22e5980",
         "station_id": "559507",
-        "station_label": "Peregrinastra√üe"
+        "station_label": "Peregrinastraﬂe"
       },
       "type": "Feature"
     },
@@ -716,7 +716,7 @@
       "properties": {
         "id": "0x22ea880",
         "station_id": "561309",
-        "station_label": "Vaihinger Stra√üe"
+        "station_label": "Vaihinger Straﬂe"
       },
       "type": "Feature"
     },
@@ -776,7 +776,7 @@
       "properties": {
         "id": "0x22f04f0",
         "station_id": "562155",
-        "station_label": "F√∂hrich"
+        "station_label": "Fˆhrich"
       },
       "type": "Feature"
     },
@@ -791,7 +791,7 @@
       "properties": {
         "id": "0x22f48d0",
         "station_id": "562520",
-        "station_label": "Degerloch Albstra√üe"
+        "station_label": "Degerloch Albstraﬂe"
       },
       "type": "Feature"
     },
@@ -821,7 +821,7 @@
       "properties": {
         "id": "0x22f51f0",
         "station_id": "559449",
-        "station_label": "Maybachstra√üe"
+        "station_label": "Maybachstraﬂe"
       },
       "type": "Feature"
     },
@@ -836,7 +836,7 @@
       "properties": {
         "id": "0x22f5530",
         "station_id": "559461",
-        "station_label": "M√∂hringen Freibad"
+        "station_label": "Mˆhringen Freibad"
       },
       "type": "Feature"
     },
@@ -881,7 +881,7 @@
       "properties": {
         "id": "0x2300410",
         "station_id": "560945",
-        "station_label": "Pfostenw√§ldle-Feuerbach"
+        "station_label": "Pfostenw‰ldle-Feuerbach"
       },
       "type": "Feature"
     },
@@ -896,7 +896,7 @@
       "properties": {
         "id": "0x23007e0",
         "station_id": "559412",
-        "station_label": "Landauer Stra√üe"
+        "station_label": "Landauer Straﬂe"
       },
       "type": "Feature"
     },
@@ -911,7 +911,7 @@
       "properties": {
         "id": "0x2300ab0",
         "station_id": "561222",
-        "station_label": "Weilimdorf L√∂wen-Markt"
+        "station_label": "Weilimdorf Lˆwen-Markt"
       },
       "type": "Feature"
     },
@@ -926,7 +926,7 @@
       "properties": {
         "id": "0x2300df0",
         "station_id": "559526",
-        "station_label": "Rastatter Stra√üe"
+        "station_label": "Rastatter Straﬂe"
       },
       "type": "Feature"
     },
@@ -1061,7 +1061,7 @@
       "properties": {
         "id": "0x23027d0",
         "station_id": "560957",
-        "station_label": "Jurastra√üe"
+        "station_label": "Jurastraﬂe"
       },
       "type": "Feature"
     },
@@ -1121,7 +1121,7 @@
       "properties": {
         "id": "0x2307d10",
         "station_id": "559250",
-        "station_label": "Glockenstra√üe"
+        "station_label": "Glockenstraﬂe"
       },
       "type": "Feature"
     },
@@ -1254,7 +1254,7 @@
       "properties": {
         "id": "0x230d190",
         "station_id": "561234",
-        "station_label": "L√∂wentor"
+        "station_label": "Lˆwentor"
       },
       "type": "Feature"
     },
@@ -1269,7 +1269,7 @@
       "properties": {
         "id": "0x230d430",
         "station_id": "556256",
-        "station_label": "Z√ºricher Stra√üe"
+        "station_label": "Z¸richer Straﬂe"
       },
       "type": "Feature"
     },
@@ -1284,7 +1284,7 @@
       "properties": {
         "id": "0x230d7b0",
         "station_id": "556247",
-        "station_label": "Riethm√ºllerhaus"
+        "station_label": "Riethm¸llerhaus"
       },
       "type": "Feature"
     },
@@ -1372,7 +1372,7 @@
       "properties": {
         "id": "0x2314a10",
         "station_id": "559455",
-        "station_label": "Mineralb√§der"
+        "station_label": "Mineralb‰der"
       },
       "type": "Feature"
     },
@@ -1387,7 +1387,7 @@
       "properties": {
         "id": "0x2314d10",
         "station_id": "559452",
-        "station_label": "Metzstra√üe"
+        "station_label": "Metzstraﬂe"
       },
       "type": "Feature"
     },
@@ -1402,7 +1402,7 @@
       "properties": {
         "id": "0x2315120",
         "station_id": "561295",
-        "station_label": "St√∂ckach"
+        "station_label": "Stˆckach"
       },
       "type": "Feature"
     },
@@ -1462,7 +1462,7 @@
       "properties": {
         "id": "0x2315f70",
         "station_id": "561299",
-        "station_label": "Berliner Platz (Hohe Stra√üe)"
+        "station_label": "Berliner Platz (Hohe Straﬂe)"
       },
       "type": "Feature"
     },
@@ -1492,7 +1492,7 @@
       "properties": {
         "id": "0x23166b0",
         "station_id": "561196",
-        "station_label": "√ñsterreichischer Platz"
+        "station_label": "÷sterreichischer Platz"
       },
       "type": "Feature"
     },
@@ -1567,7 +1567,7 @@
       "properties": {
         "id": "0x231bff0",
         "station_id": "561402",
-        "station_label": "Tapachstra√üe"
+        "station_label": "Tapachstraﬂe"
       },
       "type": "Feature"
     },
@@ -1627,7 +1627,7 @@
       "properties": {
         "id": "0x2321cd0",
         "station_id": "561032",
-        "station_label": "Neckargr√∂ningen Remseck, Remseck am Neckar"
+        "station_label": "Neckargrˆningen Remseck, Remseck am Neckar"
       },
       "type": "Feature"
     },
@@ -1642,7 +1642,7 @@
       "properties": {
         "id": "0x2321de0",
         "station_id": "560782",
-        "station_label": "Aldingen Br√ºckenstra√üe, Remseck am Neckar"
+        "station_label": "Aldingen Br¸ckenstraﬂe, Remseck am Neckar"
       },
       "type": "Feature"
     },
@@ -1657,7 +1657,7 @@
       "properties": {
         "id": "0x2321fe0",
         "station_id": "561031",
-        "station_label": "Aldingen M√ºhle, Remseck am Neckar"
+        "station_label": "Aldingen M¸hle, Remseck am Neckar"
       },
       "type": "Feature"
     },
@@ -1687,7 +1687,7 @@
       "properties": {
         "id": "0x2322680",
         "station_id": "561235",
-        "station_label": "M√ºhlhausen"
+        "station_label": "M¸hlhausen"
       },
       "type": "Feature"
     },
@@ -1747,7 +1747,7 @@
       "properties": {
         "id": "0x2327580",
         "station_id": "560954",
-        "station_label": "Wagrain√§cker"
+        "station_label": "Wagrain‰cker"
       },
       "type": "Feature"
     },
@@ -1762,7 +1762,7 @@
       "properties": {
         "id": "0x2327880",
         "station_id": "559256",
-        "station_label": "Elbestra√üe"
+        "station_label": "Elbestraﬂe"
       },
       "type": "Feature"
     },
@@ -1777,7 +1777,7 @@
       "properties": {
         "id": "0x2327a40",
         "station_id": "559293",
-        "station_label": "Freibergstra√üe"
+        "station_label": "Freibergstraﬂe"
       },
       "type": "Feature"
     },
@@ -1792,7 +1792,7 @@
       "properties": {
         "id": "0x2327d10",
         "station_id": "560955",
-        "station_label": "M√ºnster Rathaus"
+        "station_label": "M¸nster Rathaus"
       },
       "type": "Feature"
     },
@@ -1807,7 +1807,7 @@
       "properties": {
         "id": "0x2327fe0",
         "station_id": "559474",
-        "station_label": "M√ºnster Viadukt"
+        "station_label": "M¸nster Viadukt"
       },
       "type": "Feature"
     },
@@ -1822,7 +1822,7 @@
       "properties": {
         "id": "0x2328340",
         "station_id": "559401",
-        "station_label": "Kraftwerk M√ºnster"
+        "station_label": "Kraftwerk M¸nster"
       },
       "type": "Feature"
     },
@@ -1837,7 +1837,7 @@
       "properties": {
         "id": "0x2328730",
         "station_id": "559470",
-        "station_label": "M√ºhlsteg"
+        "station_label": "M¸hlsteg"
       },
       "type": "Feature"
     },
@@ -1852,7 +1852,7 @@
       "properties": {
         "id": "0x2328a00",
         "station_id": "561555",
-        "station_label": "Rosensteinbr√ºcke"
+        "station_label": "Rosensteinbr¸cke"
       },
       "type": "Feature"
     },
@@ -1897,7 +1897,7 @@
       "properties": {
         "id": "0x232d480",
         "station_id": "561294",
-        "station_label": "S√ºdheimer Platz"
+        "station_label": "S¸dheimer Platz"
       },
       "type": "Feature"
     },
@@ -2026,7 +2026,7 @@
       "properties": {
         "id": "0x2341340",
         "station_id": "559390",
-        "station_label": "Kienbachstra√üe"
+        "station_label": "Kienbachstraﬂe"
       },
       "type": "Feature"
     },
@@ -2071,7 +2071,7 @@
       "properties": {
         "id": "0x2341b60",
         "station_id": "559560",
-        "station_label": "Schlotterbeckstra√üe"
+        "station_label": "Schlotterbeckstraﬂe"
       },
       "type": "Feature"
     },
@@ -2086,7 +2086,7 @@
       "properties": {
         "id": "0x2341ea0",
         "station_id": "561474",
-        "station_label": "Untert√ºrkheim Bahnhof"
+        "station_label": "Untert¸rkheim Bahnhof"
       },
       "type": "Feature"
     },
@@ -2103,7 +2103,7 @@
         ],
         "id": "0x23421e0",
         "station_id": "561302",
-        "station_label": "Wasenstra√üe"
+        "station_label": "Wasenstraﬂe"
       },
       "type": "Feature"
     },
@@ -2133,7 +2133,7 @@
       "properties": {
         "id": "0x2342790",
         "station_id": "559397",
-        "station_label": "Hedelfinger Stra√üe"
+        "station_label": "Hedelfinger Straﬂe"
       },
       "type": "Feature"
     },
@@ -2176,7 +2176,7 @@
       "properties": {
         "id": "0x234a550",
         "station_id": "559299",
-        "station_label": "F√ºrfelder Stra√üe"
+        "station_label": "F¸rfelder Straﬂe"
       },
       "type": "Feature"
     },
@@ -2206,7 +2206,7 @@
       "properties": {
         "id": "0x234abd0",
         "station_id": "559604",
-        "station_label": "Suttnerstra√üe"
+        "station_label": "Suttnerstraﬂe"
       },
       "type": "Feature"
     },
@@ -2236,7 +2236,7 @@
       "properties": {
         "id": "0x234f120",
         "station_id": "555435",
-        "station_label": "M√∂nchfeld"
+        "station_label": "Mˆnchfeld"
       },
       "type": "Feature"
     },
@@ -2251,7 +2251,7 @@
       "properties": {
         "id": "0x2356ee0",
         "station_id": "561431",
-        "station_label": "N√ºrnberger Stra√üe"
+        "station_label": "N¸rnberger Straﬂe"
       },
       "type": "Feature"
     },
@@ -2281,7 +2281,7 @@
       "properties": {
         "id": "0x2358fa0",
         "station_id": "562651",
-        "station_label": "Salz√§cker"
+        "station_label": "Salz‰cker"
       },
       "type": "Feature"
     },
@@ -2296,7 +2296,7 @@
       "properties": {
         "id": "0x235f120",
         "station_id": "559518",
-        "station_label": "Plieninger Stra√üe"
+        "station_label": "Plieninger Straﬂe"
       },
       "type": "Feature"
     },
@@ -2311,7 +2311,7 @@
       "properties": {
         "id": "0x235f3e0",
         "station_id": "559580",
-        "station_label": "Sigmaringer Stra√üe"
+        "station_label": "Sigmaringer Straﬂe"
       },
       "type": "Feature"
     },
@@ -2341,7 +2341,7 @@
       "properties": {
         "id": "0x235fc30",
         "station_id": "559177",
-        "station_label": "Arndt-/Spittastra√üe"
+        "station_label": "Arndt-/Spittastraﬂe"
       },
       "type": "Feature"
     },
@@ -2356,7 +2356,7 @@
       "properties": {
         "id": "0x235fe30",
         "station_id": "561228",
-        "station_label": "Schwab-/Bebelstra√üe"
+        "station_label": "Schwab-/Bebelstraﬂe"
       },
       "type": "Feature"
     },
@@ -2371,7 +2371,7 @@
       "properties": {
         "id": "0x2360060",
         "station_id": "561230",
-        "station_label": "Schloss-/Johannesstra√üe"
+        "station_label": "Schloss-/Johannesstraﬂe"
       },
       "type": "Feature"
     },
@@ -2444,7 +2444,7 @@
       "properties": {
         "id": "0x2363530",
         "station_id": "560934",
-        "station_label": "Wangener-/Landhausstra√üe"
+        "station_label": "Wangener-/Landhausstraﬂe"
       },
       "type": "Feature"
     },
@@ -2459,7 +2459,7 @@
       "properties": {
         "id": "0x23639c0",
         "station_id": "561301",
-        "station_label": "Brendle (Gro√ümarkt)"
+        "station_label": "Brendle (Groﬂmarkt)"
       },
       "type": "Feature"
     },
@@ -2489,7 +2489,7 @@
       "properties": {
         "id": "0x23640d0",
         "station_id": "559373",
-        "station_label": "Inselstra√üe"
+        "station_label": "Inselstraﬂe"
       },
       "type": "Feature"
     },
@@ -2504,7 +2504,7 @@
       "properties": {
         "id": "0x2364720",
         "station_id": "559450",
-        "station_label": "Mercedesstra√üe"
+        "station_label": "Mercedesstraﬂe"
       },
       "type": "Feature"
     },
@@ -2549,7 +2549,7 @@
       "properties": {
         "id": "0x2365230",
         "station_id": "559316",
-        "station_label": "Gnesener Stra√üe"
+        "station_label": "Gnesener Straﬂe"
       },
       "type": "Feature"
     },
@@ -2594,7 +2594,7 @@
       "properties": {
         "id": "0x2365b00",
         "station_id": "559259",
-        "station_label": "Engelboldstra√üe"
+        "station_label": "Engelboldstraﬂe"
       },
       "type": "Feature"
     },
@@ -2684,7 +2684,7 @@
       "properties": {
         "id": "0x236b200",
         "station_id": "559271",
-        "station_label": "Fauststra√üe"
+        "station_label": "Fauststraﬂe"
       },
       "type": "Feature"
     },
@@ -2714,7 +2714,7 @@
       "properties": {
         "id": "0x236ed30",
         "station_id": "559296",
-        "station_label": "Antwerpener Stra√üe"
+        "station_label": "Antwerpener Straﬂe"
       },
       "type": "Feature"
     },
@@ -2729,7 +2729,7 @@
       "properties": {
         "id": "0x236f040",
         "station_id": "559201",
-        "station_label": "Beskidenstra√üe"
+        "station_label": "Beskidenstraﬂe"
       },
       "type": "Feature"
     },
@@ -2759,7 +2759,7 @@
       "properties": {
         "id": "0x236fa50",
         "station_id": "556240",
-        "station_label": "H√∂henstra√üe, Fellbach"
+        "station_label": "Hˆhenstraﬂe, Fellbach"
       },
       "type": "Feature"
     },
@@ -2774,7 +2774,7 @@
       "properties": {
         "id": "0x236fd50",
         "station_id": "560932",
-        "station_label": "Esslinger Stra√üe, Fellbach"
+        "station_label": "Esslinger Straﬂe, Fellbach"
       },
       "type": "Feature"
     },
@@ -2834,7 +2834,7 @@
       "properties": {
         "id": "0x2374800",
         "station_id": "559258",
-        "station_label": "Eltinger Stra√üe"
+        "station_label": "Eltinger Straﬂe"
       },
       "type": "Feature"
     },
@@ -2849,7 +2849,7 @@
       "properties": {
         "id": "0x2374a40",
         "station_id": "559454",
-        "station_label": "Mill√∂ckerstra√üe"
+        "station_label": "Millˆckerstraﬂe"
       },
       "type": "Feature"
     },
@@ -2864,7 +2864,7 @@
       "properties": {
         "id": "0x2374cf0",
         "station_id": "559192",
-        "station_label": "Beethovenstra√üe"
+        "station_label": "Beethovenstraﬂe"
       },
       "type": "Feature"
     },
@@ -2879,7 +2879,7 @@
       "properties": {
         "id": "0x2375050",
         "station_id": "561229",
-        "station_label": "Lindpaintnerstra√üe"
+        "station_label": "Lindpaintnerstraﬂe"
       },
       "type": "Feature"
     },
@@ -3003,7 +3003,7 @@
       "properties": {
         "id": "0x238b530",
         "station_id": "561204",
-        "station_label": "Rosenberg-/Seidenstra√üe"
+        "station_label": "Rosenberg-/Seidenstraﬂe"
       },
       "type": "Feature"
     },
@@ -3033,7 +3033,7 @@
       "properties": {
         "id": "0x238bdd0",
         "station_id": "561203",
-        "station_label": "H√∂lderlinplatz"
+        "station_label": "Hˆlderlinplatz"
       },
       "type": "Feature"
     },
