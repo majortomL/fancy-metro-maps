@@ -13,9 +13,20 @@
     font-size: 1em;
 }
 
+@media only screen and (max-height: 1440px) {
+    .container{
+        height: 1050px;
+    }
+}
+
+@media only screen and (max-height: 1080px) {
+    .container{
+        height: 700px;
+    }
+}
+
 .container {
     width: 49%;
-    height: 1000px;
     top: 3cm;
     position: absolute;
 }
@@ -40,4 +51,41 @@ body {
     color: white;
     font-family: Verdana, serif;
     background-color: #2f2f2f;
+}
+
+.grid-size {
+    display: none
+}
+
+#realtime-calculation-on:checked ~ .grid-size {
+    display: inline;
+}
+
+.loader {
+    height: 0.8em;
+    width: 0.8em;
+    display: inline;
+    border: 0.2em solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 0.2em solid #3498db;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+#spinner {
+    visibility: hidden;
 }

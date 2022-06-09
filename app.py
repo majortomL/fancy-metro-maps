@@ -110,7 +110,7 @@ def get_ldeg(G, v):
 def index():
     # global Shared_Graph
 
-    #metro_map = load_data()
+    # metro_map = load_data()
 
     # pos = nx.get_node_attributes(metro_map, 'pos')
     # # nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
@@ -169,7 +169,7 @@ def index():
     return flask.render_template("index.html")
 
 
-def generate_metro_graph(city):
+def generate_metro_graph(city, grid_resolution):
     global Shared_Graph
 
     metro_map = load_data(city)
@@ -179,7 +179,7 @@ def generate_metro_graph(city):
     metro_map_extents = get_map_extents(metro_map)
     larger_extent = max(abs(metro_map_extents[0][1] - metro_map_extents[0][0]), abs(metro_map_extents[1][1] - metro_map_extents[1][0]))
     global CELL_SIZE
-    CELL_SIZE = round(larger_extent / Grid_Resolution)
+    CELL_SIZE = round(larger_extent / grid_resolution)
 
     g = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
 
@@ -203,15 +203,14 @@ def get_data_map(city):
     return json.dumps(map, indent=4, cls=Encoder)
 
 
-@app.route('/data-graph/<city>/<precalculated>')
-def get_data_graph(city, precalculated):
-
+@app.route('/data-graph/<city>/<precalculated>/<grid_resolution>')
+def get_data_graph(city, precalculated, grid_resolution=50):
     if precalculated == 'true':
         f = open(data_path + city + 'Graph.json')
         data = json.load(f)
         return json.dumps(data)
     else:
-        generate_metro_graph(city)
+        generate_metro_graph(city, int(grid_resolution))
         graph = nx.node_link_data(Shared_Graph)
         return json.dumps(graph, indent=4, cls=Encoder)
 
@@ -454,7 +453,8 @@ def route_edges(edges, G, metro_map):
             for node in list(G.nodes):
                 if G.nodes[node]['isStation'] or is_closed(node, A):
                     continue
-                if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # check if octilinear node is within radius around input node
+                if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search,
+                                                                                                             2):  # check if octilinear node is within radius around input node
                     candidate_nodes_0.append(node)
 
                 if node_1_free and pow(node[0] - node_1.coord_x, 2) + pow(node[1] - node_1.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # same here
@@ -486,7 +486,7 @@ def route_edges(edges, G, metro_map):
 
             # find shortest set-set path using dijkstra
             shortest_path_cost = float('inf')
-            shortest_path = []   # list of edges in octilinear graph
+            shortest_path = []  # list of edges in octilinear graph
             shortest_path_nodes = []
             shortest_auxiliary_path = []  # list of edges in auxiliary graph
             for node in candidate_nodes_0:

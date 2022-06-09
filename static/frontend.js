@@ -161,7 +161,7 @@ function drawMetroMap() { // draws our metro map with real station coordinates
     mapLines = []
 
     let citySelector = document.getElementById("select-city")
-    let city = citySelector.options[citySelector.selectedIndex].text
+    let city = citySelector.options[citySelector.selectedIndex].value
 
     getJSON(window.location.href + '/data-map/' + city,
         function (err, data) {
@@ -204,6 +204,9 @@ function drawMetroMap() { // draws our metro map with real station coordinates
 }
 
 function drawMetroGraph() { // draws our metro map in the octilinear graph layout
+    document.getElementById('calculate-button').disabled = true
+    document.getElementById('spinner').style.visibility = 'visible';
+
     graphMarkers.forEach(function (marker) {
         graph.removeLayer(marker)
     })
@@ -218,11 +221,12 @@ function drawMetroGraph() { // draws our metro map in the octilinear graph layou
 
     drawMetroMap()
 
-    let preCalculated = document.getElementById("realtime-calculation-off").checked
-    let citySelector = document.getElementById("select-city")
-    let city = citySelector.options[citySelector.selectedIndex].text
+    let preCalculated = document.getElementById('realtime-calculation-off').checked
+    let citySelector = document.getElementById('select-city')
+    let city = citySelector.options[citySelector.selectedIndex].value
+    let gridResolution = document.getElementById('grid-size-input').value
 
-    getJSON(window.location.href + '/data-graph/' + city + '/' + preCalculated,
+    getJSON(window.location.href + '/data-graph/' + city + '/' + preCalculated + '/' + gridResolution,
         function (err, data) {
             if (err !== null) {
                 alert('Something went wrong: ' + err);
@@ -258,7 +262,10 @@ function drawMetroGraph() { // draws our metro map in the octilinear graph layou
                     // }
                 })
             }
+            document.getElementById('calculate-button').disabled = false
+            document.getElementById('spinner').style.visibility = 'hidden';
         })
+
 }
 
 function addRadioButtonEvents() {

@@ -39,11 +39,18 @@
             <option value="stuttgart">Stuttgart</option>
             <option value="newyork">New York</option>
         </select>
+        <br>
         Data source:
         <input type="radio" id="realtime-calculation-on" name="data-source" value="on"> <label for="realtime-calculation-on">Real-Time Calculation</label>
         <input type="radio" id="realtime-calculation-off" name="data-source" value="off" checked="checked"> <label for="realtime-calculation-off">Precalculated JSON</label>
         <br>
-        <button id="calculate-button" onclick="drawMetroGraph()">Show</button>
+        <div id="grid-size-div" class="grid-size">Grid Resolution:</div>
+        <input type="number" class="grid-size" id="grid-size-input" value="75">
+        <br class="grid-size">
+        <div class="flex">
+            <button id="calculate-button" onclick="drawMetroGraph()">Show</button>
+            <div class="loader" id="spinner"></div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="{{ url_for('static',filename='frontend.js') }}"></script>
