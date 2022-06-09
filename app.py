@@ -12,7 +12,7 @@ from operator import attrgetter
 
 app = flask.Flask(__name__)
 data_path = 'data/'
-json_file = 'freiburg.json'
+json_file = 'newyork.json'
 
 stations = []
 edges = []
@@ -49,9 +49,9 @@ class Station:
     def __init__(self, featureData):
         self.coord_x = featureData['geometry']['coordinates'][0]
         self.coord_y = featureData['geometry']['coordinates'][1]
-        self.degree = featureData['properties']['deg']
-        self.degree_in = featureData['properties']['deg_in']
-        self.degree_out = featureData['properties']['deg_out']
+        #self.degree = featureData['properties']['deg']
+        #self.degree_in = featureData['properties']['deg_in']
+        #self.degree_out = featureData['properties']['deg_out']
         self.id = featureData['properties']['id']
         try:
             self.station_label = featureData['properties']['station_label']
@@ -466,6 +466,12 @@ def route_edges(edges, G, metro_map):
                 shortest_auxiliary_path = auxiliary_path
                 shortest_path_cost = path_cost
 
+        if path_cost == float('inf'):
+            # no path found
+            # return bad result early so we can inspect the situation
+            print(f"could not find path between nodes {node_0.station_label} and {node_1.station_label}")
+            return G
+
         for path_edge in shortest_path:
             G.edges[path_edge]['line'] = metro_map.edges()[edge]['info']
 
@@ -709,6 +715,10 @@ def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A_, G):
     # to convert we check if the sink-node changes and if it does we add it to the path
     octi_path_nodes = []
     previous_sink_node = None
+    if cheapest_path_cost == float('inf'):
+        # return early for debugging purposes
+        return None, None, None, cheapest_path_cost
+
     for i in range(1, len(cheapest_auxiliary_path) - 1):
         current_sink_node = cheapest_auxiliary_path[i][0]
 
