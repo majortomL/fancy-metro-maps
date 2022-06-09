@@ -37,7 +37,7 @@ A = {}
 Shared_Graph = {}
 Shared_Map = {}
 
-radius_node_search = 2
+radius_node_search = 3
 
 CELL_SIZE = 1
 Grid_Resolution = 50
@@ -142,7 +142,7 @@ def index():
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
 
-    #G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
+    G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
     Shared_Graph = G
     show_octilinear_graph(G, False)
 
@@ -178,11 +178,11 @@ def get_data_map():
 
 @app.route('/data-graph')
 def get_data_graph():
-    f = open(data_path + 'freiburgGraph.json')
-    data = json.load(f)
-    return json.dumps(data)
-    # graph = nx.node_link_data(Shared_Graph)  # TODO: Reactivate this - deactivated for faster testing purposes
-    # return json.dumps(graph, indent=4, cls=Encoder)
+    #f = open(data_path + 'freiburgGraph.json')
+    #data = json.load(f)
+    #return json.dumps(data)
+    graph = nx.node_link_data(Shared_Graph)  # TODO: Reactivate this - deactivated for faster testing purposes
+    return json.dumps(graph, indent=4, cls=Encoder)
 
 
 def load_data():
@@ -393,99 +393,104 @@ def route_edges(edges, G, metro_map):
     num_edges = len(edges)
     # iterate through edges of input graph
     for i, edge in enumerate(edges):
-        node_0 = edge[0]
-        node_1 = edge[1]
+        try:
+            node_0 = edge[0]
+            node_1 = edge[1]
 
-        candidate_nodes_0 = []  # nodes in octilinear graph that are near to node_0 (of input graph)
-        candidate_nodes_1 = []  # nodes in octilinear graph that are near to node_1 (of input graph)
+            candidate_nodes_0 = []  # nodes in octilinear graph that are near to node_0 (of input graph)
+            candidate_nodes_1 = []  # nodes in octilinear graph that are near to node_1 (of input graph)
 
-        A_ = A.copy()
+            A_ = A.copy()
 
-        # if input nodes came up in previous iterations their position is already fixed
-        node_0_free = True
-        node_1_free = True
-        if node_0 in grid_node_dict.keys():
-            candidate_nodes_0.append(grid_node_dict[node_0])
-            node_0_free = False
-            A_ = open_sink_edges(A_, G, metro_map, grid_node_dict[node_0], node_0, edge)
-        if node_1 in grid_node_dict.keys():
-            candidate_nodes_1.append(grid_node_dict[node_1])
-            node_1_free = False
-            A_ = open_sink_edges(A_, G, metro_map, grid_node_dict[node_1], node_1, edge)
+            # if input nodes came up in previous iterations their position is already fixed
+            node_0_free = True
+            node_1_free = True
+            if node_0 in grid_node_dict.keys():
+                candidate_nodes_0.append(grid_node_dict[node_0])
+                node_0_free = False
+                A_ = open_sink_edges(A_, G, metro_map, grid_node_dict[node_0], node_0, edge)
+            if node_1 in grid_node_dict.keys():
+                candidate_nodes_1.append(grid_node_dict[node_1])
+                node_1_free = False
+                A_ = open_sink_edges(A_, G, metro_map, grid_node_dict[node_1], node_1, edge)
 
-        # for free input nodes add all octilinear graph nodes within certain radius to the
-        for node in list(G.nodes):
-            if G.nodes[node]['isStation'] or is_closed(node, A):
-                continue
-            if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # check if octilinear node is within radius around input node
-                candidate_nodes_0.append(node)
-
-            if node_1_free and pow(node[0] - node_1.coord_x, 2) + pow(node[1] - node_1.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # same here
-                candidate_nodes_1.append(node)
-
-        if node_0_free and node_1_free:
-            # build local Voronoi diagram & make sure candidate_nodes_0 and 1 are disjoint
-            union_candidate_nodes = list(set(candidate_nodes_0 + candidate_nodes_1))
-            candidate_nodes_0 = []
-            candidate_nodes_1 = []
-
-            for node in union_candidate_nodes:
-                closer_node = get_closest_node(node, node_0, node_1)
-                if closer_node == node_0:
+            # for free input nodes add all octilinear graph nodes within certain radius to the
+            for node in list(G.nodes):
+                if G.nodes[node]['isStation'] or is_closed(node, A):
+                    continue
+                if node_0_free and pow(node[0] - node_0.coord_x, 2) + pow(node[1] - node_0.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # check if octilinear node is within radius around input node
                     candidate_nodes_0.append(node)
-                else:
+
+                if node_1_free and pow(node[0] - node_1.coord_x, 2) + pow(node[1] - node_1.coord_y, 2) < pow(CELL_SIZE * radius_node_search, 2):  # same here
                     candidate_nodes_1.append(node)
-        elif node_0_free and not node_1_free:
-            if candidate_nodes_1[0] in candidate_nodes_0:
-                candidate_nodes_0.remove(candidate_nodes_1[0])
-        elif node_1_free and not node_0_free:
-            if candidate_nodes_0[0] in candidate_nodes_1:
-                candidate_nodes_1.remove(candidate_nodes_0[0])
 
-        if node_0_free:
-            A_ = modify_target_sink_edge_costs(A_, node_0, candidate_nodes_0)
-        if node_1_free:
-            A_ = modify_target_sink_edge_costs(A_, node_1, candidate_nodes_1)
+            if node_0_free and node_1_free:
+                # build local Voronoi diagram & make sure candidate_nodes_0 and 1 are disjoint
+                union_candidate_nodes = list(set(candidate_nodes_0 + candidate_nodes_1))
+                candidate_nodes_0 = []
+                candidate_nodes_1 = []
 
-        # find shortest set-set path using dijkstra
-        shortest_path_cost = float('inf')
-        shortest_path = []   # list of edges in octilinear graph
-        shortest_path_nodes = []
-        shortest_auxiliary_path = []  # list of edges in auxiliary graph
-        for node in candidate_nodes_0:
-            # find shortest node-set path using dijkstra
-            path, path_nodes, auxiliary_path, path_cost = get_shortest_dijkstra_path_to_set(node, candidate_nodes_1, A_, G)
-            if path_cost < shortest_path_cost:
-                shortest_path = path
-                shortest_path_nodes = path_nodes
-                shortest_auxiliary_path = auxiliary_path
-                shortest_path_cost = path_cost
+                for node in union_candidate_nodes:
+                    closer_node = get_closest_node(node, node_0, node_1)
+                    if closer_node == node_0:
+                        candidate_nodes_0.append(node)
+                    else:
+                        candidate_nodes_1.append(node)
+            elif node_0_free and not node_1_free:
+                if candidate_nodes_1[0] in candidate_nodes_0:
+                    candidate_nodes_0.remove(candidate_nodes_1[0])
+            elif node_1_free and not node_0_free:
+                if candidate_nodes_0[0] in candidate_nodes_1:
+                    candidate_nodes_1.remove(candidate_nodes_0[0])
 
-        if path_cost == float('inf'):
-            # no path found
-            # return bad result early so we can inspect the situation
-            print(f"could not find path between nodes {node_0.station_label} and {node_1.station_label}")
+            if node_0_free:
+                A_ = modify_target_sink_edge_costs(A_, node_0, candidate_nodes_0)
+            if node_1_free:
+                A_ = modify_target_sink_edge_costs(A_, node_1, candidate_nodes_1)
+
+            # find shortest set-set path using dijkstra
+            shortest_path_cost = float('inf')
+            shortest_path = []   # list of edges in octilinear graph
+            shortest_path_nodes = []
+            shortest_auxiliary_path = []  # list of edges in auxiliary graph
+            for node in candidate_nodes_0:
+                # find shortest node-set path using dijkstra
+                path, path_nodes, auxiliary_path, path_cost = get_shortest_dijkstra_path_to_set(node, candidate_nodes_1, A_, G)
+                if path_cost < shortest_path_cost:
+                    shortest_path = path
+                    shortest_path_nodes = path_nodes
+                    shortest_auxiliary_path = auxiliary_path
+                    shortest_path_cost = path_cost
+
+            if path_cost == float('inf'):
+                # no path found
+                # return bad result early so we can inspect the situation
+                print(f"could not find path between nodes {node_0.station_label} and {node_1.station_label}")
+                return G
+
+            for path_edge in shortest_path:
+                G.edges[path_edge]['line'] = metro_map.edges()[edge]['info']
+
+            final_node0 = shortest_path[0][0]
+            final_node1 = shortest_path[-1][1]
+
+            G.nodes[final_node0]['isStation'] = True
+            G.nodes[final_node1]['isStation'] = True
+            G.nodes[final_node0]['stationInfo'] = node_0
+            G.nodes[final_node1]['stationInfo'] = node_1
+            grid_node_dict[node_0] = final_node0
+            grid_node_dict[node_1] = final_node1
+
+            A = close_bend_and_sink_edges_on_path(shortest_path_nodes, A)
+            A = close_diagonals_through_path(shortest_auxiliary_path, A)
+
+            # show_octilinear_graph(G, False)
+            print(f"path cost: {shortest_path_cost}")
+            print("[", i, "/", num_edges, "]")
+        except Exception as e:
+            print(f"error when trying to connect nodes {node_0.station_label} and {node_1.station_label}")
+            print(e)
             return G
-
-        for path_edge in shortest_path:
-            G.edges[path_edge]['line'] = metro_map.edges()[edge]['info']
-
-        final_node0 = shortest_path[0][0]
-        final_node1 = shortest_path[-1][1]
-
-        G.nodes[final_node0]['isStation'] = True
-        G.nodes[final_node1]['isStation'] = True
-        G.nodes[final_node0]['stationInfo'] = node_0
-        G.nodes[final_node1]['stationInfo'] = node_1
-        grid_node_dict[node_0] = final_node0
-        grid_node_dict[node_1] = final_node1
-
-        A = close_bend_and_sink_edges_on_path(shortest_path_nodes, A)
-        A = close_diagonals_through_path(shortest_auxiliary_path, A)
-
-        # show_octilinear_graph(G, False)
-        print(f"path cost: {shortest_path_cost}")
-        print("[", i, "/", num_edges, "]")
     print("done")
     return G  # unsure if I modify per reference or need to return G ... just to be sure I return it
 
@@ -515,35 +520,42 @@ def open_sink_edges(A_, G, metro_map, octi_node, input_node, input_edge):
         if 'line' in G.edges[adj_edge]:   # G[adj_edge[0]][adj_edge[1]]
             aux_node = adj_edge  # aux graph nodes correspond to edges in octi graph, therefore this is legal
 
-            # if they are: iterate over all sink edges, calculate bend costs and sum them up
-            for sink_edge in A_.edges(octi_node):
-                bend_edge = (aux_node, sink_edge[1])  # get corresponding bend edge
-                A_[sink_edge[0]][sink_edge[1]]['cost'] += get_bend_edge_cost(bend_edge)
-
             # fill fixed_edge_dict for later steps
             mm_edge = None
             for edge in metro_map.edges(input_node):
                 if metro_map.edges[edge]['info'] == G.edges()[adj_edge]['line']:
                     mm_edge = edge
                     break
+            if mm_edge is None:
+                continue
 
-            fixed_edge_dict[get_aux_node_id(aux_node)] = {
-                'cw': get_clockwise_dist(input_edge, mm_edge, map_edge_order),
-                'ccw': get_counter_clockwise_dist(input_edge, mm_edge, map_edge_order)
-            }
+            try:
+                fixed_edge_dict[get_aux_node_id(aux_node)] = {
+                    'cw': get_clockwise_dist(input_edge, mm_edge, map_edge_order),
+                    'ccw': get_counter_clockwise_dist(input_edge, mm_edge, map_edge_order)
+                }
+            except TypeError as e:
+                print("idk man")
+                raise e
 
-    # very complex: now ensure correct edge ordering by setting cost of invalid sink edges to infinity
-    # find closest fixed edges in clockwise and counterclockwise direction
-    min_cw = min(fixed_edge_dict, key=lambda x: fixed_edge_dict[x]['cw'])
-    min_ccw = min(fixed_edge_dict, key=lambda x: fixed_edge_dict[x]['ccw'])
-    # also check how much clearance is needed for unfixed edges
-    cw_clearance = fixed_edge_dict[min_cw]['cw'] - 1
-    ccw_clearance = fixed_edge_dict[min_ccw]['ccw'] - 1
+            # if they are: iterate over all sink edges, calculate bend costs and sum them up
+            for sink_edge in A_.edges(octi_node):
+                bend_edge = (aux_node, sink_edge[1])  # get corresponding bend edge
+                A_[sink_edge[0]][sink_edge[1]]['cost'] += get_bend_edge_cost(bend_edge)
 
-    # set cost of sink edges outside their range to infinity
-    for sink_edge in A_.edges(octi_node):
-        if not in_range(get_aux_node_id(sink_edge[1]), min_cw, min_ccw, cw_clearance, ccw_clearance):
-            A_[sink_edge[0]][sink_edge[1]]['cost'] = float('inf')
+    if fixed_edge_dict:
+        # very complex: now ensure correct edge ordering by setting cost of invalid sink edges to infinity
+        # find closest fixed edges in clockwise and counterclockwise direction
+        min_cw = min(fixed_edge_dict, key=lambda x: fixed_edge_dict[x]['cw'])
+        min_ccw = min(fixed_edge_dict, key=lambda x: fixed_edge_dict[x]['ccw'])
+        # also check how much clearance is needed for unfixed edges
+        cw_clearance = fixed_edge_dict[min_cw]['cw'] - 1
+        ccw_clearance = fixed_edge_dict[min_ccw]['ccw'] - 1
+
+        # set cost of sink edges outside their range to infinity
+        for sink_edge in A_.edges(octi_node):
+            if not in_range(get_aux_node_id(sink_edge[1]), min_cw, min_ccw, cw_clearance, ccw_clearance):
+                A_[sink_edge[0]][sink_edge[1]]['cost'] = float('inf')
 
     return A_
 
