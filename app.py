@@ -1,14 +1,12 @@
 # -*- encoding: iso-8859-15 -*-
 import itertools
 import json
-import sys
 
 import flask
 import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
 import math
-from operator import attrgetter
 
 app = flask.Flask(__name__)
 data_path = 'data/'
@@ -39,7 +37,7 @@ A = {}
 Shared_Graph = {}
 Shared_Map = {}
 
-radius_node_search = 4
+radius_node_search = 2
 
 CELL_SIZE = 1
 Grid_Resolution = 50
@@ -49,9 +47,6 @@ class Station:
     def __init__(self, featureData):
         self.coord_x = featureData['geometry']['coordinates'][0]
         self.coord_y = featureData['geometry']['coordinates'][1]
-        # self.degree = featureData['properties']['deg']
-        # self.degree_in = featureData['properties']['deg_in']
-        # self.degree_out = featureData['properties']['deg_out']
         self.id = featureData['properties']['id']
         try:
             self.station_label = featureData['properties']['station_label']
@@ -119,8 +114,8 @@ def index():
     metro_map = load_data()
     Shared_Map = metro_map
     pos = nx.get_node_attributes(metro_map, 'pos')
-    nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
-    plt.show()
+    # nx.draw(metro_map, pos, node_size=8, connectionstyle='arc3, rad = 0.1', with_labels=True)
+    # plt.show()
 
     ordered_input_edges = order_input_edges(metro_map)
 
@@ -141,13 +136,13 @@ def index():
         else:
             color_map_edges.append('black')
     pos = nx.get_node_attributes(G, 'pos')
-    nx.draw(G, pos, node_size=8, node_color=color_map_edges, with_labels=True)
-    plt.show()
+    # nx.draw(G, pos, node_size=8, node_color=color_map_edges, with_labels=True)
+    # plt.show()
     global A
     A = auxiliary_graph(G)
     pos = nx.get_node_attributes(A, 'pos')
 
-    G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
+    #G = route_edges(ordered_input_edges, G, metro_map) # TODO: reactivate this
     Shared_Graph = G
     show_octilinear_graph(G, False)
 
@@ -183,11 +178,11 @@ def get_data_map():
 
 @app.route('/data-graph')
 def get_data_graph():
-    #f = open(data_path + 'freiburgGraph.json')
-    #data = json.load(f)
-    #return json.dumps(data)
-    graph = nx.node_link_data(Shared_Graph)  # TODO: Reactivate this - deactivated for faster testing purposes
-    return json.dumps(graph, indent=4, cls=Encoder)
+    f = open(data_path + 'freiburgGraph.json')
+    data = json.load(f)
+    return json.dumps(data)
+    # graph = nx.node_link_data(Shared_Graph)  # TODO: Reactivate this - deactivated for faster testing purposes
+    # return json.dumps(graph, indent=4, cls=Encoder)
 
 
 def load_data():
@@ -318,8 +313,8 @@ def show_octilinear_graph(Graph, labels):
         pos[node] = node
 
     # plt.figure(dpi=1200)
-    nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=labels)
-    plt.show()
+    # nx.draw(G, pos, node_size=8, node_color=color_map_nodes, edge_color=color_map_edges, with_labels=labels)
+    # plt.show()
 
 
 def get_other_node(edge, node):
@@ -490,7 +485,7 @@ def route_edges(edges, G, metro_map):
 
         # show_octilinear_graph(G, False)
         print(f"path cost: {shortest_path_cost}")
-        print("[", i, "/", num_edges,"]")
+        print("[", i, "/", num_edges, "]")
     print("done")
     return G  # unsure if I modify per reference or need to return G ... just to be sure I return it
 
@@ -706,7 +701,8 @@ def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A_, G):
         if path_cost < cheapest_path_cost:
             cheapest_path_cost = path_cost
             cheapest_target = target_node
-
+    if cheapest_target is None:
+        return None, None, None, float('inf')
     # get path to the cheapest target node
     cheapest_auxiliary_path = nx.shortest_path(A, source=start_node, target=cheapest_target, weight="cost", method="dijkstra")
 

@@ -27,6 +27,8 @@ let graphData = null
 
 // arrays for all station markers of map and graph TODO: clear this on map reload for other city
 let allMarkers = []
+let switchPointMarkers = []
+let switchPointLayer = L.layerGroup()
 
 // layer for the graph which holds the leaflet map
 let graphMapLayer = null
@@ -43,6 +45,7 @@ graph.sync(map)
 drawMetroMap()
 drawMetroGraph()
 addRadioButtonEvents()
+addCheckboxEvents()
 
 function setupMap(point, zoom) {
     map = L.map('map', {
@@ -172,6 +175,11 @@ function drawMetroMap() { // draws our metro map with real station coordinates
                     if (!node.label.includes("Switch Point")) {
                         allMarkers.push(drawMarker(map, convertCoordinates(node.pos), 'white', node.label))
                     }
+                    if (node.label.includes("Switch Point")) { // TODO: Remove this to disable switch points on map
+                        let marker = drawMarker(map, convertCoordinates(node.pos), 'white', node.label)
+
+                        switchPointMarkers.push(marker)
+                    }
                 })
                 fitMap()
             }
@@ -207,6 +215,10 @@ function drawMetroGraph() { // draws our metro map in the octilinear graph layou
                 data.nodes.forEach(function (node) { // mark each station
                     if (node.isStation && !node.stationInfo.station_label.includes("Switch Point")) {
                         allMarkers.push(drawMarker(graph, convertCoordinates(node.pos), 'white', node.stationInfo.station_label))
+                    }
+                    if (node.isStation && node.stationInfo.station_label.includes("Switch Point")) { // TODO: Remove this to disable switch points on graph
+                        let marker = drawMarker(graph, convertCoordinates(node.pos), 'white', node.stationInfo.station_label)
+                        switchPointMarkers.push(marker)
                     }
                 })
             }
