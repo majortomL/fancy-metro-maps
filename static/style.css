@@ -54,11 +54,7 @@ body {
 }
 
 .grid-size {
-    display: none
-}
-
-#realtime-calculation-on:checked ~ .grid-size {
-    display: inline;
+    display: inline
 }
 
 .loader {
