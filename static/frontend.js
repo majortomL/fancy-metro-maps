@@ -1,4 +1,6 @@
-// TODO: allow user to toggle between real time execution and just loading the finished JSON
+let slides = []
+let slidesArray = []
+let slidePosition = 0;
 
 let map = {}
 let graph = {}
@@ -25,7 +27,7 @@ let mapboxToken = "pk.eyJ1IjoibWFqb3J0b21sIiwiYSI6ImNsM24xcXg1NTBhYXMzZW85Yzd6cH
 let mapData = null
 let graphData = null
 
-// arrays for all station markers of map and graph TODO: clear this on map reload for other city
+// arrays for all station markers of map and graph
 let allMarkers = []
 let switchPointMarkers = []
 let graphMarkers = []
@@ -37,6 +39,7 @@ let mapLines = []
 let graphMapLayer = null
 
 let freiburgCenter = [48, 7.846653]
+setupScrollEvents()
 setupMap(freiburgCenter, zoom)
 setupGraph(freiburgCenter, zoom)
 
@@ -76,6 +79,7 @@ function setupGraph(point, zoom) {
         zoomOffset: -1,
         accessToken: mapboxToken
     })
+    // L.control.bigImage({position: 'topright'}).addTo(graph)
 }
 
 function fitMap() {
@@ -297,5 +301,24 @@ function getFlipFactor(points) {
     } else return 1
 }
 
+function setupScrollEvents() {
+    slides = document.getElementsByClassName('slide')
+    for(i=0; i<slides.length; i++){
+        slidesArray.push(slides[i])
+    }
+    slidesArray.push(document.getElementById('final-slide'))
 
+    document.addEventListener('wheel', function (e) {
+        if (e.deltaY > 0) { // user scrolled down
+            if (slidesArray[slidePosition + 1] != null) {
+                slidePosition++
+            }
+        } else if (e.deltaY < 0) { // user scrolled up
+            if (slidesArray[slidePosition - 1] != null) {
+                slidePosition--
+            }
+        }
+        window.scrollTo({top: slidesArray[slidePosition].offsetTop, behavior: 'smooth'})
+    })
+}
 

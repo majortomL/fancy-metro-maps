@@ -39,6 +39,7 @@ c_m = 0.5
 
 A = {}
 Shared_Graph = {}
+Shared_Graph_Success = False
 Shared_Map = {}
 
 radius_node_search = 3
@@ -174,7 +175,7 @@ def index():
 
 
 def generate_metro_graph(city, grid_resolution):
-    global Shared_Graph
+    global Shared_Graph, Shared_Graph_Success
 
     metro_map = load_data(city)
 
@@ -198,8 +199,8 @@ def generate_metro_graph(city, grid_resolution):
     A = auxiliary_graph(g)
 
     for i in range(3):
-        Shared_Graph, success = route_edges(ordered_input_edges, g, metro_map)
-        if success:
+        Shared_Graph, Shared_Graph_Success = route_edges(ordered_input_edges, g, metro_map)
+        if Shared_Graph_Success:
             break
         print(f"attempt {i} failed")
         g = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
@@ -227,8 +228,9 @@ def get_data_graph(city, precalculated, grid_resolution=50):
 
         json_obj = json.dumps(graph, indent=4, cls=Encoder)
 
-        with open(file_path, 'w') as outfile:
-            outfile.write(json_obj)
+        if Shared_Graph_Success:
+            with open(file_path, 'w') as outfile:
+                outfile.write(json_obj)
 
         return json_obj
 
@@ -503,6 +505,9 @@ def route_edges(edges, G, metro_map):
             if node_1_free:
                 A, a_change_dict = modify_target_sink_edge_costs(A, node_1, candidate_nodes_1, a_change_dict)
 
+            # open bend edges over lines that are crossed in the real graph as well
+            # A, a_change_dict = open_crossed_edges(A, edge, metro_map, G, drawn_edges_dict, a_change_dict) # does not work as intended
+
             # find shortest set-set path using dijkstra
             shortest_path_cost = float('inf')
             shortest_path = []  # list of edges in octilinear graph
@@ -510,8 +515,7 @@ def route_edges(edges, G, metro_map):
             shortest_auxiliary_path = []  # list of edges in auxiliary graph
             for node in candidate_nodes_0:
                 # find shortest node-set path using dijkstra
-                path, path_nodes, auxiliary_path, path_cost = \
-                    get_shortest_astar_path_to_set(node, candidate_nodes_1, A, shortest_path_cost)
+                path, path_nodes, auxiliary_path, path_cost = get_shortest_astar_path_to_set(node, candidate_nodes_1, A, shortest_path_cost)
                 if path_cost < shortest_path_cost:
                     shortest_path = path
                     shortest_path_nodes = path_nodes

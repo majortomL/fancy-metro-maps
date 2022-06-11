@@ -1,11 +1,11 @@
 #head {
     text-align: center;
-    font-size: 2em;
+    font-size: 8em;
 }
 
 #names {
     text-align: center;
-    font-size: 1em;
+    font-size: 4em;
 }
 
 #map-label {
@@ -27,24 +27,41 @@
 
 .container {
     width: 49%;
-    top: 3cm;
-    position: absolute;
+    overflow: hidden;
+    padding: 0.5%;
+}
+
+.container-controls {
+    width: 49%;
+    overflow: hidden;
+    padding: 0.5%;
 }
 
 .map-container {
     height: 100%;
 }
 
-#map {
+#control-wrapper{
+}
 
+#control-container{
+    overflow: hidden;
+}
+
+#control-container-empty{
+    float: left;
 }
 
 #graph {
     background-color: #343332;
 }
 
+#map-container{
+    float: left;
+}
+
 #graph-container {
-    left: 50.5%;
+    overflow: hidden;
 }
 
 body {
@@ -84,4 +101,55 @@ body {
 
 #spinner {
     visibility: hidden;
+}
+
+.stop-scrolling{
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide{
+    display: table;
+    height: 90vh;
+    width: 90%;
+    padding: 5%;
+
+}
+
+.slide-header{
+    font-size: 3em;
+}
+
+.slide-content{
+    padding-top: 5%;
+    font-size: 2em;
+}
+
+.vertical-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#first-slide{
+    background-image: url("/static/imgs/freiburg.png");
+    background-size: 100vh;
+    background-repeat: no-repeat;
+}
+
+#second-slide{
+}
+
+a:link{
+    color: green;
+}
+
+a:visited{
+    color:darkgreen;
+}
+
+#sixth-slide{
+    background-image: url("/static/imgs/python.png"), url("/static/imgs/networkx.png"), url("/static/imgs/leaflet.png"), url("/static/imgs/htmljscss.png");
+    background-size: 7%, 10%, 20%, 15%;
+    background-repeat: no-repeat;
+    background-position: 50% 20%, 60% 40%, 80% 20%, 80% 40%;
 }
