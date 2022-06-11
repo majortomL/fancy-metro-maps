@@ -503,9 +503,6 @@ def route_edges(edges, G, metro_map):
             if node_1_free:
                 A, a_change_dict = modify_target_sink_edge_costs(A, node_1, candidate_nodes_1, a_change_dict)
 
-            # open bend edges over lines that are crossed in the real graph as well
-            # A, a_change_dict = open_crossed_edges(A, edge, metro_map, G, drawn_edges_dict, a_change_dict) # does not work as intended
-
             # find shortest set-set path using dijkstra
             shortest_path_cost = float('inf')
             shortest_path = []  # list of edges in octilinear graph
@@ -513,7 +510,8 @@ def route_edges(edges, G, metro_map):
             shortest_auxiliary_path = []  # list of edges in auxiliary graph
             for node in candidate_nodes_0:
                 # find shortest node-set path using dijkstra
-                path, path_nodes, auxiliary_path, path_cost = get_shortest_astar_path_to_set(node, candidate_nodes_1, A, shortest_path_cost)
+                path, path_nodes, auxiliary_path, path_cost = \
+                    get_shortest_astar_path_to_set(node, candidate_nodes_1, A, shortest_path_cost)
                 if path_cost < shortest_path_cost:
                     shortest_path = path
                     shortest_path_nodes = path_nodes
@@ -531,10 +529,6 @@ def route_edges(edges, G, metro_map):
 
             for path_edge in shortest_path:
                 G.edges[path_edge]['line'] = metro_map.edges()[edge]['info']
-
-            #drawn_edges_dict[edge] = []
-            #for path_node in shortest_path_nodes:
-            #    drawn_edges_dict[edge].append(path_node)
 
             final_node0 = shortest_path[0][0]
             final_node1 = shortest_path[-1][1]
@@ -568,16 +562,21 @@ def is_closed(node, A):
 
 
 def open_crossed_edges(A, edge, metro_map, G, drawn_edges_dict, a_change_dict):
-    crossed_edge_list = []
+    crossed_edge_dict = {}
     this_bb = BBox(edge)
+    min_path_length = 1
 
-    for mm_edge in drawn_edges_dict.keys():
-        if mm_edge[0] == edge[0] or mm_edge[0] == edge[1] or mm_edge[1] == edge[1] or mm_edge[0] == edge[1]:
+    for mm_edge in metro_map.edges:
+        if edge_adj_to_edge(edge, mm_edge):
             continue
         if not edge_intersect(edge, mm_edge, this_bb):
             continue
+        min_path_length += 1
+        if mm_edge not in drawn_edges_dict:
+            continue
 
-        nodes = drawn_edges_dict[mm_edge]
+        crossed_edge_dict[mm_edge] = []
+        nodes = drawn_edges_dict[mm_edge]   # nodes in octi graph that form a path which should be crossed by our new path
         node_id = 0
         for node in nodes:
             if G.nodes[node]['isStation']:
@@ -586,43 +585,123 @@ def open_crossed_edges(A, edge, metro_map, G, drawn_edges_dict, a_change_dict):
             # re-open bend edges on stations in line
 
             # re-enable all bend edges
-            for adj_edge in G.edges[node]:
-                for aux_edge in A.edges[adj_edge[1]]:
-                    if aux_edge[1] == node: # skip sink edge
-                        continue
-                    if aux_edge[1][0] != node:  # skip external edge
+            for adj_edge in G.edges(node):
+                for aux_edge in A.edges(adj_edge):
+                    if not is_aux_bend_edge(aux_edge):
                         continue
                     if aux_edge not in a_change_dict:
                         a_change_dict[aux_edge] = A[aux_edge[0]][aux_edge[1]]['cost']
                     A[aux_edge[0]][aux_edge[1]]['cost'] = get_bend_edge_cost(aux_edge)
+                    crossed_edge_dict[mm_edge].append(aux_edge)
 
             # re-close only outputs that are already used
-            for adj_edge in G.edges[node]:
+            for adj_edge in G.edges(node):
                 if 'line' in G.edges[adj_edge]:
-                    for aux_edge in A.edges[adj_edge[1]]:
-                        A[aux_edge[0]][aux_edge[1]]['cost'] = float('inf')
+                    for aux_edge in A.edges(adj_edge):
+                        if is_aux_bend_edge(aux_edge):
+                            A[aux_edge[0]][aux_edge[1]]['cost'] = float('inf')
+                            crossed_edge_dict[mm_edge].remove(aux_edge)
 
             # reopen diagonal crossings over line
             if node_id > 0:
-                edge = (nodes[node_id-1], node)
-                if edge[0][0] != edge[1][0] and edge[0][1] != edge[1][1]:   # if edge is diagonal
+                octi_edge = (nodes[node_id-1], node)
+                if is_octi_diagonal(octi_edge):   # if edge is diagonal
 
-                    # find points of crossing diagonal
-                    p1 = (edge[0][0], edge[1][1])
-                    p2 = (edge[1][0], edge[0][1])
+                    crossing_diagonal = get_crossing_octi_diagonal(octi_edge)
+                    flipped_diagonal = flip_edge(crossing_diagonal)
 
-                    crossing_diagonal = (p1, p2)
-                    flipped_diagonal = (p2, p1)
-
-                    for d in [crossing_diagonal, flipped_diagonal]: # interpret octi edges as auxiliary nodes
-                        for adj_edge in A.edges[d]: # iterate over all auxiliary edges adjacent to the node
+                    for d in [crossing_diagonal, flipped_diagonal]:  # interpret octi edges as auxiliary nodes
+                        for adj_edge in A.edges[d]:  # iterate over all auxiliary edges adjacent to the node
                             if adj_edge not in a_change_dict:
                                 a_change_dict[adj_edge] = A[adj_edge[0]][aux_edge[1]]['cost']
                             A[adj_edge[0]][aux_edge[1]]['cost'] = get_auxiliary_edge_cost(adj_edge)
+                            if is_aux_diagonal_external(adj_edge):
+                                crossed_edge_dict[mm_edge].append(adj_edge)
 
             node_id += 1
 
-    return A, a_change_dict
+    for e in crossed_edge_dict:
+        if len(crossed_edge_dict[e]) == 0:
+            raise nx.NetworkXNoPath(f"Edge between {e[0].station_label} and {e[1].station_label} cannot be crossed.")
+
+    return A, a_change_dict, crossed_edge_dict, min_path_length
+
+
+def edge_adj_to_edge(e1,e2):
+    return e1[0] == e2[0] or e1[0] == e2[1] or e1[1] == e2[0] or e1[1] == e2[1]
+
+
+def flip_edge(e):
+    return (e[1], e[0])
+
+
+def get_crossing_octi_diagonal(octi_diagonal):
+    p1 = (octi_diagonal[0][0], octi_diagonal[1][1])
+    p2 = (octi_diagonal[1][0], octi_diagonal[0][1])
+
+    return p1, p2
+
+
+def is_octi_diagonal(e):
+    assert is_octi_edge(e)
+    return e[0][0] != e[1][0] and e[0][1] != e[1][1]
+
+
+def is_aux_bend_edge(e):
+    assert is_aux_edge(e)
+
+    return (not is_aux_sink_edge(e)) and (not is_aux_external_edge(e))
+
+
+def is_aux_external_edge(e):
+    assert is_aux_edge(e)
+
+    if is_aux_sink_edge(e):
+        return False
+    n1 = e[0]
+    n2 = e[1]
+    return n1[0] != n2[0]   # check if nodes have different base-sink-node
+
+
+def is_aux_diagonal_external(e):
+    assert is_aux_edge(e)
+
+    if is_aux_external_edge(e):
+        n1 = e[0]   # = tuple of sink_node and other_sink_node (each themselves being a tuple of (x,y))
+        return n1[0][0] != n1[1][0] and n1[0][1] != n1[1][1]    # check if both x, and y values mismatch
+    return False
+
+
+def is_aux_sink_edge(e):
+    assert is_aux_edge(e)
+
+    n1 = e[0]
+    n2 = e[1]
+    for n in [n1, n2]:
+        if is_aux_sink_node(n):
+            return True
+    return False
+
+
+def is_aux_edge(e):
+    n1 = e[0]
+    n2 = e[1]
+
+    if is_aux_sink_node(n1) and is_aux_sink_node(n2):
+        return False
+    return True
+
+
+def is_aux_sink_node(n):
+    return type(n[0]) is not tuple
+
+
+def is_octi_node(n):
+    return is_aux_sink_node(n)  # this is by definition the same
+
+
+def is_octi_edge(e):
+    return is_octi_node(e[0]) and is_octi_node(e[1])
 
 
 def open_sink_edges(A_, G, metro_map, octi_node, input_node, input_edge, a_change_dict):
@@ -827,50 +906,7 @@ def close_diagonals_through_path(shortest_auxiliary_path, A):
     return A
 
 
-def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A_):
-    # calculate cheapest path from start_node to all nodes (in the auxiliary graph)
-    paths = nx.shortest_path_length(A_, source=start_node, weight="cost", method="dijkstra")
-
-    # determine the target node with the cheapest path
-    cheapest_target = None
-    cheapest_path_cost = float('inf')
-    for target_node in target_nodes:
-
-        path_cost = paths[target_node]
-        if path_cost < cheapest_path_cost:
-            cheapest_path_cost = path_cost
-            cheapest_target = target_node
-    if cheapest_target is None:
-        return None, None, None, float('inf')
-    # get path to the cheapest target node
-    cheapest_auxiliary_path = nx.shortest_path(A, source=start_node, target=cheapest_target, weight="cost", method="dijkstra")
-
-    if cheapest_path_cost == float('inf'):
-        # return early for debugging purposes
-        return None, None, None, cheapest_path_cost
-
-    # convert the cheapest path in the auxiliary graph to a list of nodes of the octilinear graph
-    # non-sink-nodes are structured like follows (sink-node, other-sink-node)
-    # to convert we check if the sink-node changes and if it does we add it to the path
-    octi_path_nodes = []
-    previous_sink_node = None
-    for i in range(1, len(cheapest_auxiliary_path) - 1):
-        current_sink_node = cheapest_auxiliary_path[i][0]
-
-        if type(current_sink_node) is tuple:
-            if current_sink_node != previous_sink_node:
-                octi_path_nodes.append(current_sink_node)
-            previous_sink_node = current_sink_node
-
-    # convert the node list into an edge list
-    octi_path = []  # edge list
-    for i in range(0, len(octi_path_nodes) - 1):
-        octi_path.append((octi_path_nodes[i], octi_path_nodes[i + 1]))
-
-    return octi_path, octi_path_nodes, cheapest_auxiliary_path, cheapest_path_cost
-
-
-def get_shortest_astar_path_to_set(start_node, target_nodes, A, min_cheapest_path_cost=float('inf')):
+def get_shortest_astar_path_to_set(start_node, target_nodes, A, min_cheapest_path_cost):
 
     cheapest_path_cost = min_cheapest_path_cost  # we use this function in a loop to find the shortest set-set distance, if another iteration has already found a path we directly set it's length as min
     cheapest_aux_path = None
@@ -882,22 +918,30 @@ def get_shortest_astar_path_to_set(start_node, target_nodes, A, min_cheapest_pat
             path = nx.astar_path(A, start_node, target_node, chebyshev_dist, 'cost')
             path_cost = nx.path_weight(A, path, 'cost')
 
-            if path_cost < cheapest_path_cost:
-                cheapest_aux_path = path
-                cheapest_path_cost = path_cost
+            if path_cost >= cheapest_path_cost:
+                continue
+
+            cheapest_aux_path = path
+            cheapest_path_cost = path_cost
         except nx.NetworkXNoPath:
             pass
 
     if cheapest_aux_path is None:
         return None, None, None, float('inf')
 
-    # convert the cheapest path in the auxiliary graph to a list of nodes of the octilinear graph
+    octi_path, octi_path_nodes = aux_path_to_octi_path(cheapest_aux_path)
+
+    return octi_path, octi_path_nodes, cheapest_aux_path, cheapest_path_cost
+
+
+# convert the cheapest path in the auxiliary graph to a list of nodes of the octilinear graph
+def aux_path_to_octi_path(aux_path, ):
     # non-sink-nodes are structured like follows (sink-node, other-sink-node)
     # to convert we check if the sink-node changes and if it does we add it to the path
     octi_path_nodes = []
     previous_sink_node = None
-    for i in range(1, len(cheapest_aux_path) - 1):
-        current_sink_node = cheapest_aux_path[i][0]
+    for i in range(1, len(aux_path) - 1):
+        current_sink_node = aux_path[i][0]
 
         if type(current_sink_node) is tuple:
             if current_sink_node != previous_sink_node:
@@ -909,8 +953,7 @@ def get_shortest_astar_path_to_set(start_node, target_nodes, A, min_cheapest_pat
     for i in range(0, len(octi_path_nodes) - 1):
         octi_path.append((octi_path_nodes[i], octi_path_nodes[i + 1]))
 
-    return octi_path, octi_path_nodes, cheapest_aux_path, cheapest_path_cost
-
+    return octi_path, octi_path_nodes
 
 
 def chebyshev_dist(n, m):
