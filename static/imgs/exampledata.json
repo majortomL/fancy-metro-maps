@@ -1,0 +1,47 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          1025883.20659838,
+          6241492.30206274
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "id": "0x12f5230",
+        "station_id": "555921",
+        "station_label": "Bad Cannstatt Wilhelmsplatz"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            1025586.6495802,
+            6241064.50531843
+          ],
+          [
+            1025617.54925972,
+            6241143.0376442
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "from": "0x2543c60",
+        "lines": [
+          {
+            "color": "f5892d",
+            "id": "0x130f0f0",
+            "label": "U2"
+          }
+        ],
+        "to": "0x12f5230"
+      },
+      "type": "Feature"
+    }
+  ]
+}
+  

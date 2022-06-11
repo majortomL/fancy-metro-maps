@@ -39,6 +39,7 @@ c_m = 0.5
 
 A = {}
 Shared_Graph = {}
+Shared_Graph_Success = False
 Shared_Map = {}
 
 radius_node_search = 3
@@ -174,7 +175,7 @@ def index():
 
 
 def generate_metro_graph(city, grid_resolution):
-    global Shared_Graph
+    global Shared_Graph, Shared_Graph_Success
 
     metro_map = load_data(city)
 
@@ -198,8 +199,8 @@ def generate_metro_graph(city, grid_resolution):
     A = auxiliary_graph(g)
 
     for i in range(3):
-        Shared_Graph, success = route_edges(ordered_input_edges, g, metro_map)
-        if success:
+        Shared_Graph, Shared_Graph_Success = route_edges(ordered_input_edges, g, metro_map)
+        if Shared_Graph_Success:
             break
         print(f"attempt {i} failed")
         g = octilinear_graph(metro_map_extents[0][0], metro_map_extents[1][0], metro_map_extents[0][1], metro_map_extents[1][1], CELL_SIZE)
@@ -227,8 +228,9 @@ def get_data_graph(city, precalculated, grid_resolution=50):
 
         json_obj = json.dumps(graph, indent=4, cls=Encoder)
 
-        with open(file_path, 'w') as outfile:
-            outfile.write(json_obj)
+        if Shared_Graph_Success:
+            with open(file_path, 'w') as outfile:
+                outfile.write(json_obj)
 
         return json_obj
 
@@ -532,8 +534,8 @@ def route_edges(edges, G, metro_map):
             for path_edge in shortest_path:
                 G.edges[path_edge]['line'] = metro_map.edges()[edge]['info']
 
-            #drawn_edges_dict[edge] = []
-            #for path_node in shortest_path_nodes:
+            # drawn_edges_dict[edge] = []
+            # for path_node in shortest_path_nodes:
             #    drawn_edges_dict[edge].append(path_node)
 
             final_node0 = shortest_path[0][0]
@@ -588,7 +590,7 @@ def open_crossed_edges(A, edge, metro_map, G, drawn_edges_dict, a_change_dict):
             # re-enable all bend edges
             for adj_edge in G.edges[node]:
                 for aux_edge in A.edges[adj_edge[1]]:
-                    if aux_edge[1] == node: # skip sink edge
+                    if aux_edge[1] == node:  # skip sink edge
                         continue
                     if aux_edge[1][0] != node:  # skip external edge
                         continue
@@ -604,8 +606,8 @@ def open_crossed_edges(A, edge, metro_map, G, drawn_edges_dict, a_change_dict):
 
             # reopen diagonal crossings over line
             if node_id > 0:
-                edge = (nodes[node_id-1], node)
-                if edge[0][0] != edge[1][0] and edge[0][1] != edge[1][1]:   # if edge is diagonal
+                edge = (nodes[node_id - 1], node)
+                if edge[0][0] != edge[1][0] and edge[0][1] != edge[1][1]:  # if edge is diagonal
 
                     # find points of crossing diagonal
                     p1 = (edge[0][0], edge[1][1])
@@ -614,8 +616,8 @@ def open_crossed_edges(A, edge, metro_map, G, drawn_edges_dict, a_change_dict):
                     crossing_diagonal = (p1, p2)
                     flipped_diagonal = (p2, p1)
 
-                    for d in [crossing_diagonal, flipped_diagonal]: # interpret octi edges as auxiliary nodes
-                        for adj_edge in A.edges[d]: # iterate over all auxiliary edges adjacent to the node
+                    for d in [crossing_diagonal, flipped_diagonal]:  # interpret octi edges as auxiliary nodes
+                        for adj_edge in A.edges[d]:  # iterate over all auxiliary edges adjacent to the node
                             if adj_edge not in a_change_dict:
                                 a_change_dict[adj_edge] = A[adj_edge[0]][aux_edge[1]]['cost']
                             A[adj_edge[0]][aux_edge[1]]['cost'] = get_auxiliary_edge_cost(adj_edge)
@@ -871,7 +873,6 @@ def get_shortest_dijkstra_path_to_set(start_node, target_nodes, A_):
 
 
 def get_shortest_astar_path_to_set(start_node, target_nodes, A, min_cheapest_path_cost=float('inf')):
-
     cheapest_path_cost = min_cheapest_path_cost  # we use this function in a loop to find the shortest set-set distance, if another iteration has already found a path we directly set it's length as min
     cheapest_aux_path = None
     for target_node in target_nodes:
@@ -910,7 +911,6 @@ def get_shortest_astar_path_to_set(start_node, target_nodes, A, min_cheapest_pat
         octi_path.append((octi_path_nodes[i], octi_path_nodes[i + 1]))
 
     return octi_path, octi_path_nodes, cheapest_aux_path, cheapest_path_cost
-
 
 
 def chebyshev_dist(n, m):

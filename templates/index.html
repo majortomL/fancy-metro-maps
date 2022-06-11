@@ -14,21 +14,152 @@
     <script type="text/javascript" src="{{ url_for('static', filename='leaflet.polylineoffset.js') }}"></script>
     <!-- proj4j -->
     <script type="text/javascript" src="{{ url_for('static', filename='proj4.js') }}"></script>
+    <!-- leaflet bigimage -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='Leaflet.BigImage.css') }}">
+    <script src="{{ url_for('static',filename='Leaflet.BigImage.js') }}"></script>
 </head>
 
-<body>
-<div id="head">Fancy Metro Maps</div>
-<div id="names">
-    Moritz Roth - 1633060 <br>
-    Tom Lautenbach - 12044805
+<body class="stop-scrolling">
+{#<body>#}
+<div id="first-slide" class="slide">
+    <div class="vertical-center">
+        <div id="head">Fancy Metro Maps</div>
+        <div id="names">
+            Moritz Roth - 1633060 <br>
+            Tom Lautenbach - 12044805
+        </div>
+    </div>
 </div>
-<div id="map-label">Input Data: Undirected Graph of Stations and Lines</div>
-<div id="map-container" class="container">
-    <div id="map" class="map-container"></div>
+<div id="second-slide" class="slide">
+    <div class="slide-header">
+        The Paper: <a href="https://www.researchgate.net/publication/343051484_Metro_Maps_on_Octilinear_Grid_Graphs">Metro Maps on Octilinear Grid Graphs</a>
+    </div>
+    <div class="slide-content">
+        <ul>
+            <li>Find Solution for Metro Map Generation, octilinear</li>
+            <li>Integer Linear Program (Optimal Solution)</li>
+            <li>Approximation Algorithm (faster) - our Implementation</li>
+        </ul>
+        <b>The Approximation Algorithm</b>
+        <ol>
+            <li>Order the input graph edges</li>
+            <li>Calculate shortest path from possible start nodes to possible end nodes on grid graph</li>
+            <li>If no Drawing found: Randomize Edge Ordering</li>
+            <div style="color: gray">
+                <li>Optimize Drawing via Local Search</li>
+            </div>
+        </ol>
+    </div>
 </div>
-<div id="graph-container" class="container">
-    <div id="graph" class="map-container"></div>
-    <div>
+<div id="third-slide" class="slide">
+    <div class="slide-header">
+        The Approximation Algorithm - Input Edge Ordering
+    </div>
+    <div class="slide-content">
+        <ol>
+            <li>Mark Node with highest LDEG as dangling</li>
+            <li>While there are dangling nodes: Add all adjacent edges leading to an unprocessed node to the edge ordering</li>
+            <li>Mark each just added node as dangling, the just processed node as processed</li>
+        </ol>
+    </div>
+</div>
+<div id="fourth-slide" class="slide">
+    <div class="slide-header">
+        The Approximation Algorithm - Edge Routing and Station Placement
+    </div>
+    <div class="slide-content">
+        <ol>
+            <li>Take the previously done Edge Ordering</li>
+            <li>All nodes on the grid in a fixed radius are candidates for the edge's nodes</li>
+            <li>Generate Voronoi diagram to make the candidate sets disjoint</li>
+            <li>Prefer Grid Nodes closer to original Location: Higher cost for Nodes further out</li>
+            <li>Shortest Path between both now placed nodes: Dijkstra</li>
+            <li>Prevent Edge Crossings: Update Grid Graph after each Dijkstra Run, adjacent Edges have infinite cost</li>
+            <li>Preserve Circular Edge Ordering: Close sink edges in forbidden areas (infinite cost)</li>
+        </ol>
+    </div>
+</div>
+<div id="fifth-slide" class="slide">
+    <div class="slide-header">
+        The Approximation Algorithm - Avoiding Line Bends
+    </div>
+    <div class="slide-content">
+        <ol>
+            <li>Before routing Edge: Calculate Line Bend Penalty for each possible Placement of that Edge</li>
+        </ol>
+    </div>
+</div>
+<div id="sixth-slide" class="slide">
+    <div class="slide-header">
+        Our Implementation - Technology
+    </div>
+    <div class="slide-content">
+        <div>Back-End: Python</div>
+        <ul>
+            <li>NetworkX Graph Library</li>
+            <li>Flask Web Server</li>
+        </ul>
+        Front-End: HTML/JS/CSS
+        <ul>
+            <li>Leaflet Maps Library</li>
+        </ul>
+        Data: Pulled from various Public Transport Providers, JSON
+    </div>
+</div>
+<div id="seventh-slide" class="slide">
+    <div class="slide-header">
+        Our Implementation - Back-End
+    </div>
+    <div class="slide-content">
+        <div>Python + Flask</div>
+        <ol>
+            <li>Load the Data from JSON into a NX Graph</li>
+            <li>Build NX Octilinear Graph in required Size</li>
+            <li>Order the Edges</li>
+            <li>Route the Edges and their Stations</li>
+            <li>Convert NX Graph to JSON and dispatch to Front-End</li>
+        </ol>
+    </div>
+</div>
+<div id="eighth-slide" class="slide">
+    <div class="slide-header">
+        Our Implementation - Front-End
+    </div>
+    <div class="slide-content">
+        <div>Web-Stack + Leaflet</div>
+        <ol>
+            <li>Set up two Maps</li>
+            <li>Request JSON Graph and unchanged Map from Back-End</li>
+            <li>Iterate through JSONs, convert all Web Mercator Coordinates to WGS84</li>
+            <li>Place all Stations and all Lines</li>
+        </ol>
+        <ul>
+            <li>Station Hovering is linked</li>
+            <li>User can request different Grid Resolutions</li>
+            <li>User can choose between precalculated and live Graphs</li>
+            <li>User can select City to show</li>
+        </ul>
+    </div>
+</div>
+<div id="nineth-slide" class="slide">
+    <div class="slide-header">
+        Reference
+    </div>
+    <div class="slide-content">
+        <a href="https://www.researchgate.net/publication/343051484_Metro_Maps_on_Octilinear_Grid_Graphs">Bast, Hannah & Brosi, Patrick & Storandt, Sabine. (2020). Metro Maps on Octilinear Grid
+            Graphs. Computer Graphics Forum. 39. 357-367. 10.1111/cgf.13986.</a>
+    </div>
+</div>
+<div id="final-slide">
+    <div id="map-container" class="container">
+        <div id="map" class="map-container"></div>
+    </div>
+
+    <div id="graph-container" class="container">
+        <div id="graph" class="map-container"></div>
+    </div>
+    <div class="container-controls" id="control-container-empty"></div>
+    <div class="container-controls" id="control-container">
         Map overlay:
         <input type="radio" id="map-overlay-on" name="map-overlay" value="on"> <label for="map-overlay-on">On</label>
         <input type="radio" id="map-overlay-off" name="map-overlay" value="off" checked="checked"> <label for="map-overlay-off">Off</label>
