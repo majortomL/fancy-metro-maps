@@ -51,6 +51,48 @@
         </ol>
     </div>
 </div>
+<div id="second-and-a-half-slide" class="slide">
+    <div class="vertical-center">
+        <div style="display: flex;justify-content: center;">
+            <img src="/static/imgs/concept_album/1.png" class="centered_img" style="display: inherit" id="concept1" onclick="document.getElementById('concept1').style.display = 'none';document.getElementById('concept2').style.display = 'inherit';">
+            <img src="/static/imgs/concept_album/2.png" class="centered_img" style="display: none"    id="concept2" onclick="document.getElementById('concept2').style.display = 'none';document.getElementById('concept3').style.display = 'inherit';">
+            <img src="/static/imgs/concept_album/3.png" class="centered_img" style="display: none"    id="concept3" onclick="document.getElementById('concept3').style.display = 'none';document.getElementById('concept1').style.display = 'inherit';">
+        </div>
+    </div>
+</div>
+<div id="second-and-three-quarters-slide" class="slide">
+    <div class="vertical-center">
+        <div style="display: flex;justify-content: center;">
+            <img src="/static/imgs/aux_album/1.png" class="centered_img" style="display: inherit" id="aux_graph1" onclick="document.getElementById('aux_graph1').style.display = 'none';document.getElementById('aux_graph2').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/2.png" class="centered_img" style="display: none"    id="aux_graph2" onclick="document.getElementById('aux_graph2').style.display = 'none';document.getElementById('aux_graph3').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/3.png" class="centered_img" style="display: none"    id="aux_graph3" onclick="document.getElementById('aux_graph3').style.display = 'none';document.getElementById('aux_graph4').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/4.png" class="centered_img" style="display: none"    id="aux_graph4" onclick="document.getElementById('aux_graph4').style.display = 'none';document.getElementById('aux_graph5').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/5.png" class="centered_img" style="display: none"    id="aux_graph5" onclick="document.getElementById('aux_graph5').style.display = 'none';document.getElementById('aux_graph6').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/6.png" class="centered_img" style="display: none"    id="aux_graph6" onclick="document.getElementById('aux_graph6').style.display = 'none';document.getElementById('aux_graph7').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/7.png" class="centered_img" style="display: none"    id="aux_graph7" onclick="document.getElementById('aux_graph7').style.display = 'none';document.getElementById('aux_graph8').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/8.png" class="centered_img" style="display: none"    id="aux_graph8" onclick="document.getElementById('aux_graph8').style.display = 'none';document.getElementById('aux_graph9').style.display = 'inherit';">
+            <img src="/static/imgs/aux_album/9.png" class="centered_img" style="display: none"    id="aux_graph9" onclick="document.getElementById('aux_graph9').style.display = 'none';document.getElementById('aux_graph1').style.display = 'inherit';">
+        </div>
+    </div>
+</div>
+<div id="second-and-seven-eights-slide" class="slide">
+    <div class="slide-header">
+        The Approximation Algorithm
+    </div>
+    <div class="slide-content">
+        establish edge ordering: edges in denser areas of the network are processed earlier<br>
+        create empty octilinear grid graph <b>O</b> and corresponding auxiliary graph <b>A</b><br>
+        <br><br>
+        use edge ordering to iterate over edges; for each edge:
+        <ul>
+            <li>find candidate nodes for start and endpoint (two disjoint sets <b>S</b>, <b>T</b>)</li>
+            <div style="color: gray"><li>make temporary changes to <b>A</b> edge costs</li></div>
+            <li>find cheapest path <b>S</b> &#8594; <b>T</b> using A*</li>
+            <div style="color: gray"><li>undo temporary changes to <b>A</b> edge costs</li></div>
+            <li>make permanent changes to <b>A</b> edge costs</li>
+        </ul>
+    </div>
+</div>
 <div id="third-slide" class="slide">
     <div class="slide-header">
         The Approximation Algorithm - Input Edge Ordering
@@ -73,8 +115,8 @@
             <li>All nodes on the grid in a fixed radius are candidates for the edge's nodes</li>
             <li>Generate Voronoi diagram to make the candidate sets disjoint</li>
             <li>Prefer Grid Nodes closer to original Location: Higher cost for Nodes further out</li>
-            <li>Shortest Path between both now placed nodes: Dijkstra</li>
-            <li>Prevent Edge Crossings: Update Grid Graph after each Dijkstra Run, adjacent Edges have infinite cost</li>
+            <li>Shortest Path between both now placed nodes: A*</li>
+            <li>Prevent Edge Crossings: Update Grid Graph after each A* Run, adjacent Edges have infinite cost</li>
             <li>Preserve Circular Edge Ordering: Close sink edges in forbidden areas (infinite cost)</li>
         </ol>
     </div>

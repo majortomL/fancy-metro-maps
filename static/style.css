@@ -171,3 +171,11 @@ li{
     margin-bottom: 2vh;
     margin-top: 2vh;
 }
+
+.centered_img {
+    width: 60%;
+}
+
+ul {
+    list-style-type: '- ';
+}
