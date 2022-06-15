@@ -50,14 +50,14 @@
             <li>Approximation Algorithm (faster) - our Implementation</li>
         </ul>
         <b>The Approximation Algorithm</b>
-        <ol>
-            <li>Order the input graph edges</li>
-            <li>Calculate shortest path from possible start nodes to possible end nodes on grid graph</li>
-            <li>If no Drawing found: Randomize Edge Ordering</li>
-            <div style="color: gray">
-                <li>Optimize Drawing via Local Search</li>
-            </div>
-        </ol>
+{#        <ol>#}
+{#            <li>Order the input graph edges</li>#}
+{#            <li>Calculate shortest path from possible start nodes to possible end nodes on grid graph</li>#}
+{#            <li>If no Drawing found: Randomize Edge Ordering</li>#}
+{#            <div style="color: gray">#}
+{#                <li>Optimize Drawing via Local Search</li>#}
+{#            </div>#}
+{#        </ol>#}
     </div>
 </div>
 <div id="second-and-three-quarters-slide" class="slide">
@@ -98,11 +98,11 @@
         The Approximation Algorithm - Input Edge Ordering
     </div>
     <div class="slide-content">
-        <ol>
-            <li>Mark Node with highest LDEG as dangling</li>
-            <li>While there are dangling nodes: Add all adjacent edges leading to an unprocessed node to the edge ordering</li>
-            <li>Mark each just added node as dangling, the just processed node as processed</li>
-        </ol>
+{#        <ol>#}
+{#            <li>Mark Node with highest LDEG as dangling</li>#}
+{#            <li>While there are dangling nodes: Add all adjacent edges leading to an unprocessed node to the edge ordering</li>#}
+{#            <li>Mark each just added node as dangling, the just processed node as processed</li>#}
+{#        </ol>#}
     </div>
 </div>
 <div id="sixth-slide" class="slide">
@@ -126,36 +126,36 @@
     <div class="slide-header">
         Our Implementation - Back-End
     </div>
-    <div class="slide-content">
-        <div>Python + Flask</div>
-        <ol>
-            <li>Load the Data from JSON into a NX Graph</li>
-            <li>Build NX Octilinear Graph in required Size</li>
-            <li>Order the Edges</li>
-            <li>Route the Edges and their Stations</li>
-            <li>Convert NX Graph to JSON and dispatch to Front-End</li>
-        </ol>
-    </div>
+{#    <div class="slide-content">#}
+{#        <div>Python + Flask</div>#}
+{#        <ol>#}
+{#            <li>Load the Data from JSON into a NX Graph</li>#}
+{#            <li>Build NX Octilinear Graph in required Size</li>#}
+{#            <li>Order the Edges</li>#}
+{#            <li>Route the Edges and their Stations</li>#}
+{#            <li>Convert NX Graph to JSON and dispatch to Front-End</li>#}
+{#        </ol>#}
+{#    </div>#}
 </div>
 <div id="eighth-slide" class="slide">
     <div class="slide-header">
         Our Implementation - Front-End
     </div>
-    <div class="slide-content">
-        <div>Web-Stack + Leaflet</div>
-        <ol>
-            <li>Set up two Maps</li>
-            <li>Request JSON Graph and unchanged Map from Back-End</li>
-            <li>Iterate through JSONs, convert all Web Mercator Coordinates to WGS84</li>
-            <li>Place all Stations and all Lines</li>
-        </ol>
-        <ul>
-            <li>Station Hovering is linked</li>
-            <li>User can request different Grid Resolutions</li>
-            <li>User can choose between precalculated and live Graphs</li>
-            <li>User can select City to show</li>
-        </ul>
-    </div>
+{#    <div class="slide-content">#}
+{#        <div>Web-Stack + Leaflet</div>#}
+{#        <ol>#}
+{#            <li>Set up two Maps</li>#}
+{#            <li>Request JSON Graph and unchanged Map from Back-End</li>#}
+{#            <li>Iterate through JSONs, convert all Web Mercator Coordinates to WGS84</li>#}
+{#            <li>Place all Stations and all Lines</li>#}
+{#        </ol>#}
+{#        <ul>#}
+{#            <li>Station Hovering is linked</li>#}
+{#            <li>User can request different Grid Resolutions</li>#}
+{#            <li>User can choose between precalculated and live Graphs</li>#}
+{#            <li>User can select City to show</li>#}
+{#        </ul>#}
+{#    </div>#}
 </div>
 <div id="nineth-slide" class="slide">
     <div class="slide-header">
