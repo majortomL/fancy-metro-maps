@@ -30,6 +30,15 @@
         </div>
     </div>
 </div>
+<div id="second-and-a-half-slide" class="slide">
+    <div class="vertical-center">
+        <div style="display: flex;justify-content: center;">
+            <img src="/static/imgs/concept_album/1.png" class="centered_img" style="display: inherit" id="concept1" onclick="document.getElementById('concept1').style.display = 'none';document.getElementById('concept2').style.display = 'inherit';">
+            <img src="/static/imgs/concept_album/2.png" class="centered_img" style="display: none"    id="concept2" onclick="document.getElementById('concept2').style.display = 'none';document.getElementById('concept3').style.display = 'inherit';">
+            <img src="/static/imgs/concept_album/3.png" class="centered_img" style="display: none"    id="concept3" onclick="document.getElementById('concept3').style.display = 'none';document.getElementById('concept1').style.display = 'inherit';">
+        </div>
+    </div>
+</div>
 <div id="second-slide" class="slide">
     <div class="slide-header">
         The Paper: <a href="https://www.researchgate.net/publication/343051484_Metro_Maps_on_Octilinear_Grid_Graphs">Metro Maps on Octilinear Grid Graphs</a>
@@ -51,15 +60,6 @@
         </ol>
     </div>
 </div>
-<div id="second-and-a-half-slide" class="slide">
-    <div class="vertical-center">
-        <div style="display: flex;justify-content: center;">
-            <img src="/static/imgs/concept_album/1.png" class="centered_img" style="display: inherit" id="concept1" onclick="document.getElementById('concept1').style.display = 'none';document.getElementById('concept2').style.display = 'inherit';">
-            <img src="/static/imgs/concept_album/2.png" class="centered_img" style="display: none"    id="concept2" onclick="document.getElementById('concept2').style.display = 'none';document.getElementById('concept3').style.display = 'inherit';">
-            <img src="/static/imgs/concept_album/3.png" class="centered_img" style="display: none"    id="concept3" onclick="document.getElementById('concept3').style.display = 'none';document.getElementById('concept1').style.display = 'inherit';">
-        </div>
-    </div>
-</div>
 <div id="second-and-three-quarters-slide" class="slide">
     <div class="vertical-center">
         <div style="display: flex;justify-content: center;">
@@ -77,7 +77,7 @@
 </div>
 <div id="second-and-seven-eights-slide" class="slide">
     <div class="slide-header">
-        The Approximation Algorithm
+        The Approximation Algorithm - Edge Routing and Station Placement
     </div>
     <div class="slide-content">
         establish edge ordering: edges in denser areas of the network are processed earlier<br>
@@ -102,32 +102,6 @@
             <li>Mark Node with highest LDEG as dangling</li>
             <li>While there are dangling nodes: Add all adjacent edges leading to an unprocessed node to the edge ordering</li>
             <li>Mark each just added node as dangling, the just processed node as processed</li>
-        </ol>
-    </div>
-</div>
-<div id="fourth-slide" class="slide">
-    <div class="slide-header">
-        The Approximation Algorithm - Edge Routing and Station Placement
-    </div>
-    <div class="slide-content">
-        <ol>
-            <li>Take the previously done Edge Ordering</li>
-            <li>All nodes on the grid in a fixed radius are candidates for the edge's nodes</li>
-            <li>Generate Voronoi diagram to make the candidate sets disjoint</li>
-            <li>Prefer Grid Nodes closer to original Location: Higher cost for Nodes further out</li>
-            <li>Shortest Path between both now placed nodes: A*</li>
-            <li>Prevent Edge Crossings: Update Grid Graph after each A* Run, adjacent Edges have infinite cost</li>
-            <li>Preserve Circular Edge Ordering: Close sink edges in forbidden areas (infinite cost)</li>
-        </ol>
-    </div>
-</div>
-<div id="fifth-slide" class="slide">
-    <div class="slide-header">
-        The Approximation Algorithm - Avoiding Line Bends
-    </div>
-    <div class="slide-content">
-        <ol>
-            <li>Before routing Edge: Calculate Line Bend Penalty for each possible Placement of that Edge</li>
         </ol>
     </div>
 </div>

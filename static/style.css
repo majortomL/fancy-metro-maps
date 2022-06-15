@@ -9,13 +9,13 @@
 }
 
 @media only screen and (max-height: 1440px) {
-    .container{
+    .container {
         height: 1050px;
     }
 }
 
 @media only screen and (max-height: 1080px) {
-    .container{
+    .container {
         height: 700px;
     }
 }
@@ -36,14 +36,14 @@
     height: 100%;
 }
 
-#control-wrapper{
+#control-wrapper {
 }
 
-#control-container{
+#control-container {
     overflow: hidden;
 }
 
-#control-container-empty{
+#control-container-empty {
     float: left;
 }
 
@@ -51,7 +51,7 @@
     background-color: #343332;
 }
 
-#map-container{
+#map-container {
     float: left;
 }
 
@@ -98,12 +98,12 @@ body {
     visibility: hidden;
 }
 
-.stop-scrolling{
+.stop-scrolling {
     height: 100%;
     overflow: hidden;
 }
 
-.slide{
+.slide {
     display: table;
     height: 90vh;
     width: 90%;
@@ -111,11 +111,11 @@ body {
 
 }
 
-.slide-header{
+.slide-header {
     font-size: 5vh;
 }
 
-.slide-content{
+.slide-content {
     padding-top: 5%;
     font-size: 2.5vh;
 }
@@ -125,49 +125,50 @@ body {
     vertical-align: middle;
 }
 
-#first-slide{
+#first-slide {
     background-image: url("/static/imgs/freiburg.png");
     background-size: 100vh;
     background-position: 15% 0%;
     background-repeat: no-repeat;
 }
 
-#second-slide{
+#second-slide {
     background-image: url("/static/imgs/PaperOverview.png");
     background-size: 45%;
     background-repeat: no-repeat;
     background-position: 100% 60%;
 }
 
-#third-slide{
+#third-slide {
     background-image: url("/static/imgs/InputEdgeOrdering.png");
     background-size: 25%;
     background-repeat: no-repeat;
     background-position: 40% 70%;
 }
 
-#fourth-slide{
-    background-image: url("/static/imgs/EdgeRouting.png");
-    background-size: 35%;
-    background-repeat: no-repeat;
-    background-position: 40% 80%;
-}
-
-#sixth-slide{
+#sixth-slide {
     background-image: url("/static/imgs/python.png"), url("/static/imgs/networkx.png"), url("/static/imgs/leaflet.png"), url("/static/imgs/htmljscss.png");
     background-size: 7%, 10%, 20%, 15%;
     background-repeat: no-repeat;
     background-position: 50% 20%, 60% 40%, 80% 20%, 80% 40%;
 }
-a:link{
+
+#second-and-seven-eights-slide {
+    background-image: url("/static/imgs/EdgeRouting.png");
+    background-size: 45%;
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+}
+
+a:link {
     color: green;
 }
 
-a:visited{
-    color:darkgreen;
+a:visited {
+    color: darkgreen;
 }
 
-li{
+li {
     margin-bottom: 2vh;
     margin-top: 2vh;
 }
