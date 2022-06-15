@@ -7,7 +7,7 @@
       "properties": {
         "id": "0x143f300",
         "station_id": "100",
-        "station_label": "Aspernstra√üe"
+        "station_label": "Aspernstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -67,7 +67,7 @@
       "properties": {
         "id": "0x13341510",
         "station_id": "at:49:290:0:4",
-        "station_label": "Donaustadtbr√ºcke"
+        "station_label": "Donaustadtbr¸cke"
       },
       "geometry": {
         "type": "Point",
@@ -157,7 +157,7 @@
       "properties": {
         "id": "0x133430b0",
         "station_id": "at:49:1891:0:9",
-        "station_label": "Taborstra√üe"
+        "station_label": "Taborstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -277,7 +277,7 @@
       "properties": {
         "id": "0x13345570",
         "station_id": "at:49:1859:0:3",
-        "station_label": "Gro√üfeldsiedlung"
+        "station_label": "Groﬂfeldsiedlung"
       },
       "geometry": {
         "type": "Point",
@@ -292,7 +292,7 @@
       "properties": {
         "id": "0x13345940",
         "station_id": "at:49:1858:0:2",
-        "station_label": "Aderklaaer Stra√üe"
+        "station_label": "Aderklaaer Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -367,7 +367,7 @@
       "properties": {
         "id": "0x13346fa0",
         "station_id": "at:49:641:0:5",
-        "station_label": "Kaiserm√ºhlen-VIC"
+        "station_label": "Kaiserm¸hlen-VIC"
       },
       "geometry": {
         "type": "Point",
@@ -397,7 +397,7 @@
       "properties": {
         "id": "0x13347820",
         "station_id": "at:49:1433:0:3",
-        "station_label": "Vorgartenstra√üe"
+        "station_label": "Vorgartenstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -472,7 +472,7 @@
       "properties": {
         "id": "0x13349470",
         "station_id": "at:49:1349:0:11",
-        "station_label": "S√ºdtiroler Pl. - Hbf."
+        "station_label": "S¸dtiroler Pl. - Hbf."
       },
       "geometry": {
         "type": "Point",
@@ -547,7 +547,7 @@
       "properties": {
         "id": "0x1334df00",
         "station_id": "at:49:399:0:7",
-        "station_label": "Zippererstra√üe"
+        "station_label": "Zippererstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -637,7 +637,7 @@
       "properties": {
         "id": "0x1334f6c0",
         "station_id": "at:49:743:0:13",
-        "station_label": "Landstra√üe"
+        "station_label": "Landstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -727,7 +727,7 @@
       "properties": {
         "id": "0x133518b0",
         "station_id": "at:49:1200:0:4",
-        "station_label": "Schweglerstra√üe"
+        "station_label": "Schweglerstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -742,7 +742,7 @@
       "properties": {
         "id": "0x13351d60",
         "station_id": "at:49:606:0:4",
-        "station_label": "Johnstra√üe"
+        "station_label": "Johnstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -757,7 +757,7 @@
       "properties": {
         "id": "0x13352160",
         "station_id": "at:49:1035:0:5",
-        "station_label": "H√ºtteldorfer Stra√üe"
+        "station_label": "H¸tteldorfer Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -772,7 +772,7 @@
       "properties": {
         "id": "0x133525d0",
         "station_id": "at:49:1317:0:5",
-        "station_label": "Kendlerstra√üe"
+        "station_label": "Kendlerstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -817,7 +817,7 @@
       "properties": {
         "id": "0x13353310",
         "station_id": "at:49:1007:0:4",
-        "station_label": "Perfektastra√üe"
+        "station_label": "Perfektastraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -832,7 +832,7 @@
       "properties": {
         "id": "0x13353960",
         "station_id": "at:49:285:0:2",
-        "station_label": "Erlaaer Stra√üe"
+        "station_label": "Erlaaer Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -862,7 +862,7 @@
       "properties": {
         "id": "0x133541c0",
         "station_id": "at:49:48:0:5",
-        "station_label": "Am Sch√∂pfwerk"
+        "station_label": "Am Schˆpfwerk"
       },
       "geometry": {
         "type": "Point",
@@ -907,7 +907,7 @@
       "properties": {
         "id": "0x13355110",
         "station_id": "at:49:937:0:1",
-        "station_label": "Niederhofstra√üe"
+        "station_label": "Niederhofstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -922,7 +922,7 @@
       "properties": {
         "id": "0x13355550",
         "station_id": "at:49:820:0:1",
-        "station_label": "L√§ngenfeldgasse"
+        "station_label": "L‰ngenfeldgasse"
       },
       "geometry": {
         "type": "Point",
@@ -937,7 +937,7 @@
       "properties": {
         "id": "0x133559b0",
         "station_id": "at:49:436:0:1",
-        "station_label": "Gumpendorfer Stra√üe"
+        "station_label": "Gumpendorfer Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -967,7 +967,7 @@
       "properties": {
         "id": "0x133563d0",
         "station_id": "at:49:1372:0:2",
-        "station_label": "Thaliastra√üe"
+        "station_label": "Thaliastraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -982,7 +982,7 @@
       "properties": {
         "id": "0x133567f0",
         "station_id": "at:49:615:0:7",
-        "station_label": "Josefst√§dter Stra√üe"
+        "station_label": "Josefst‰dter Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -997,7 +997,7 @@
       "properties": {
         "id": "0x13356c30",
         "station_id": "at:49:27:0:5",
-        "station_label": "Alser Stra√üe"
+        "station_label": "Alser Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -1027,7 +1027,7 @@
       "properties": {
         "id": "0x13357510",
         "station_id": "at:49:1510:0:10",
-        "station_label": "W√§hringer Str.-Volksoper"
+        "station_label": "W‰hringer Str.-Volksoper"
       },
       "geometry": {
         "type": "Point",
@@ -1042,7 +1042,7 @@
       "properties": {
         "id": "0x13357970",
         "station_id": "at:49:950:0:2",
-        "station_label": "Nu√üdorfer Stra√üe"
+        "station_label": "Nuﬂdorfer Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -1072,7 +1072,7 @@
       "properties": {
         "id": "0x13358380",
         "station_id": "at:49:1667:0:7",
-        "station_label": "J√§gerstra√üe"
+        "station_label": "J‰gerstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -1087,7 +1087,7 @@
       "properties": {
         "id": "0x13358820",
         "station_id": "at:49:500:0:1",
-        "station_label": "Dresdner Stra√üe"
+        "station_label": "Dresdner Straﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -1162,7 +1162,7 @@
       "properties": {
         "id": "0x13359e60",
         "station_id": "at:49:357:0:3",
-        "station_label": "Friedensbr√ºcke"
+        "station_label": "Friedensbr¸cke"
       },
       "geometry": {
         "type": "Point",
@@ -1177,7 +1177,7 @@
       "properties": {
         "id": "0x1335a330",
         "station_id": "at:49:1124:0:1",
-        "station_label": "Ro√üauer L√§nde"
+        "station_label": "Roﬂauer L‰nde"
       },
       "geometry": {
         "type": "Point",
@@ -1207,7 +1207,7 @@
       "properties": {
         "id": "0x1335ba00",
         "station_id": "at:49:670:0:4",
-        "station_label": "Kettenbr√ºckengasse"
+        "station_label": "Kettenbr¸ckengasse"
       },
       "geometry": {
         "type": "Point",
@@ -1237,7 +1237,7 @@
       "properties": {
         "id": "0x1335c2b0",
         "station_id": "at:49:827:0:7",
-        "station_label": "Margareteng√ºrtel"
+        "station_label": "Margareteng¸rtel"
       },
       "geometry": {
         "type": "Point",
@@ -1252,7 +1252,7 @@
       "properties": {
         "id": "0x1335ca10",
         "station_id": "at:49:863:0:2",
-        "station_label": "Meidling Hauptstra√üe"
+        "station_label": "Meidling Hauptstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -1267,7 +1267,7 @@
       "properties": {
         "id": "0x1335cf10",
         "station_id": "at:49:1211:0:3",
-        "station_label": "Sch√∂nbrunn"
+        "station_label": "Schˆnbrunn"
       },
       "geometry": {
         "type": "Point",
@@ -1342,7 +1342,7 @@
       "properties": {
         "id": "0x1335e380",
         "station_id": "at:49:560:0:17",
-        "station_label": "H√ºtteldorf"
+        "station_label": "H¸tteldorf"
       },
       "geometry": {
         "type": "Point",
@@ -1387,7 +1387,7 @@
       "properties": {
         "id": "0x13362b50",
         "station_id": "at:49:487:0:11",
-        "station_label": "Hausfeldstra√üe"
+        "station_label": "Hausfeldstraﬂe"
       },
       "geometry": {
         "type": "Point",
@@ -19844,7 +19844,7 @@
       "properties": {
         "id": "0x34193c0",
         "station_id": "at:49:1573:0:1",
-        "station_label": "Troststra√üe",
+        "station_label": "Troststraﬂe",
         "deg": "2",
         "deg_in": "2",
         "deg_out": "2"

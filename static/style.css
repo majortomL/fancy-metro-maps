@@ -132,42 +132,42 @@ body {
     background-repeat: no-repeat;
 }
 
-#second-slide {
+#third-slide {
     background-image: url("/static/imgs/PaperOverview.png"), url("/static/imgs/algorithm.png");
-    background-size: 45%, 45%;
+    background-size: 45%, 50%;
     background-repeat: no-repeat;
-    background-position: 100% 60%, 10% 60%;
+    background-position: 100% 60%, 10% 65%;
 }
 
-#third-slide {
+#sixth-slide {
     background-image: url("/static/imgs/InputEdgeOrdering.png"), url("/static/imgs/edgeOrdering.png");
     background-size: 25%, 60%;
     background-repeat: no-repeat;
     background-position: 40% 70%, 10% 30%;
 }
 
-#sixth-slide {
+#seventh-slide {
     background-image: url("/static/imgs/python.png"), url("/static/imgs/networkx.png"), url("/static/imgs/leaflet.png"), url("/static/imgs/htmljscss.png");
     background-size: 7%, 10%, 20%, 15%;
     background-repeat: no-repeat;
     background-position: 50% 20%, 60% 40%, 80% 20%, 80% 40%;
 }
 
-#second-and-seven-eights-slide {
+#fifth-slide {
     background-image: url("/static/imgs/EdgeRouting.png");
     background-size: 45%;
     background-repeat: no-repeat;
     background-position: 90% 50%;
 }
 
-#seventh-slide{
+#eigth-slide{
     background-image: url("/static/imgs/backend.png");
     background-size: 35%;
     background-repeat: no-repeat;
     background-position: 0% 45%;
 }
 
-#eighth-slide{
+#nineth-slide{
     background-image: url("/static/imgs/frontend.png");
     background-size: 45%;
     background-repeat: no-repeat;

@@ -893,7 +893,7 @@
                 "coord_x": 1810137.47775988,
                 "coord_y": 6139689.1271671,
                 "id": "0x1335e380",
-                "station_label": "H\u00c3\u00bctteldorf"
+                "station_label": "H\u00fctteldorf"
             },
             "id": [
                 1811713,
@@ -2749,7 +2749,7 @@
                 "coord_x": 1815531.86050097,
                 "coord_y": 6140955.47758237,
                 "id": "0x133525d0",
-                "station_label": "Kendlerstra\u00c3\u0178e"
+                "station_label": "Kendlerstra\u00dfe"
             },
             "id": [
                 1815653,
@@ -3003,7 +3003,7 @@
                 "coord_x": 1816013.44430415,
                 "coord_y": 6129665.9563719,
                 "id": "0x13353310",
-                "station_label": "Perfektastra\u00c3\u0178e"
+                "station_label": "Perfektastra\u00dfe"
             },
             "id": [
                 1816441,
@@ -3020,7 +3020,7 @@
                 "coord_x": 1816337.14043087,
                 "coord_y": 6130560.62187372,
                 "id": "0x13353960",
-                "station_label": "Erlaaer Stra\u00c3\u0178e"
+                "station_label": "Erlaaer Stra\u00dfe"
             },
             "id": [
                 1816441,
@@ -3065,7 +3065,7 @@
                 "coord_x": 1817229.76341986,
                 "coord_y": 6133689.95804534,
                 "id": "0x133541c0",
-                "station_label": "Am Sch\u00c3\u00b6pfwerk"
+                "station_label": "Am Sch\u00f6pfwerk"
             },
             "id": [
                 1816441,
@@ -3149,7 +3149,7 @@
                 "coord_x": 1815779.54613714,
                 "coord_y": 6140159.64458947,
                 "id": "0x13352160",
-                "station_label": "H\u00c3\u00bctteldorfer Stra\u00c3\u0178e"
+                "station_label": "H\u00fctteldorfer Stra\u00dfe"
             },
             "id": [
                 1816441,
@@ -3502,7 +3502,7 @@
                 "coord_x": 1816610.26481996,
                 "coord_y": 6137863.84700369,
                 "id": "0x1335cf10",
-                "station_label": "Sch\u00c3\u00b6nbrunn"
+                "station_label": "Sch\u00f6nbrunn"
             },
             "id": [
                 1817229,
@@ -3530,7 +3530,7 @@
                 "coord_x": 1816741.0579329,
                 "coord_y": 6139799.75238192,
                 "id": "0x13351d60",
-                "station_label": "Johnstra\u00c3\u0178e"
+                "station_label": "Johnstra\u00dfe"
             },
             "id": [
                 1817229,
@@ -3866,7 +3866,7 @@
                 "coord_x": 1817984.46654569,
                 "coord_y": 6136988.51082228,
                 "id": "0x13355110",
-                "station_label": "Niederhofstra\u00c3\u0178e"
+                "station_label": "Niederhofstra\u00dfe"
             },
             "id": [
                 1818017,
@@ -3883,7 +3883,7 @@
                 "coord_x": 1817608.63051357,
                 "coord_y": 6137479.30930489,
                 "id": "0x1335ca10",
-                "station_label": "Meidling Hauptstra\u00c3\u0178e"
+                "station_label": "Meidling Hauptstra\u00dfe"
             },
             "id": [
                 1818017,
@@ -3911,7 +3911,7 @@
                 "coord_x": 1817694.68446375,
                 "coord_y": 6139793.31845866,
                 "id": "0x133518b0",
-                "station_label": "Schweglerstra\u00c3\u0178e"
+                "station_label": "Schweglerstra\u00dfe"
             },
             "id": [
                 1818017,
@@ -4258,7 +4258,7 @@
                 "coord_x": 1818398.56209104,
                 "coord_y": 6137666.8830559,
                 "id": "0x13355550",
-                "station_label": "L\u00c3\u00a4ngenfeldgasse"
+                "station_label": "L\u00e4ngenfeldgasse"
             },
             "id": [
                 1818805,
@@ -4275,7 +4275,7 @@
                 "coord_x": 1818691.75924665,
                 "coord_y": 6138661.03822977,
                 "id": "0x133559b0",
-                "station_label": "Gumpendorfer Stra\u00c3\u0178e"
+                "station_label": "Gumpendorfer Stra\u00dfe"
             },
             "id": [
                 1818805,
@@ -4326,7 +4326,7 @@
                 "coord_x": 1818733.60872033,
                 "coord_y": 6141471.35783311,
                 "id": "0x133563d0",
-                "station_label": "Thaliastra\u00c3\u0178e"
+                "station_label": "Thaliastra\u00dfe"
             },
             "id": [
                 1818805,
@@ -4343,7 +4343,7 @@
                 "coord_x": 1818879.28241449,
                 "coord_y": 6142144.13093248,
                 "id": "0x133567f0",
-                "station_label": "Josefst\u00c3\u00a4dter Stra\u00c3\u0178e"
+                "station_label": "Josefst\u00e4dter Stra\u00dfe"
             },
             "id": [
                 1818805,
@@ -4668,7 +4668,7 @@
                 "coord_x": 1819302.51768215,
                 "coord_y": 6138260.48402725,
                 "id": "0x1335c2b0",
-                "station_label": "Margareteng\u00c3\u00bcrtel"
+                "station_label": "Margareteng\u00fcrtel"
             },
             "id": [
                 1819593,
@@ -4746,7 +4746,7 @@
                 "coord_x": 1819165.29752622,
                 "coord_y": 6143001.4725402,
                 "id": "0x13356c30",
-                "station_label": "Alser Stra\u00c3\u0178e"
+                "station_label": "Alser Stra\u00dfe"
             },
             "id": [
                 1819593,
@@ -4780,7 +4780,7 @@
                 "coord_x": 1820024.45569255,
                 "coord_y": 6144480.53030309,
                 "id": "0x13357510",
-                "station_label": "W\u00c3\u00a4hringer Str.-Volksoper"
+                "station_label": "W\u00e4hringer Str.-Volksoper"
             },
             "id": [
                 1819593,
@@ -4797,7 +4797,7 @@
                 "coord_x": 1820337.34102679,
                 "coord_y": 6145421.22480743,
                 "id": "0x13357970",
-                "station_label": "Nu\u00c3\u0178dorfer Stra\u00c3\u0178e"
+                "station_label": "Nu\u00dfdorfer Stra\u00dfe"
             },
             "id": [
                 1819593,
@@ -5454,7 +5454,7 @@
                 "coord_x": 1820973.09684788,
                 "coord_y": 6139633.33338096,
                 "id": "0x1335ba00",
-                "station_label": "Kettenbr\u00c3\u00bcckengasse"
+                "station_label": "Kettenbr\u00fcckengasse"
             },
             "id": [
                 1821169,
@@ -5471,7 +5471,7 @@
                 "coord_x": 1821931.99763981,
                 "coord_y": 6140289.38154367,
                 "id": "0x13434420",
-                "station_label": "Switch Point142"
+                "station_label": "Switch Point16"
             },
             "id": [
                 1821169,
@@ -5555,7 +5555,7 @@
                 "coord_x": 1821676.09773195,
                 "coord_y": 6144800.96955311,
                 "id": "0x13359e60",
-                "station_label": "Friedensbr\u00c3\u00bccke"
+                "station_label": "Friedensbr\u00fccke"
             },
             "id": [
                 1821169,
@@ -5583,7 +5583,7 @@
                 "coord_x": 1822154.90099697,
                 "coord_y": 6146077.76569817,
                 "id": "0x13358380",
-                "station_label": "J\u00c3\u00a4gerstra\u00c3\u0178e"
+                "station_label": "J\u00e4gerstra\u00dfe"
             },
             "id": [
                 1821169,
@@ -5865,7 +5865,7 @@
                 "coord_x": 1822695.29255791,
                 "coord_y": 6138054.57681349,
                 "id": "0x13349470",
-                "station_label": "S\u00c3\u00bcdtiroler Pl. - Hbf."
+                "station_label": "S\u00fcdtiroler Pl. - Hbf."
             },
             "id": [
                 1821957,
@@ -5961,7 +5961,7 @@
                 "coord_x": 1822032.62210572,
                 "coord_y": 6143926.01565358,
                 "id": "0x1335a330",
-                "station_label": "Ro\u00c3\u0178auer L\u00c3\u00a4nde"
+                "station_label": "Ro\u00dfauer L\u00e4nde"
             },
             "id": [
                 1821957,
@@ -6011,7 +6011,7 @@
                 "coord_x": 1823419.11167263,
                 "coord_y": 6146414.75493335,
                 "id": "0x13358820",
-                "station_label": "Dresdner Stra\u00c3\u0178e"
+                "station_label": "Dresdner Stra\u00dfe"
             },
             "id": [
                 1821957,
@@ -6619,7 +6619,7 @@
                 "coord_x": 1823484.9316473424,
                 "coord_y": 6134929.16251636,
                 "id": "0x34193c0",
-                "station_label": "Troststra\u00c3\u0178e"
+                "station_label": "Troststra\u00dfe"
             },
             "id": [
                 1823533,
@@ -6747,7 +6747,7 @@
                 "coord_x": 1823565.07645671,
                 "coord_y": 6143396.6367766,
                 "id": "0x133430b0",
-                "station_label": "Taborstra\u00c3\u0178e"
+                "station_label": "Taborstra\u00dfe"
             },
             "id": [
                 1823533,
@@ -7101,7 +7101,7 @@
                 "coord_x": 1823991.54028292,
                 "coord_y": 6141250.31056207,
                 "id": "0x1334f6c0",
-                "station_label": "Landstra\u00c3\u0178e"
+                "station_label": "Landstra\u00dfe"
             },
             "id": [
                 1824321,
@@ -7925,7 +7925,7 @@
                 "coord_x": 1825768.02379408,
                 "coord_y": 6144152.95510965,
                 "id": "0x13347820",
-                "station_label": "Vorgartenstra\u00c3\u0178e"
+                "station_label": "Vorgartenstra\u00dfe"
             },
             "id": [
                 1825897,
@@ -8577,7 +8577,7 @@
                 "coord_x": 1826970.03369037,
                 "coord_y": 6136895.91056994,
                 "id": "0x1334df00",
-                "station_label": "Zippererstra\u00c3\u0178e"
+                "station_label": "Zippererstra\u00dfe"
             },
             "id": [
                 1827473,
@@ -8727,7 +8727,7 @@
                 "coord_x": 1827453.88165161,
                 "coord_y": 6145666.28215444,
                 "id": "0x13346fa0",
-                "station_label": "Kaiserm\u00c3\u00bchlen-VIC"
+                "station_label": "Kaiserm\u00fchlen-VIC"
             },
             "id": [
                 1827473,
@@ -9422,7 +9422,7 @@
                 "coord_x": 1830086.01601962,
                 "coord_y": 6142145.58680227,
                 "id": "0x13341510",
-                "station_label": "Donaustadtbr\u00c3\u00bccke"
+                "station_label": "Donaustadtbr\u00fccke"
             },
             "id": [
                 1829049,
@@ -10657,7 +10657,7 @@
                 "coord_x": 1831369.43554708,
                 "coord_y": 6150790.26797782,
                 "id": "0x13345940",
-                "station_label": "Aderklaaer Stra\u00c3\u0178e"
+                "station_label": "Aderklaaer Stra\u00dfe"
             },
             "id": [
                 1831413,
@@ -11043,7 +11043,7 @@
                 "coord_x": 1830968.38850896,
                 "coord_y": 6152061.96393678,
                 "id": "0x13345570",
-                "station_label": "Gro\u00c3\u0178feldsiedlung"
+                "station_label": "Gro\u00dffeldsiedlung"
             },
             "id": [
                 1832201,
@@ -11302,7 +11302,7 @@
                 "coord_x": 1833973.77884462,
                 "coord_y": 6143967.95131067,
                 "id": "0x143f300",
-                "station_label": "Aspernstra\u00c3\u0178e"
+                "station_label": "Aspernstra\u00dfe"
             },
             "id": [
                 1832989,
@@ -12436,7 +12436,7 @@
                 "coord_x": 1835178.46565372,
                 "coord_y": 6145773.56013564,
                 "id": "0x13362b50",
-                "station_label": "Hausfeldstra\u00c3\u0178e"
+                "station_label": "Hausfeldstra\u00dfe"
             },
             "id": [
                 1835353,

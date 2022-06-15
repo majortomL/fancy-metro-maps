@@ -6297,7 +6297,7 @@
                 "coord_x": 1475430.5086684462,
                 "coord_y": 6881929.813295106,
                 "id": "0x2fd5120",
-                "station_label": "U Onkel Toms H\u00c3\u00bctte (Berlin)"
+                "station_label": "U Onkel Toms H\u00fctte (Berlin)"
             },
             "id": [
                 1476483,
@@ -8049,7 +8049,7 @@
                 "coord_x": 1478500.5560401254,
                 "coord_y": 6882095.908970906,
                 "id": "0x2fc88e0",
-                "station_label": "U Freie Universit\u00c3\u00a4t (Thielplatz) (Berlin)"
+                "station_label": "U Freie Universit\u00e4t (Thielplatz) (Berlin)"
             },
             "id": [
                 1478412,
@@ -11004,7 +11004,7 @@
                 "coord_x": 1482139.3149413182,
                 "coord_y": 6886008.563760069,
                 "id": "0x2f8cd50",
-                "station_label": "U R\u00c3\u00bcdesheimer Platz (Berlin)"
+                "station_label": "U R\u00fcdesheimer Platz (Berlin)"
             },
             "id": [
                 1481627,
@@ -12159,7 +12159,7 @@
                 "coord_x": 1483319.4339514542,
                 "coord_y": 6883943.324960286,
                 "id": "0x2835160",
-                "station_label": "U Schlo\u00c3\u0178str. (Berlin)"
+                "station_label": "U Schlo\u00dfstr. (Berlin)"
             },
             "id": [
                 1482913,
@@ -12873,7 +12873,7 @@
                 "coord_x": 1484047.4633170262,
                 "coord_y": 6891730.245981269,
                 "id": "0x27fd390",
-                "station_label": "U Kurf\u00c3\u00bcrstendamm (Berlin)"
+                "station_label": "U Kurf\u00fcrstendamm (Berlin)"
             },
             "id": [
                 1483556,
@@ -13425,7 +13425,7 @@
                 "coord_x": 1483987.0882844534,
                 "coord_y": 6889577.314781601,
                 "id": "0x2fbaf30",
-                "station_label": "U G\u00c3\u00bcntzelstr. (Berlin)"
+                "station_label": "U G\u00fcntzelstr. (Berlin)"
             },
             "id": [
                 1484199,
@@ -13442,7 +13442,7 @@
                 "coord_x": 1483964.9062414598,
                 "coord_y": 6890222.285786979,
                 "id": "0x2f64b50",
-                "station_label": "Switch Point91"
+                "station_label": "Switch Point36"
             },
             "id": [
                 1484199,
@@ -13476,7 +13476,7 @@
                 "coord_x": 1484581.2884197312,
                 "coord_y": 6891860.156037875,
                 "id": "0x2f68860",
-                "station_label": "Switch Point92"
+                "station_label": "Switch Point37"
             },
             "id": [
                 1484199,
@@ -14079,7 +14079,7 @@
                 "coord_x": 1484951.9919997428,
                 "coord_y": 6891572.133279543,
                 "id": "0x2f648b0",
-                "station_label": "Switch Point90"
+                "station_label": "Switch Point35"
             },
             "id": [
                 1484842,
@@ -14619,7 +14619,7 @@
                 "coord_x": 1485219.1240579071,
                 "coord_y": 6887993.726647118,
                 "id": "0x2f8f550",
-                "station_label": "U Rathaus Sch\u00c3\u00b6neberg (Berlin)"
+                "station_label": "U Rathaus Sch\u00f6neberg (Berlin)"
             },
             "id": [
                 1485485,
@@ -15853,7 +15853,7 @@
                 "coord_x": 1487509.8750455123,
                 "coord_y": 6890631.736600693,
                 "id": "0x2800c40",
-                "station_label": "U B\u00c3\u00bclowstr. (Berlin)"
+                "station_label": "U B\u00fclowstr. (Berlin)"
             },
             "id": [
                 1486771,
@@ -15870,7 +15870,7 @@
                 "coord_x": 1487543.6230989934,
                 "coord_y": 6890995.128550003,
                 "id": "0x2fcb5d0",
-                "station_label": "U Kurf\u00c3\u00bcrstenstr. (Berlin)"
+                "station_label": "U Kurf\u00fcrstenstr. (Berlin)"
             },
             "id": [
                 1486771,
@@ -17028,7 +17028,7 @@
                 "coord_x": 1489473.0500165771,
                 "coord_y": 6890831.738959112,
                 "id": "0x26a7190",
-                "station_label": "Switch Point87"
+                "station_label": "Switch Point32"
             },
             "id": [
                 1488057,
@@ -17619,7 +17619,7 @@
                 "coord_x": 1489815.3445199882,
                 "coord_y": 6890831.197424705,
                 "id": "0x2f9af90",
-                "station_label": "U M\u00c3\u00b6ckernbr\u00c3\u00bccke (Berlin)"
+                "station_label": "U M\u00f6ckernbr\u00fccke (Berlin)"
             },
             "id": [
                 1488700,
@@ -18246,7 +18246,7 @@
                 "coord_x": 1490357.4065927612,
                 "coord_y": 6890663.860404234,
                 "id": "0x2f63c80",
-                "station_label": "Switch Point88"
+                "station_label": "Switch Point33"
             },
             "id": [
                 1489343,
@@ -18798,7 +18798,7 @@
                 "coord_x": 1490304.8567504631,
                 "coord_y": 6888422.880102859,
                 "id": "0x2fd9b00",
-                "station_label": "U Platz der Luftbr\u00c3\u00bccke (Berlin)"
+                "station_label": "U Platz der Luftbr\u00fccke (Berlin)"
             },
             "id": [
                 1489986,
@@ -18826,7 +18826,7 @@
                 "coord_x": 1490547.244338413,
                 "coord_y": 6890269.572224889,
                 "id": "0x2f64530",
-                "station_label": "Switch Point89"
+                "station_label": "Switch Point34"
             },
             "id": [
                 1489986,
@@ -19497,7 +19497,7 @@
                 "coord_x": 1490472.063993331,
                 "coord_y": 6893742.345962388,
                 "id": "0x280e860",
-                "station_label": "U Franz\u00c3\u00b6sische Str. (Berlin)"
+                "station_label": "U Franz\u00f6sische Str. (Berlin)"
             },
             "id": [
                 1490629,
@@ -20105,7 +20105,7 @@
                 "coord_x": 1490415.47,
                 "coord_y": 6894296.0,
                 "id": "custom_switch_point",
-                "station_label": "Switch Point93"
+                "station_label": "Switch Point38"
             },
             "id": [
                 1491272,
@@ -21263,7 +21263,7 @@
                 "coord_x": 1492655.4167559387,
                 "coord_y": 6893241.453909067,
                 "id": "0x2fd2c10",
-                "station_label": "U M\u00c3\u00a4rkisches Museum (Berlin)"
+                "station_label": "U M\u00e4rkisches Museum (Berlin)"
             },
             "id": [
                 1492558,
@@ -21782,7 +21782,7 @@
                 "coord_x": 1494125.7253384467,
                 "coord_y": 6889782.656071489,
                 "id": "0x2f9ebe0",
-                "station_label": "U Sch\u00c3\u00b6nleinstr. (Berlin)"
+                "station_label": "U Sch\u00f6nleinstr. (Berlin)"
             },
             "id": [
                 1493201,
@@ -21810,7 +21810,7 @@
                 "coord_x": 1494848.3437640744,
                 "coord_y": 6890911.405772668,
                 "id": "0x2fd6980",
-                "station_label": "U G\u00c3\u00b6rlitzer Bahnhof (Berlin)"
+                "station_label": "U G\u00f6rlitzer Bahnhof (Berlin)"
             },
             "id": [
                 1493201,
@@ -21877,7 +21877,7 @@
                 "coord_x": 1493694.2691329247,
                 "coord_y": 6893876.24395781,
                 "id": "0x2fada40",
-                "station_label": "S+U Jannowitzbr\u00c3\u00bccke (Berlin)"
+                "station_label": "S+U Jannowitzbr\u00fccke (Berlin)"
             },
             "id": [
                 1493201,
@@ -22357,7 +22357,7 @@
                 "coord_x": 1492538.450764174,
                 "coord_y": 6889074.746786668,
                 "id": "0x280ca10",
-                "station_label": "U S\u00c3\u00bcdstern (Berlin)"
+                "station_label": "U S\u00fcdstern (Berlin)"
             },
             "id": [
                 1493844,
@@ -22557,7 +22557,7 @@
                 "coord_x": 1493197.201279555,
                 "coord_y": 6900088.464675592,
                 "id": "0x2fc5520",
-                "station_label": "S+U Sch\u00c3\u00b6nhauser Allee (Berlin)"
+                "station_label": "S+U Sch\u00f6nhauser Allee (Berlin)"
             },
             "id": [
                 1493844,
@@ -23540,7 +23540,7 @@
                 "coord_x": 1495548.1749793927,
                 "coord_y": 6887588.156505613,
                 "id": "0x2821760",
-                "station_label": "U Rathaus Neuk\u00c3\u00b6lln (Berlin)"
+                "station_label": "U Rathaus Neuk\u00f6lln (Berlin)"
             },
             "id": [
                 1495130,
@@ -24664,7 +24664,7 @@
                 "coord_x": 1496335.0295650086,
                 "coord_y": 6885330.629948879,
                 "id": "0x2fb1270",
-                "station_label": "S+U Neuk\u00c3\u00b6lln (Berlin) [U7]"
+                "station_label": "S+U Neuk\u00f6lln (Berlin) [U7]"
             },
             "id": [
                 1496416,
@@ -25144,7 +25144,7 @@
                 "coord_x": 1497071.8784547234,
                 "coord_y": 6879562.926097261,
                 "id": "0x2fb3480",
-                "station_label": "U Britz-S\u00c3\u00bcd (Berlin)"
+                "station_label": "U Britz-S\u00fcd (Berlin)"
             },
             "id": [
                 1497059,
@@ -33802,7 +33802,7 @@
                 "coord_x": 1508060.672575948,
                 "coord_y": 6891002.295499018,
                 "id": "0x27dd720",
-                "station_label": "U Biesdorf-S\u00c3\u00bcd (Berlin)"
+                "station_label": "U Biesdorf-S\u00fcd (Berlin)"
             },
             "id": [
                 1506704,
@@ -38974,7 +38974,7 @@
                 "coord_x": 1512897.1498154735,
                 "coord_y": 6896251.52708375,
                 "id": "0x2f44c80",
-                "station_label": "U Kienberg (G\u00c3\u00a4rten der Welt) (Berlin)"
+                "station_label": "U Kienberg (G\u00e4rten der Welt) (Berlin)"
             },
             "id": [
                 1512491,
@@ -42397,7 +42397,7 @@
                 "coord_x": 1517641.0580819019,
                 "coord_y": 6898075.46995228,
                 "id": "0x2800010",
-                "station_label": "U H\u00c3\u00b6now (Berlin)"
+                "station_label": "U H\u00f6now (Berlin)"
             },
             "id": [
                 1516349,
